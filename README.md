@@ -22,7 +22,7 @@ Quantumult X
 Stash
 [@MetaCubeX](https://github.com/MetaCubeX) - [meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
 
-*icon*
+icon
 [@Koolson](https://github.com/Koolson) - [Qure](https://github.com/Koolson/Qure)
 
 ## 特别声明
