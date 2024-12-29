@@ -26,16 +26,16 @@
 
 # server_check_timeout 值仅在小于或等于 5000（毫秒）时才会被考虑。此值与检查过程的总持续时间（包括 DNS 查询、TCP 握手、TLS 握手和应用层 HTTP 会话持续时间）进行比较，因此总持续时间可能比“TCP 握手”和“HTTP 会话持续时间”长得多。
 
-[general]
-;profile_img_url =http://www.example.com/example.png
-;resource_parser_url =http://www.example.com/parser.js
-;server_check_url =http://www.google.com/generate_204
-;server_check_user_agent = Agent/1.0
+[general] # 通用设置
+;profile_img_url =http://www.example.com/example.png # 配置文件头像 URL
+;resource_parser_url =http://www.example.com/parser.js # 资源解析器 URL
+;server_check_url =http://www.google.com/generate_204 # 节点检查 URL
+;server_check_user_agent = Agent/1.0 # 节点检查 User-Agent
 ;server_check_timeout = 5000
-;network_check_url =http://bing.com
-;doh_user_agent = Agent/1.0
-;geo_location_checker = http://www.example.com/json/, https://www.example.com/script.js
-;running_mode_trigger = filter, filter, LINK_22E171:all_proxy, LINK_22E172:all_direct
+;network_check_url =http://bing.com # 网络检查 URL
+;doh_user_agent = Agent/1.0 请求的 User-Agent
+;geo_location_checker = http://www.example.com/json/, https://www.example.com/script.js # 地理位置检查 URL
+;running_mode_trigger = filter, filter, LINK_22E171:all_proxy, LINK_22E172:all_direct # 运行模式触发器
 dns_exclusion_list = *.cmpassport.com, *.jegotrip.com.cn, *.icitymobile.mobi, id6.me
 ;dns_reject_domain_behavior = loopback
 ;ssid_suspended_list = LINK_22E174, LINK_22E175
@@ -56,16 +56,16 @@ dns_exclusion_list = *.cmpassport.com, *.jegotrip.com.cn, *.icitymobile.mobi, id
 # 特别地，这里不允许直接为域名设置 127.0.0.1。如果您希望某个域名（例如：example.com）为 127.0.0.1，只需将“host, example.com, replies”添加到“filter_local”部分。拒绝操作将向查询返回带有 127.0.0.1 的 DNS 响应。
 #
 # circumvent-ipv4-answer 和 circumvent-ipv6-answer 与上游 DNS 相关。如果来自上游的 A 或 AAAA 结果（IP）与此字段匹配，则结果将被忽略并标记为失败。如果多个查询发送到不同的上游DNS服务器，并且第一个响应的上游结果与该字段匹配，Quantumult X Tunnel DNS模块将等待其他上游服务器的结果。
-# ?和*可以在circumvent-ipv4-answer和circumvent-ipv6-answer中使用。
-# 如果您使用与广告相关的上游DNS，请将circumvent-ipv4-answer和circumvent-ipv6-answer留空。
+# ? 和 * 可以在 circumvent-ipv4-answer 和 circumvent-ipv6-answer 中使用。
+# 如果您使用与广告相关的上游DNS，请将 circumvent-ipv4-answer 和 circumvent-ipv6-answer 留空。
 #
-[dns]
-;circumvent-ipv4-answer = 127.0.0.1, 0.0.0.0
-;circumvent-ipv6-answer = ::
-;prefer-doh3
-;no-system
-no-ipv6
-server = 223.5.5.5
+[dns] # DNS 配置
+;circumvent-ipv4-answer = 127.0.0.1, 0.0.0.0 # 绕过的 IPv4 响应
+;circumvent-ipv6-answer = :: # 绕过的 IPv6 响应
+;prefer-doh3 # 优先使用 DNS-over-HTTP3
+;no-system # 禁用系统 DNS
+no-ipv6 # 禁用 IPv6
+server = 223.5.5.5 # DNS 服务器地址
 server = 114.114.114.114
 server = 119.29.29.29
 server = 8.8.8.8
@@ -98,16 +98,16 @@ server = 8.8.8.8
 # ssid 策略根据网络环境指向服务器。
 # 参数 resource-tag-regex 和 server-tag-regex 仅适用于静态、可用和循环类型的策略。
 #
-[policy]
-;static = policy-name-1, Sample-A, Sample-B, Sample-C, img-url=http://example.com/icon.png
-;available = policy-name-2, Sample-A, Sample-B, Sample-C
-;round-robin = policy-name-3, Sample-A, Sample-B, Sample-C
+[policy] # 策略配置
+;static = policy-name-1, Sample-A, Sample-B, Sample-C, img-url=http://example.com/icon.png # 静态策略指向手动选择的候选服务器。
+;available = policy-name-2, Sample-A, Sample-B, Sample-C # 可用策略指向候选中第一个可用服务器，基于 server_check_url 的并发 URL 延迟测试。
+;round-robin = policy-name-3, Sample-A, Sample-B, Sample-C # 轮询策略在下一次连接时依次指向候选服务器。
 ;ssid = policy-name-4, Sample-A, Sample-B, LINK_22E171:Sample-B, LINK_22E172:Sample-C
 ;static = policy-name-5, resource-tag-regex=^sample, server-tag-regex=^example, img-url=http://example.com/icon.png
 ;available = policy-name-6, resource-tag-regex=^sample, server-tag-regex=^example
 ;round-robin = policy-name-7, resource-tag-regex=^sample, server-tag-regex=^example
-;dest-hash = policy-name-8, resource-tag-regex=^sample, server-tag-regex=^example
-;url-latency-benchmark = policy-name-9, resource-tag-regex=^sample, server-tag-regex=^example, check-interval=600, alive-checking=false, tolerance=0
+;dest-hash = policy-name-8, resource-tag-regex=^sample, server-tag-regex=^example # 目的地哈希策略使用目标地址作为输入，适用于需要会话持久性的场景。
+;url-latency-benchmark = policy-name-9, resource-tag-regex=^sample, server-tag-regex=^example, check-interval=600, alive-checking=false, tolerance=0 # URL 延迟基准策略选择延迟最小的服务器。
 
 #
 # 参数“tag”和“enabled”是可选的。
@@ -115,7 +115,7 @@ server = 8.8.8.8
 # 您可以设置 update-interval=172800 来自定义自动同步间隔（秒），负数表示禁用自动同步。
 # 如果设置了 require-devices，则只有当前 Quantumult 设备 ID 属于 require-devices 时才会加载此行配置。Quantumult 设备 ID 可在“设置 - 其他设置 - 关于”中找到。
 #
-[server_remote]
+[server_remote] # 远程服务器
 ;https://raw.githubusercontent.com/crossutility/Quantumult-X/master/server.snippet, tag=Sample-01
 ;https://raw.githubusercontent.com/crossutility/Quantumult-X/master/server.snippet, opt-parser=true, tag=Sample-01
 ;https://raw.githubusercontent.com/crossutility/Quantumult-X/master/server.snippet, update-interval=-1, tag=Sample-01
@@ -126,16 +126,16 @@ server = 8.8.8.8
 # 参数“tag”、“force-policy”和“enabled”是可选的。
 # 当存在强制策略时，远程资源过滤器中的策略将被忽略，并使用强制策略。
 #
-[filter_remote]
-FILTER_LAN, tag=LAN, force-policy=direct, enabled=true
-FILTER_REGION, tag=CN, force-policy=direct, enabled=true
+[filter_remote] # 远程过滤器
+FILTER_LAN, tag=LAN, force-policy=direct, enabled=true # 本地网络过滤器
+FILTER_REGION, tag=CN, force-policy=direct, enabled=true # 中国区域过滤器
 ;https://raw.githubusercontent.com/crossutility/Quantumult-X/master/filter.snippet, tag=Sample, force-policy=your-policy-name, enabled=true
 ;https://example.com/filter.snippet, tag=Sample, force-policy=your-policy-name, require-devices=ID1, ID2, enabled=true
 
 #
 # 参数“tag”和“enabled”是可选的。
 #
-[rewrite_remote]
+[rewrite_remote] # 远程重写规则
 ;https://raw.githubusercontent.com/crossutility/Quantumult-X/master/sample-import-rewrite.snippet, tag=Sample, enabled=true
 ;https://example.com/rewrite.snippet, tag=Sample, require-devices=ID1, ID2, enabled=true
 
@@ -158,7 +158,7 @@ FILTER_REGION, tag=CN, force-policy=direct, enabled=true
 # tls13 参数已被弃用（自 v1.0.26 起弃用），无论您设置什么，TLS 版本 1.3 始终受支持。
 # shadowsocks 协议的 obfs=http 遵循 shadowsocks 项目的 simple-obfs 插件。VMess 协议的 obfs=http 遵循 V2Ray 的实现。这两种混淆方式完全不一样，有时候为了配合你特殊的服务器设置（“shadowsocks” + “VMess 的 http 混淆” 或者 “VMess” + “shadowsocks 的 http 混淆”，后者很少发生，前者一般发生在服务器端使用 V2Ray（或类似程序）部署 shadowsocks 协议，且 V2Ray 内置 http 混淆的情况下），shadowsocks 协议可以设置 obfs=vemss-http，vmess 协议可以设置 obfs=shadowsocks-http。
 #
-[server_local]
+[server_local] # 本地服务器
 ;shadowsocks=example.com:80, method=chacha20, password=pwd, obfs=http, obfs-host=bing.com, obfs-uri=/resource/file, fast-open=false, udp-relay=false, server_check_url=http://www.apple.com/generate_204, tag=ss-obfs-http-01
 ;shadowsocks=example.com:80, method=chacha20, password=pwd, obfs=http, obfs-host=bing.com, obfs-uri=/resource/file, fast-open=false, udp-relay=false, tag=ss-obfs-http-02
 ;shadowsocks=example.com:443, method=chacha20, password=pwd, obfs=tls, obfs-host=bing.com, fast-open=false, udp-relay=false, tag=ss-obfs-tls-01
@@ -220,7 +220,7 @@ FILTER_REGION, tag=CN, force-policy=direct, enabled=true
 ;trojan=192.168.1.1:443, password=pwd, over-tls=true, tls-host=example.com, tls-verification=true, tls-pubkey-sha256=eb5ec6684564fd0d04975903ed75342d1b9fdc2096ea54b4cf8caf4740f4ae25, tls-alpn=02683208687474702f312e31, tls13=true, fast-open=false, udp-relay=false, tag=trojan-tls-07
 ;trojan=192.168.1.1:443, password=pwd, obfs=wss, obfs-host=example.com, obfs-uri=/path, udp-relay=true, tag=trojan-wss-05
 
-[filter_local]
+[filter_local] # 本地过滤器
 ;user-agent, ?abc*, proxy
 ;host, www.google.com, proxy
 ;host-keyword, adsite, reject
@@ -266,7 +266,7 @@ final, proxy
 #
 # 如果 URL 和标头都与 url-and-header 重写匹配，则将匹配 HTTP(HTTPS) 请求（将首先评估 URL，如果不匹配，则根本不会评估标头）。要比较的标头的字符串包含方法、路径和键值标头。
 #
-[rewrite_local]
+[rewrite_local] # 本地重写规则
 ;^http://example\.com/resource1/1/ url reject
 ;^http://example\.com/resource1/2/ url reject-img
 ;^http://example\.com/resource1/3/ url reject-200
@@ -296,7 +296,7 @@ final, proxy
 #
 # 支持 5 或 6 个 cron 字段（不包括命令字段）。当网络发生变化时，将触发事件网络。当用户点击 UIAction 时，将触发事件交互。只有当 Quantumult X Tunnel 运行时，才能触发事件相关任务。
 #
-[task_local]
+[task_local] # 本地任务
 ;* * * * * sample-task.js
 ;* * * * * sample-task2.js, img-url=https://raw.githubusercontent.com/crossutility/Quantumult-X/master/quantumult-x.png, tag=Sample, enabled=true
 ;* * * * * sample-task3.js, img-url=https://raw.githubusercontent.com/crossutility/Quantumult-X/master/quantumult-x.png, tag=Sample, require-devices=ID1, ID2, enabled=true
@@ -316,7 +316,7 @@ final, proxy
 # 此外，您还可以使用签名或任何其他验证方法来验证请求是否合法。
 # 部署后，您应该通过 http://127.0.0.1:9999/your-path/your-api/ 访问它。
 #
-[http_backend]
+[http_backend] # 本地 HTTP 后端
 ;https://raw.githubusercontent.com/crossutility/Quantumult-X/master/sample-backend.js, tag=fileConverter, path=^/example/v1/
 ;preference.js, tag=userPreference, path=^/preference/v1/, img-url=https://example.com, enabled=true
 ;sample.js, tag=sample, path=^/sample/v1/, require-devices=ID1, ID2, enabled=true
@@ -330,10 +330,10 @@ final, proxy
 #
 # 重要！！！您应该始终将 CA 密码和 p12 保密。
 #
-[mitm]
-;passphrase =
-;p12 =
+[mitm] # 中间人代理
+;passphrase = # CA 密钥
+;p12 = # CA 证书
 ;skip_validating_cert = false
 ;skip_src_ip = 192.168.1.5, 192.168.1.6
 ;skip_dst_ip = 17.0.0.1
-;hostname = *.example.com, *.sample.com, non-existed-domain.com, *.non-connected-domain.com
+;hostname = *.example.com, *.sample.com, non-existed-domain.com, *.non-connected-domain.com  # 主机名
