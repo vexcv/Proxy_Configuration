@@ -10,7 +10,7 @@ iOS App Quantumu X 和 Stash 的配置文件 懒人配置
 
 3. 为了方便理解和使用，配置文件中大部分字段都添加了注释，注释文字完全不影响使用
 
-4. 使用本项目的配置时，如果在特定场景下出现问题，可以通过Telegram联系作者[vexcso](https//:t.me/vexcso)
+4. 使用本项目的配置时，如果在特定场景下出现问题，可以通过Telegram联系作者[@vexcso](https://t.me/vexcso)
 
 ## 规则和脚本和图标
 
