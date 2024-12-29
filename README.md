@@ -16,6 +16,12 @@ iOS App Quantumu X 和 Stash 的配置文件 懒人配置
 
 配置文件中的所有规则和脚本和图标均均引用自开源项目，在此表示感谢！
 
+| 列 1 | 列 2 | 列 3 |
+|------|------|------|
+| 数据 1 | 数据 2 | 数据 3 |
+| 数据 4 | 数据 5 | 数据 6 |
+
+
 Quantumult X rule
 [@blackmatrix7](https://github.com/blackmatrix7) - [ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)
 
