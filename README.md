@@ -1,4 +1,4 @@
-# iOS_Proxy_Configuration
+# iOS Proxy Configuration
 
 iOS App Quantumu X 和 Stash 的配置文件 懒人配置
 
