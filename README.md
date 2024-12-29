@@ -14,15 +14,15 @@ iOS App Quantumu X 和 Stash 的配置文件 懒人配置
 
 ## 规则和脚本和图标
 
-配置文件中的所有规则和脚本和图标均均引用自以下大佬的开源项目，在此表示感谢！
+配置文件中的所有规则和脚本和图标均均引用自开源项目，在此表示感谢！
 
-**Quantumult X**
+Quantumult X
 [@blackmatrix7](https://github.com/blackmatrix7) - [ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)
 
-**Stash**
+Stash
 [@MetaCubeX](https://github.com/MetaCubeX) - [meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
 
-**icon**
+*icon*
 [@Koolson](https://github.com/Koolson) - [Qure](https://github.com/Koolson/Qure)
 
 ## 特别声明
