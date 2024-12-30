@@ -34,7 +34,7 @@ iOS App Quantumult X 和 Stash 的配置文件 懒人配置 2025
 <details>
   <summary>点击展开</summary>
 
-  > 推荐几条个人比较喜欢的服务商，如果你的预算极其有限还是建议使用小型机场
+  > 推荐个人比较喜欢的服务商，如果你的预算极其有限还是建议使用小型机场
   
   - [SSRDOG](https://dog.ssrdog.com/#/register?code=JMbxlJz9) 本人长期使用 极其稳定 延迟低 支持团队谦虚友好 力荐
 
