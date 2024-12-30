@@ -86,7 +86,7 @@ dns:
 subscribe-url: http://your-another-service-provider
 # 节点提供商配置
 proxy-providers:
-  SSRDOG:
+  providers-name:
     interval: 14400  # 每隔 14400 秒（4 小时）更新一次节点信息
     url: http://your-another-service-provider  # 提供商的订阅链接
 
