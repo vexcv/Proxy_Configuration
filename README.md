@@ -1,6 +1,6 @@
 # iOS Proxy App Configuration
 
-> iOS App Quantumu X 和 Stash 的配置文件 懒人配置
+> iOS App Quantumult X 和 Stash 的配置文件 懒人配置
 
 ## 使用说明
 
@@ -11,6 +11,16 @@
 - 为了方便理解和使用，配置文件中大部分字段都添加了中文注释，注释文字完全不影响功能
 
 - 使用本项目的配置时，如果在特定场景下出现问题，可以通过Telegram联系作者[@vexcso](https://t.me/vexcso)
+
+## Tips
+
+<details>
+  <summary>点击展开</summary>
+  - 经过长时间的使用体验，感觉 Quantumult X 更加的成熟稳定，尽管App已经很久没有更新了，如果多多支持正版相信还是有更新的可能
+  - Stash 几乎兼容 Clash 的所有语法和规则，Clash 已经删库很长时间了，Stash 可能只是套壳，仍有很多Bug，但是更新积极
+  - 不论是Quantumult X 还是 Stash，如果引用了大量脚本和规则，必定会增加系统占用和功耗，实际使用 同样的策略感觉 Stash 耗电更快
+  - 很多配置中建议全部使用IPv4，以及禁用UDP连接，但个人实际使用发现很多App现在都支持IPv6，并非都采用HTTP/3协议(禁用会导致一些问题，比如OpenAI)，所以我的配置中默认都开启这些功能
+</details>
 
 ## 规则和脚本和图标
 
@@ -31,8 +41,3 @@
 3. 在使用本项目之前，请确保您已充分了解相关法律法规并遵守所在国家或地区的法律要求。
 
 4. 若您不同意本声明的任何内容，请立即停止使用本项目。
-
-<details>
-  <summary>点击展开</summary>
-  这里是折叠的内容。
-</details>
