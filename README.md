@@ -1,6 +1,6 @@
 # iOS Proxy App Configuration
 
-> iOS App Quantumult X 和 Stash 的配置文件 懒人配置 2025
+iOS App Quantumult X 和 Stash 的配置文件 懒人配置 2025
 
 ## 使用说明
 
