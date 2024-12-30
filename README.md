@@ -1,12 +1,6 @@
 # iOS Proxy App Configuration
 
-iOS App Quantumu X 和 Stash 的配置文件 懒人配置
-
-> 一个简单的描述
-
-## 功能列表
-- [x] 功能 1
-- [ ] 功能 2
+> iOS App Quantumu X 和 Stash 的配置文件 懒人配置
 
 ## 使用说明
 
