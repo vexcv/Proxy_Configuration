@@ -38,8 +38,8 @@ iOS App Quantumult X 和 Stash 的配置文件 懒人配置 2025
 
   | **服务商**            | **CN**                     | **GB**                | **个人评价**          |
   |-----------------------|----------------------------|----------------------------|-----------------------|
-  | [SSRDOG](https://dog.ssrdog.com/#/register?code=JMbxlJz9) | [大陆站](https://st1.hosbb.com/#/register?code=JMbxlJz9) | [国际站](https://dog.ssrdog.com/#/register?code=JMbxlJz9) | 本人长期使用 极其稳定 延迟低 支持团队谦虚友好 力荐 |
-  | [TGA](https://tagss.pro/#/auth/ytH0tDkE) | [大陆站](https://tagss09.pro/#/auth/ytH0tDkE) | [国际站](https://tagss.pro/#/auth/ytH0tDkE) | 本人订阅过季度套餐 节点覆盖最广 几乎覆盖全球地区 从北极到南极 更新节点会损耗一些流量 有特殊地区需求的话推荐 |
+  | [SSRDOG](https://dog.ssrdog.com/#/register?code=JMbxlJz9) | [大陆](https://st1.hosbb.com/#/register?code=JMbxlJz9) | [国际](https://dog.ssrdog.com/#/register?code=JMbxlJz9) | 本人长期使用 极其稳定 延迟低 支持团队谦虚友好 力荐 |
+  | [TGA](https://tagss.pro/#/auth/ytH0tDkE) | [大陆](https://tagss09.pro/#/auth/ytH0tDkE) | [国际](https://tagss.pro/#/auth/ytH0tDkE) | 本人订阅过季度套餐 节点覆盖最广 几乎覆盖全球地区 从北极到南极 更新节点会损耗一些流量 有特殊地区需求的话推荐 |
   
 </details>
 
