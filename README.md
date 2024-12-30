@@ -36,7 +36,7 @@ iOS App Quantumult X 和 Stash 的配置文件 懒人配置 2025
 
   > 推荐个人比较喜欢的服务商，如果你的预算极其有限还是建议使用小型机场
 
-  | **服务商**            | **CN**                     | **GB**                | **个人评价**          |
+  | **服务商**            | **CN访问**                     | **GB访问**                | **个人评价**          |
   |-----------------------|----------------------------|----------------------------|-----------------------|
   | [SSRDOG](https://dog.ssrdog.com/#/register?code=JMbxlJz9) | [大陆](https://st1.hosbb.com/#/register?code=JMbxlJz9) | [国际](https://dog.ssrdog.com/#/register?code=JMbxlJz9) | 本人长期使用 极其稳定 延迟低 支持团队谦虚友好 力荐 |
   | [TGA](https://tagss.pro/#/auth/ytH0tDkE) | [大陆](https://tagss09.pro/#/auth/ytH0tDkE) | [国际](https://tagss.pro/#/auth/ytH0tDkE) | 本人订阅过季度套餐 节点覆盖最广 几乎覆盖全球地区 从北极到南极 更新节点会损耗一些流量 有特殊地区需求的话推荐 |
