@@ -101,6 +101,9 @@ proxy-providers:
   SSRDOG:
     interval: 14400  # 每隔 14400 秒（4 小时）更新一次节点信息
     url: http://your-another-service-provider  # 提供商的订阅链接
+  providers-name:
+    interval: 14400
+    url: http://your-another-service-provider
 
 # 功能策略组
 proxy-groups:
