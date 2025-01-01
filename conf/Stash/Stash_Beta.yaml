@@ -1,5 +1,5 @@
 # Author: vexcv
-# Update: 2024.12.30
+# Update: 2025.01.01
 # Telegram: https://t.me/vexcso
 
 # 混合代理端口，用于接收 HTTP、HTTPS 和 SOCKS5 的请求
@@ -54,11 +54,11 @@ dns:
   use-hosts: true
   # 默认的 DNS 服务器地址，DNS 查询通过 DoH（DNS over HTTPS）进行
   default-nameserver:
-    - 'https://223.5.5.5/dns-query#DIRECT'  # 使用 223.5.5.5（阿里云 DNS）作为默认 DoH 服务器，#DIRECT 表示直接连接，不通过代理
+    - 'https://223.5.5.5/dns-query#DIRECT'  # 使用 阿里云 DNS 作为默认 DoH 服务器，#DIRECT 表示直接连接，不通过代理
     # 'https://doh.pub/dns-query#DIRECT'  # 使用腾讯的 DoH 服务器作为备用
   # 代理服务器的 DNS 服务器地址，通常是针对代理流量的 DNS 查询配置
   proxy-server-nameserver:
-    - 'https://doh.apad.pro/dns-query#DIRECT'  # 使用 apad.pro 提供的 DoH 服务器作为代理流量的 DNS
+    - 'https://1.1.1.1/dns-query#DIRECT'  # 使用 cloudflare 提供的 DoH 服务器作为代理流量的 DNS
   # 基于不同域名策略的 DNS 服务器配置
   nameserver-policy:
     "geosite:tld-cn,private,cn":  # 针对中国的域名或私人网络（tld-cn、private、cn 域）
