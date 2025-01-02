@@ -57,9 +57,6 @@ dns:
   default-nameserver:
     - 'https://dns.alidns.com/dns-query#DIRECT'
     - 'https://cloudflare-dns.com/dns-query#Proxy'
-  # 代理服务器的 DNS 服务器地址，通常是针对代理流量的 DNS 查询配置
-  proxy-server-nameserver:
-    - 'https://cloudflare-dns.com/dns-query#Proxy'
   # 基于不同域名策略的 DNS 服务器配置
   nameserver-policy:
     'geosite:tld-cn,private,cn':
