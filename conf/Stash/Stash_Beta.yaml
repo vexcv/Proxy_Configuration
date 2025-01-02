@@ -66,13 +66,13 @@ dns:
   # 基于不同域名策略的 DNS 服务器配置
   nameserver-policy:
     # 针对中国的域名或私人网络（tld-cn、private、cn 域）
-    "geosite:tld-cn,private,cn":
+    'geosite:tld-cn,private,cn':
       # 使用阿里云的 DoH 服务器进行中国大陆域名解析
       - 'https://dns.alidns.com/dns-query#DIRECT'
       # 使用腾讯的 DoH 服务器作为备用
       # 'https://doh.pub/dns-query#DIRECT
     # 针对非中国地区的域名，或者需要绕过 GFW（Great Firewall）的域名
-    "geosite:tld-!cn,gfw,geolocation-!cn":
+    'geosite:tld-!cn,gfw,geolocation-!cn':
       # 使用 9.9.9.9（Quad9 DNS）提供的 DoH 服务器，适用于绕过 GFW
       - 'https://9.9.9.9/dns-query#DIRECT'
       # 使用 apad.pro 提供的 DoH 服务器，适用于绕过 GFW
