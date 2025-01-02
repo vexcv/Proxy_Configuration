@@ -48,30 +48,50 @@ dns:
   use-hosts: true
   # 默认的上游 DNS 服务器
   default-nameserver:
-    - '223.5.5.5'  # 阿里 DNS
-    # '119.28.28.28'  # 腾讯 DNS
-    # '8.8.8.8'  # Cloudflare DNS
-    # '1.1.1.1'  # Cloudflare DNS
+    # 阿里 DNS
+    - '223.5.5.5'
+    # 腾讯 DNS
+    # '119.28.28.28'
+    # Google DNS
+    # '8.8.8.8'
+    # Cloudflare DNS
+    # '1.1.1.1'
   # DoH(DNS over HTTPS)服务器
   nameserver:
-    - https://dns.alidns.com/dns-query  # 阿里公共 DNS 的 DoH 服务
-    # https://doh.pub/dns-query  # 腾讯公共 DNS 的 DoH 服务
-    # https://dns.google/dns-query  # Google 公共 DNS 的 DoH DoQ 服务
-    # https://cloudflare-dns.com/dns-query  # Cloudflare 公共 DNS 的 DoH DoQ 服务
-    # quic://1.1.1.1:853  # Cloudflare DoQ 服务
+    # 阿里公共 DNS 的 DoH 服务
+    - https://dns.alidns.com/dns-query
+    # 腾讯公共 DNS 的 DoH 服务
+    # https://doh.pub/dns-query
+    # Google 公共 DNS 的 DoH DoQ 服务
+    # https://dns.google/dns-query
+    # Cloudflare 公共 DNS 的 DoH DoQ 服务
+    # https://cloudflare-dns.com/dns-query
+    # Cloudflare DoQ 服务
+    # quic://1.1.1.1:853
   # fake-ip 模式下不使用虚拟 IP 的域名, 这些域名相关的解析请求将会返回它们真实的IP地址
   fake-ip-filter:
-    - '*.lan'  # 匹配所有 .lan 后缀的域名
-    - localhost.ptlogin2.qq.com  # 腾讯本地登录服务
-    - dns.msftncsi.com  # Windows 网络连通性检测
-    - '*.srv.nintendo.net'  # Nintendo Switch 服务
-    - '*.stun.playstation.net'  # PlayStation 网络
-    - 'xbox.*.microsoft.com'  # Xbox 服务
-    - '*.xboxlive.com'  # Xbox Live 服务
+    # 匹配所有 .lan 后缀的域名
+    - '*.lan'
+    # 排除所有本地设备域名，避免误用虚拟 IP 地址
+    - '*.local'
+    # 腾讯本地登录服务
+    - 'localhost.ptlogin2.qq.com'
+    # Windows 网络连通性检测
+    - 'dns.msftncsi.com'
+    # Nintendo Switch 服务
+    - '*.srv.nintendo.net'
+    # PlayStation 网络
+    - '*.stun.playstation.net'
+    # Xbox 服务
+    - 'xbox.*.microsoft.com'
+    # Xbox Live 服务
+    - '*.xboxlive.com'
   # 备用 DNS 服务器，用于主 DNS 解析失败时
   fallback:
-    - 8.8.8.8  # Google 公共 DNS
-    - 1.1.1.1  # Cloudflare 公共 DNS
+    # Google 公共 DNS
+    - 8.8.8.8
+    # Cloudflare 公共 DNS
+    - 1.1.1.1
   # 备用 DNS 的过滤规则
   fallback-filter:
     # 启用 GEOIP 过滤（基于地理位置判断是否代理）
@@ -80,18 +100,21 @@ dns:
     geoip-code: CN
     # 备用 DNS 需要过滤的 IP 范围
     ipcidr:
-      - 240.0.0.0/4  # 广播地址等特殊 IP 段
+      # 广播地址等特殊 IP 段
+      - 240.0.0.0/4
 
 # 获取节点提供商流量信息并在主页显示
 subscribe-url: http://your-another-service-provider
 # 节点提供商配置
 proxy-providers:
   SSRDOG:
-    interval: 14400  # 每隔 14400 秒（4 小时）更新一次节点信息
-    url: http://your-another-service-provider  # 提供商的订阅链接
+    # 每隔 14400 秒（4 小时）更新一次节点信息
+    interval: 14400
+    # 提供商的订阅链接
+    url: http://your-another-service-provider
   providers-name:
-    interval: 14400  # 每隔 14400 秒（4 小时）更新一次节点信息
-    url: http://your-another-service-provider  # 提供商的订阅链接
+    interval: 14400
+    url: http://your-another-service-provider
 # 功能策略组
 proxy-groups:
   - name: Proxy
@@ -503,7 +526,8 @@ rule-providers:
 
 #分流规则引用
 rules:
-  # SCRIPT,quic,REJECT # 全局禁用QUIC协议, 或设置匹配策略组
+  # 全局禁用QUIC协议, 或设置匹配策略组
+  # SCRIPT,quic,REJECT
   - DOMAIN,dog.ssrdog.com,Proxy
   - DOMAIN-KEYWORD,czzy,DIRECT
   - DOMAIN-KEYWORD,linkedin,Proxy
@@ -527,7 +551,7 @@ rules:
   # DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
   # DOMAIN-SUFFIX,push.apple.com,DIRECT
   # Apple OCSP
-  # PROCESS-NAME,trustd,选择代理
+  # PROCESS-NAME,trustd,Proxy
   - DOMAIN,local.adguard.org,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
   - IP-CIDR,127.0.0.0/8,DIRECT
