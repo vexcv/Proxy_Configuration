@@ -122,7 +122,8 @@ dns:
     geoip-code: CN
     # 备用 DNS 需要过滤的 IP 范围
     ipcidr:
-      - '240.0.0.0/4' # 广播地址等特殊 IP 段
+      # 广播地址等特殊 IP 段
+      - '240.0.0.0/4'
 
 # 获取节点提供商流量信息并在主页显示
 subscribe-url: http://your-another-service-provider
