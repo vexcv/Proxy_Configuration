@@ -56,17 +56,12 @@ dns:
   # 默认的 DNS 服务器地址，DNS 查询通过 DoH（DNS over HTTPS）进行
   default-nameserver:
     - 'https://dns.alidns.com/dns-query'
-    - 'https://cloudflare-dns.com/dns-query'
+    - 'https://dns.google/dns-query'
   # 基于不同域名策略的 DNS 服务器配置
   nameserver-policy:
-    'geoip:cn':
-      - 'https://dns.alidns.com/dns-query'
-    'geoip:!cn':
-      - 'https://9.9.9.9/dns-query'
-      - 'https://cloudflare-dns.com/dns-query'
-    'geosite:gfw':
-      - 'https://9.9.9.9/dns-query'
-      - 'https://cloudflare-dns.com/dns-query'
+    'geoip:cn': 'https://dns.alidns.com/dns-query'
+    'geoip:!cn': 'https://dns.google/dns-query'
+    'geosite:gfw': 'https://cloudflare-dns.com/dns-query'
   # DoH(DNS over HTTPS)服务器
   nameserver:
     - 'https://dns.alidns.com/dns-query'
