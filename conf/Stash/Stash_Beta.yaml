@@ -54,41 +54,41 @@ dns:
   use-hosts: true
   # 默认的 DNS 服务器地址，DNS 查询通过 DoH（DNS over HTTPS）进行
   default-nameserver:
-    - 'https://223.5.5.5/dns-query#DIRECT'  # 使用 阿里云 DNS 作为默认 DoH 服务器，#DIRECT 表示直接连接，不通过代理
-    # 'https://doh.pub/dns-query#DIRECT'  # 使用腾讯的 DoH 服务器作为备用
+    - 'https://223.5.5.5/dns-query#DIRECT' # 使用 阿里云 DNS 作为默认 DoH 服务器，#DIRECT 表示直接连接，不通过代理
+    # 'https://doh.pub/dns-query#DIRECT' # 使用腾讯的 DoH 服务器作为备用
   # 代理服务器的 DNS 服务器地址，通常是针对代理流量的 DNS 查询配置
   proxy-server-nameserver:
-    - 'https://1.1.1.1/dns-query#DIRECT'  # 使用 cloudflare 提供的 DoH 服务器作为代理流量的 DNS
+    - 'https://1.1.1.1/dns-query#DIRECT' # 使用 cloudflare 提供的 DoH 服务器作为代理流量的 DNS
   # 基于不同域名策略的 DNS 服务器配置
   nameserver-policy:
-    "geosite:tld-cn,private,cn":  # 针对中国的域名或私人网络（tld-cn、private、cn 域）
-      - 'https://dns.alidns.com/dns-query#DIRECT'  # 使用阿里云的 DoH 服务器进行中国大陆域名解析
-      # 'https://doh.pub/dns-query#DIRECT  # 使用腾讯的 DoH 服务器作为备用
-    "geosite:tld-!cn,gfw,geolocation-!cn":  # 针对非中国地区的域名，或者需要绕过 GFW（Great Firewall）的域名
-      - 'https://9.9.9.9/dns-query#DIRECT'  # 使用 9.9.9.9（Quad9 DNS）提供的 DoH 服务器，适用于绕过 GFW
-      # 'https://doh.apad.pro/dns-query#DIRECT'  # 使用 apad.pro 提供的 DoH 服务器，适用于绕过 GFW
-      # 'http://dns.google/dns-query#Proxy'  # 使用 Google 的 DoH 服务器，允许根据节点选择（通常是从多个节点中选择最佳节点）
-      - 'https://cloudflare-dns.com/dns-query#Proxy'  # 使用 Cloudflare 的 DoH 服务器，支持节点选择，选择最合适的服务器
+    "geosite:tld-cn,private,cn": # 针对中国的域名或私人网络（tld-cn、private、cn 域）
+      - 'https://dns.alidns.com/dns-query#DIRECT' # 使用阿里云的 DoH 服务器进行中国大陆域名解析
+      # 'https://doh.pub/dns-query#DIRECT # 使用腾讯的 DoH 服务器作为备用
+    "geosite:tld-!cn,gfw,geolocation-!cn": # 针对非中国地区的域名，或者需要绕过 GFW（Great Firewall）的域名
+      - 'https://9.9.9.9/dns-query#DIRECT' # 使用 9.9.9.9（Quad9 DNS）提供的 DoH 服务器，适用于绕过 GFW
+      # 'https://doh.apad.pro/dns-query#DIRECT' # 使用 apad.pro 提供的 DoH 服务器，适用于绕过 GFW
+      # 'http://dns.google/dns-query#Proxy' # 使用 Google 的 DoH 服务器，允许根据节点选择（通常是从多个节点中选择最佳节点）
+      - 'https://cloudflare-dns.com/dns-query#Proxy' # 使用 Cloudflare 的 DoH 服务器，支持节点选择，选择最合适的服务器
   # DoH(DNS over HTTPS)服务器
   nameserver:
-    - 'https://dns.alidns.com/dns-query#DIRECT'  # 默认使用阿里云的 DoH 服务器
-    # 'https://doh.pub/dns-query#DIRECT'  # 默认使用腾讯的 DoH 服务器
+    - 'https://dns.alidns.com/dns-query#DIRECT' # 默认使用阿里云的 DoH 服务器
+    # 'https://doh.pub/dns-query#DIRECT' # 默认使用腾讯的 DoH 服务器
   # fake-ip 模式下不使用虚拟 IP 的域名, 这些域名相关的解析请求将会返回它们真实的IP地址
   fake-ip-filter:
-    - '*.lan'  # 匹配所有 .lan 后缀的域名
-    - '*.local'  # 排除所有本地设备域名，避免误用虚拟 IP 地址
-    - 'localhost.ptlogin2.qq.com'  # 腾讯本地登录服务
-    - 'dns.msftncsi.com'  # Windows 网络连通性检测
-    - '*.srv.nintendo.net'  # Nintendo Switch 服务
-    - '*.stun.playstation.net'  # PlayStation 网络
-    - 'xbox.*.microsoft.com'  # Xbox 服务
-    - '*.xboxlive.com'  # Xbox Live 服务
+    - '*.lan' # 匹配所有 .lan 后缀的域名
+    - '*.local' # 排除所有本地设备域名，避免误用虚拟 IP 地址
+    - 'localhost.ptlogin2.qq.com' # 腾讯本地登录服务
+    - 'dns.msftncsi.com' # Windows 网络连通性检测
+    - '*.srv.nintendo.net' # Nintendo Switch 服务
+    - '*.stun.playstation.net' # PlayStation 网络
+    - 'xbox.*.microsoft.com' # Xbox 服务
+    - '*.xboxlive.com' # Xbox Live 服务
   # 回退 DNS 服务器，当主服务器不可用时使用
   fallback:
-    - 'https://9.9.9.9/dns-query#DIRECT'  # 使用 9.9.9.9（Quad9 DNS）作为回退服务器
-    - 'https://doh.apad.pro/dns-query#DIRECT'  # 使用 apad.pro 提供的 DoH 服务器作为备用回退服务器
-    - 'http://dns.google/dns-query#Proxy'  # 使用 Google 的 DoH 服务器作为回退
-    - 'https://cloudflare-dns.com/dns-query#Proxy'  # 使用 Cloudflare 的 DoH 服务器作为回退
+    - 'https://9.9.9.9/dns-query#DIRECT' # 使用 9.9.9.9（Quad9 DNS）作为回退服务器
+    - 'https://doh.apad.pro/dns-query#DIRECT' # 使用 apad.pro 提供的 DoH 服务器作为备用回退服务器
+    - 'http://dns.google/dns-query#Proxy' # 使用 Google 的 DoH 服务器作为回退
+    - 'https://cloudflare-dns.com/dns-query#Proxy' # 使用 Cloudflare 的 DoH 服务器作为回退
   # 备用 DNS 的过滤规则
   fallback-filter:
     # 启用 GEOIP 过滤（基于地理位置判断是否代理）
@@ -97,15 +97,15 @@ dns:
     geoip-code: CN
     # 备用 DNS 需要过滤的 IP 范围
     ipcidr:
-      - '240.0.0.0/4'  # 广播地址等特殊 IP 段
+      - '240.0.0.0/4' # 广播地址等特殊 IP 段
 
 # 获取节点提供商流量信息并在主页显示
 subscribe-url: http://your-another-service-provider
 # 节点提供商配置
 proxy-providers:
   SSRDOG:
-    interval: 14400  # 每隔 14400 秒（4 小时）更新一次节点信息
-    url: http://your-another-service-provider  # 提供商的订阅链接
+    interval: 14400 # 每隔 14400 秒（4 小时）更新一次节点信息
+    url: http://your-another-service-provider # 提供商的订阅链接
   providers-name:
     interval: 14400
     url: http://your-another-service-provider
