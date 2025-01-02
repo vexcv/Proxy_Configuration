@@ -55,19 +55,19 @@ dns:
   use-hosts: true
   # 默认的 DNS 服务器地址，DNS 查询通过 DoH（DNS over HTTPS）进行
   default-nameserver:
-    - https://dns.alidns.com/dns-query#DIRECT
-    - https://cloudflare-dns.com/dns-query#Proxy
+    - https://dns.alidns.com/dns-query
+    - https://cloudflare-dns.com/dns-query
   # 基于不同域名策略的 DNS 服务器配置
   nameserver-policy:
     "geosite:tld-cn,private,cn":
-      - https://dns.alidns.com/dns-query#DIRECT
+      - https://dns.alidns.com/dns-query
     "geosite:tld-!cn,gfw,geolocation-!cn":
-      - https://9.9.9.9/dns-query#DIRECT
-      - https://cloudflare-dns.com/dns-query#Proxy
+      - https://9.9.9.9/dns-query
+      - https://cloudflare-dns.com/dns-query
   # DoH(DNS over HTTPS)服务器
   nameserver:
-    - https://dns.alidns.com/dns-query#DIRECT
-    - https://cloudflare-dns.com/dns-query#Proxy
+    - https://dns.alidns.com/dns-query
+    - https://cloudflare-dns.com/dns-query
   # fake-ip 模式下不使用虚拟 IP 的域名, 这些域名相关的解析请求将会返回它们真实的IP地址
   fake-ip-filter:
     # 匹配所有 .lan 后缀的域名
@@ -89,11 +89,11 @@ dns:
   # 回退 DNS 服务器，当主服务器不可用时使用
   fallback:
     # 使用 9.9.9.9（Quad9 DNS）作为回退服务器
-    - https://9.9.9.9/dns-query#Proxy
+    - https://9.9.9.9/dns-query
     # 使用 Google 的 DoH 服务器作为回退
-    - https://dns.google/dns-query#Proxy
+    - https://dns.google/dns-query
     # 使用 Cloudflare 的 DoH 服务器作为回退
-    - https://cloudflare-dns.com/dns-query#Proxy
+    - https://cloudflare-dns.com/dns-query
   # 备用 DNS 的过滤规则
   fallback-filter:
     # 启用 GEOIP 过滤（基于地理位置判断是否代理）
@@ -102,8 +102,8 @@ dns:
     geoip-code: CN
     # 备用 DNS 需要过滤的 IP 范围
     ipcidr:
-      - '240.0.0.0/4'
       # 广播地址等特殊 IP 段
+      - '240.0.0.0/4'
 
 # 获取节点提供商流量信息并在主页显示
 subscribe-url: http://your-another-service-provider
