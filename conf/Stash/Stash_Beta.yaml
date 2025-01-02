@@ -1,6 +1,7 @@
 # Author: vexcv
 # Update: 2025.01.02
 # Telegram: https://t.me/vexcso
+# 仍在使用测试中，谨慎使用
 
 # 混合代理端口，用于接收 HTTP、HTTPS 和 SOCKS5 的请求
 mixed-port: 7890
