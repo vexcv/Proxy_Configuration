@@ -52,7 +52,7 @@ proxy-groups:
       - India
       - Philippines
   - name: OpenAI
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+    icon: https://testingcf.jsdelivr.net/gh/vexcv/hosting/icon/OpenAI.png
     type: select
     proxies:
       - Proxy
