@@ -11,447 +11,447 @@ proxy-groups:
     url: http://cp.cloudflare.com/generate_204
     interval: 144
     proxies:
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: Uncaptured
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png
     type: select
     proxies:
       - Proxy
       - DIRECT
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: OpenAI
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
     type: select
     proxies:
       - Proxy
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: Google
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
     type: select
     proxies:
       - Proxy
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: Apple
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
     type: select
     proxies:
       - DIRECT
       - Proxy
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: Microsoft
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png
     type: select
     proxies:
       - Proxy
       - DIRECT
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: PayPal
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/PayPal.png
     type: select
     proxies:
       - Proxy
       - DIRECT
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: YouTube
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/YouTube.png
     type: select
     proxies:
       - Proxy
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: X
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/X.png
     type: select
     proxies:
       - Proxy
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: Spotify
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Spotify.png
     type: select
     proxies:
       - Proxy
       - DIRECT
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: Netflix
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Netflix.png
     type: select
     proxies:
       - Proxy
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: Disney+
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Disney+.png
     type: select
     proxies:
       - Proxy
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: HBO
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/HBO.png
     type: select
     proxies:
       - Proxy
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: TikTok
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png
     type: select
     proxies:
       - Proxy
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: BiliBili
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/bilibili_3.png
     type: select
     proxies:
       - DIRECT
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
+      - Hong Kong
+      - Taiwan
   - name: Steam
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Steam.png
     type: select
     proxies:
       - Proxy
       - DIRECT
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
   - name: Telegram
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
     type: select
     proxies:
       - Proxy
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
-  - name: 𝐇𝐊 Hong Kong
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
+  - name: Hong Kong
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     type: select
     include-all: true
     filter: "(?i)(澳门|🇲🇴|港|🇭🇰|HK|Hong)"
-  - name: 𝐓𝐖 Taiwan
+  - name: Taiwan
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png
     type: select
     include-all: true
     filter: "(?i)(台|🇹🇼|湾|TW|Taiwan)"
-  - name: 𝐉𝐏 Japan
+  - name: Japan
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
     type: select
     include-all: true
     filter: "(?i)(日|🇯🇵|东京|大阪|JP|Japan)"
-  - name: 𝐊𝐑 Korea
+  - name: Korea
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png
     type: select
     include-all: true
     filter: "(?i)(韩|🇰🇷|KR|Korea)"
-  - name: 𝐒𝐆 Singapore
+  - name: Singapore
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
     type: select
     include-all: true
     filter: "(?i)(新加坡|坡|狮城|🇸🇬|SG|Singapore)"
-  - name: 𝐂𝐀 Canada
+  - name: Canada
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Canada.png
     type: select
     include-all: true
     filter: "(?i)(加拿大|🇨🇦|Canada)"
-  - name: 𝐔𝐒 United States
+  - name: United States
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
     type: select
     include-all: true
     filter: "(?i)(美|🇺🇲|US|States|America)"
-  - name: 𝐔𝐊 United Kingdom
+  - name: United Kingdom
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_Kingdom.png
     type: select
     include-all: true
     filter: "(?i)(英|🇬🇧|Great Britain|UK)"
-  - name: 𝐓𝐑 Turkey
+  - name: Turkey
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Turkey.png
     type: select
     include-all: true
     filter: "(?i)(土耳其|🇹🇷|Turkey)"
-  - name: 𝐍𝐋 Netherlands
+  - name: Netherlands
     icon: https://testingcf.jsdelivr.net/gh/vexcv/hosting/icon/flag/Netherlands.png
     type: select
     include-all: true
     filter: "(?i)(荷兰|🇳🇱|Netherlands)"
-  - name: 𝐅𝐑 France
+  - name: France
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/France.png
     type: select
     include-all: true
     filter: "(?i)(法|🇫🇷|France)"
-  - name: 𝐃𝐄 Germany
+  - name: Germany
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Germany.png
     type: select
     include-all: true
     filter: "(?i)(德|🇩🇪|Germany)"
-  - name: 𝐕𝐍 Vietnam
+  - name: Vietnam
     icon: https://testingcf.jsdelivr.net/gh/vexcv/hosting/icon/flag/Vietnam.png
     type: select
     include-all: true
     filter: "(?i)(越南|🇻🇳|Vietnam)"
-  - name: 𝐌𝐘 Malaysia
+  - name: Malaysia
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Malaysia.png
     type: select
     include-all: true
     filter: "(?i)(马来西亚|🇲🇾|Malaysia)"
-  - name: 𝐓𝐇 Thailand
+  - name: Thailand
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Thailand.png
     type: select
     include-all: true
     filter: "(?i)(泰国|🇹🇭|Thailand)"
-  - name: 𝐈𝐍 India
+  - name: India
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/India.png
     type: select
     include-all: true
     filter: "(?i)(印度|🇮🇳|India)"
-  - name: 𝐏𝐇 Philippines
+  - name: Philippines
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Philippines.png
     type: select
     include-all: true
@@ -578,8 +578,8 @@ rules:
   - RULE-SET,Steam,Steam
   - RULE-SET,Telegram,Telegram
   - DOMAIN,local.adguard.org,DIRECT
-  - DOMAIN,www.hkinventory.com,𝐇𝐊 Hong Kong
-  - DOMAIN,us.hkinventory.com,𝐔𝐒 United States
+  - DOMAIN,www.hkinventory.com,Hong Kong
+  - DOMAIN,us.hkinventory.com,United States
   - DOMAIN,cn.hkinventory.com,DIRECT
   - DOMAIN,local,DIRECT
   - IP-CIDR,127.0.0.0/8,DIRECT
