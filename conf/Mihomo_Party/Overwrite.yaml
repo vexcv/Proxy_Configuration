@@ -378,6 +378,7 @@ proxy-groups:
     filter: "(?i)(澳门|🇲🇴|港|🇭🇰|HK|Hong)"
   - name: 𝐓𝐖 Taiwan
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png
+    type: select
     include-all: true
     filter: "(?i)(台|🇹🇼|湾|TW|Taiwan)"
   - name: 𝐉𝐏 Japan
