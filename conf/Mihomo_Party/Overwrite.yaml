@@ -8,6 +8,8 @@ proxy-groups:
   - name: Auto
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
     type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 144
     proxies:
       - 𝐇𝐊 Hong Kong
       - 𝐓𝐖 Taiwan
@@ -26,8 +28,29 @@ proxy-groups:
       - 𝐓𝐇 Thailand
       - 𝐈𝐍 India
       - 𝐏𝐇 Philippines
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+  - name: Uncaptured
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png
+    type: select
+    proxies:
+      - Proxy
+      - DIRECT
+      - 𝐇𝐊 Hong Kong
+      - 𝐓𝐖 Taiwan
+      - 𝐉𝐏 Japan
+      - 𝐊𝐑 Korea
+      - 𝐒𝐆 Singapore
+      - 𝐔𝐒 United States
+      - 𝐂𝐀 Canada
+      - 𝐔𝐊 United Kingdom
+      - 𝐓𝐑 Turkey
+      - 𝐍𝐋 Netherlands
+      - 𝐅𝐑 France
+      - 𝐃𝐄 Germany
+      - 𝐕𝐍 Vietnam
+      - 𝐌𝐘 Malaysia
+      - 𝐓𝐇 Thailand
+      - 𝐈𝐍 India
+      - 𝐏𝐇 Philippines
   - name: OpenAI
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
     type: select
@@ -348,29 +371,6 @@ proxy-groups:
       - 𝐓𝐇 Thailand
       - 𝐈𝐍 India
       - 𝐏𝐇 Philippines
-  - name: Uncaptured
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png
-    type: select
-    proxies:
-      - Proxy
-      - DIRECT
-      - 𝐇𝐊 Hong Kong
-      - 𝐓𝐖 Taiwan
-      - 𝐉𝐏 Japan
-      - 𝐊𝐑 Korea
-      - 𝐒𝐆 Singapore
-      - 𝐔𝐒 United States
-      - 𝐂𝐀 Canada
-      - 𝐔𝐊 United Kingdom
-      - 𝐓𝐑 Turkey
-      - 𝐍𝐋 Netherlands
-      - 𝐅𝐑 France
-      - 𝐃𝐄 Germany
-      - 𝐕𝐍 Vietnam
-      - 𝐌𝐘 Malaysia
-      - 𝐓𝐇 Thailand
-      - 𝐈𝐍 India
-      - 𝐏𝐇 Philippines
   - name: 𝐇𝐊 Hong Kong
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     type: select
@@ -459,8 +459,11 @@ proxy-groups:
   - name: GLOBAL
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Global.png
     type: select
+    proxies:
+      - DIRECT
+      - REJECT
     include-all: true
-    filter: "(?i)^(?!.*(?:GB|Days|Left|Expire|Date|Proxy|Auto|OpenAI|Google|Apple|Microsoft|PayPal|YouTube|X|Spotify|Netflix|Disney|HBO|TikTok|BiliBili|Steam|Telegram|Uncaptured)).*"
+    filter: "(?i)^(?!.*(?:GB|Days|Left|Expire|Date)).*"
 rule-providers:
   OpenAI:
     type: http
