@@ -417,7 +417,7 @@ proxy-groups:
     include-all: true
     filter: "(?i)(土耳其|🇹🇷|Turkey)"
   - name: 𝐍𝐋 Netherlands
-    icon:
+    icon: https://testingcf.jsdelivr.net/gh/vexcv/hosting/icon/flag/Netherlands.png
     type: select
     include-all: true
     filter: "(?i)(荷兰|🇳🇱|Netherlands)"
@@ -432,7 +432,7 @@ proxy-groups:
     include-all: true
     filter: "(?i)(德|🇩🇪|Germany)"
   - name: 𝐕𝐍 Vietnam
-    icon:
+    icon: https://testingcf.jsdelivr.net/gh/vexcv/hosting/icon/flag/Vietnam.png
     type: select
     include-all: true
     filter: "(?i)(越南|🇻🇳|Vietnam)"
