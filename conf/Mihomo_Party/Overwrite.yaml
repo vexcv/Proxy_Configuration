@@ -256,7 +256,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/HBO.png
     type: select
     proxies:
-      - SSRDOG
+      - Proxy
       - 𝐇𝐊 Hong Kong
       - 𝐓𝐖 Taiwan
       - 𝐉𝐏 Japan
