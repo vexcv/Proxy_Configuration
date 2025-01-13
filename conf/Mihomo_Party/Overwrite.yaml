@@ -456,7 +456,7 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?i)(菲律宾|🇵🇭|Philippines)"
-  - name: Global
+  - name: GLOBAL
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Global.png
     type: select
     include-all: true
