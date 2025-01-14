@@ -371,6 +371,13 @@ proxy-groups:
       - Thailand
       - India
       - Philippines
+  - name: Adobe
+    icon: https://testingcf.jsdelivr.net/gh/vexcv/hosting/icon/Adobe.png
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+      - Proxy
   - name: Hong Kong
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     type: select
@@ -556,26 +563,90 @@ rule-providers:
     interval: 86400
 rules:
   - DOMAIN,dog.ssrdog.com,Proxy
-  - DOMAIN,adobe.io,REJECT
-  - DOMAIN,adobedtm.com,REJECT
-  - DOMAIN,adobestats.io,REJECT
-  - DOMAIN,adobegenuine.com,REJECT
-  - DOMAIN,ic.adobe.io,REJECT
-  - DOMAIN,dyzt55url8.adobe.io,REJECT
-  - DOMAIN,gw8gfjbs05.adobe.io,REJECT
-  - DOMAIN,0mo5a70cqa.adobe.io,REJECT
-  - DOMAIN,ij0gdyrfka.adobe.io,REJECT
-  - DOMAIN,dxyeyf6ecy.adobe.io,REJECT
-  - DOMAIN,1hzopx6nz7.adobe.io,REJECT
-  - DOMAIN,ph0f2h2csf.adobe.io,REJECT
-  - DOMAIN,23ynjitwt5.adobe.io,REJECT
-  - DOMAIN,crs.cr.adobe.com,REJECT
-  - DOMAIN,www.photoshop.com,REJECT
-  - DOMAIN,cc-cdn.adobe.com,REJECT
-  - DOMAIN,photos.adobe.io,REJECT
-  - DOMAIN,cc-api-data.adobe.io,REJECT
-  - DOMAIN,lcs-cops.adobe.io,REJECT
-  - DOMAIN,cai-splunk-proxy.adobe.io,REJECT
+  - DOMAIN-KEYWORD,adobe-dns,Adobe
+  - DOMAIN-KEYWORD,licensingstack,Adobe
+  - DOMAIN-KEYWORD,wwis-dubc,Adobe
+  - DOMAIN-KEYWORD,practivate,Adobe
+  - DOMAIN-KEYWORD,ereg.wip,Adobe
+  - DOMAIN-KEYWORD,3dns-,Adobe
+  - DOMAIN-KEYWORD,activate.adobe,Adobe
+  - DOMAIN-KEYWORD,practivate.adobe,Adobe
+  - DOMAIN-KEYWORD,license.adobe,Adobe
+  - DOMAIN-KEYWORD,licenses.adobe,Adobe
+  - DOMAIN-KEYWORD,genuine.adobe,Adobe
+  - DOMAIN-KEYWORD,activate.wip,Adobe
+  - DOMAIN-KEYWORD,wip.adobe,Adobe
+  - DOMAIN-KEYWORD,activate-sea,Adobe
+  - DOMAIN-KEYWORD,activate-sjc,Adobe
+  - DOMAIN-KEYWORD,cc-cdn.adobe,Adobe
+  - DOMAIN-KEYWORD,adobe.com-cn.edgesuite,Adobe
+  - DOMAIN-KEYWORD,adobe.com.edgesuite,Adobe
+  - DOMAIN-SUFFIX,oobesaas.adobe.com,Adobe
+  - DOMAIN-SUFFIX,adobe.io,Adobe
+  - DOMAIN-SUFFIX,prod.cloud.adobe.io,Adobe
+  - DOMAIN-SUFFIX,adobestats.io,Adobe
+  - DOMAIN-SUFFIX,us-east-1.elb.amazonaws.com,Adobe
+  - DOMAIN-SUFFIX,adobegenuine.com,Adobe
+  - DOMAIN-SUFFIX,3dns.adobe.com,Adobe
+  - DOMAIN-SUFFIX,adobe.demdex.net,Adobe
+  - DOMAIN-SUFFIX,adobe.tt.omtrdc.net,Adobe
+  - DOMAIN-SUFFIX,adobedc.demdex.net,Adobe
+  - DOMAIN-SUFFIX,adobeereg.com,Adobe
+  - DOMAIN-SUFFIX,adobedtm.com,Adobe
+  - DOMAIN-SUFFIX,adobejanus.com,Adobe
+  - DOMAIN-SUFFIX,services.adobe.com,Adobe
+  - DOMAIN-SUFFIX,bam.nr-data.net,Adobe
+  - DOMAIN-SUFFIX,cclibraries-defaults-cdn.adobe.com,Adobe
+  - DOMAIN-SUFFIX,adobe.com.edgekey.net,Adobe
+  - DOMAIN-SUFFIX,adobedtm.com.edgekey.net,Adobe
+  - DOMAIN-SUFFIX,crl.verisign.net,Adobe
+  - DOMAIN-SUFFIX,crlog-crcn.adobe.com,Adobe
+  - DOMAIN-SUFFIX,crs.cr.adobe.com,Adobe
+  - DOMAIN-SUFFIX,edgeproxy-irl1.cloud.adobe.io,Adobe
+  - DOMAIN-SUFFIX,ereg.adobe.com,Adobe
+  - DOMAIN-SUFFIX,ethos.adobe.net,Adobe
+  - DOMAIN-SUFFIX,geo2.adobe.com,Adobe
+  - DOMAIN-SUFFIX,hl2rcv.adobe.com,Adobe
+  - DOMAIN-SUFFIX,stage.adobe.com,Adobe
+  - DOMAIN-SUFFIX,k.sni.global.fastly.net,Adobe
+  - DOMAIN-SUFFIX,ood.opsource.net,Adobe
+  - DOMAIN-SUFFIX,adobegenuine.com,Adobe
+  - DOMAIN-SUFFIX,prod.cloud.adobe.io,Adobe
+  - DOMAIN-SUFFIX,adobejanus.com,Adobe
+  - DOMAIN-SUFFIX,adobe.com.edgekey.net,Adobe
+  - DOMAIN-SUFFIX,sstats.adobe.com,Adobe
+  - DOMAIN-SUFFIX,licensingstack.com,Adobe
+  - DOMAIN-SUFFIX,adobeereg.com,Adobe
+  - IP-CIDR,100.24.211.130/32,Adobe
+  - IP-CIDR,13.227.103.57/32,Adobe
+  - IP-CIDR,162.247.242.20/32,Adobe
+  - IP-CIDR,18.228.243.121/32,Adobe
+  - IP-CIDR,18.230.164.221/32,Adobe
+  - IP-CIDR,199.232.114.137/32,Adobe
+  - IP-CIDR,23.22.30.141/32,Adobe
+  - IP-CIDR,3.208.248.199/32,Adobe
+  - IP-CIDR,3.216.32.253/32,Adobe
+  - IP-CIDR,3.219.243.226/32,Adobe
+  - IP-CIDR,3.220.11.113/32,Adobe
+  - IP-CIDR,3.221.72.231/32,Adobe
+  - IP-CIDR,34.192.151.90/32,Adobe
+  - IP-CIDR,34.215.42.13/32,Adobe
+  - IP-CIDR,34.237.241.83/32,Adobe
+  - IP-CIDR,44.240.189.42/32,Adobe
+  - IP-CIDR,52.10.49.85/32,Adobe
+  - IP-CIDR,52.20.222.155/32,Adobe
+  - IP-CIDR,52.208.86.132/32,Adobe
+  - IP-CIDR,52.6.155.20/32,Adobe
+  - IP-CIDR,52.84.156.37/32,Adobe
+  - IP-CIDR,54.156.135.114/32,Adobe
+  - IP-CIDR,54.208.86.132/32,Adobe
+  - IP-CIDR,54.221.228.134/32,Adobe
+  - IP-CIDR,54.224.241.105/32,Adobe
+  - IP-CIDR,63.140.38.120/32,Adobe
+  - IP-CIDR,63.140.38.160/32,Adobe
+  - IP-CIDR,63.140.38.169/32,Adobe
+  - IP-CIDR,63.140.38.219/32,Adobe
+  - IP-CIDR,65.8.207.109/32,Adobe
   - DOMAIN-KEYWORD,czzy,DIRECT
   - DOMAIN-KEYWORD,linkedin,Proxy
   - RULE-SET,OpenAI,OpenAI
