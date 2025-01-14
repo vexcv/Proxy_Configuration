@@ -560,6 +560,22 @@ rules:
   - DOMAIN,adobedtm.com,REJECT
   - DOMAIN,adobestats.io,REJECT
   - DOMAIN,adobegenuine.com,REJECT
+  - DOMAIN,ic.adobe.io,REJECT
+  - DOMAIN,dyzt55url8.adobe.io,REJECT
+  - DOMAIN,gw8gfjbs05.adobe.io,REJECT
+  - DOMAIN,0mo5a70cqa.adobe.io,REJECT
+  - DOMAIN,ij0gdyrfka.adobe.io,REJECT
+  - DOMAIN,dxyeyf6ecy.adobe.io,REJECT
+  - DOMAIN,1hzopx6nz7.adobe.io,REJECT
+  - DOMAIN,ph0f2h2csf.adobe.io,REJECT
+  - DOMAIN,23ynjitwt5.adobe.io,REJECT
+  - DOMAIN,crs.cr.adobe.com,REJECT
+  - DOMAIN,www.photoshop.com,REJECT
+  - DOMAIN,cc-cdn.adobe.com,REJECT
+  - DOMAIN,photos.adobe.io,REJECT
+  - DOMAIN,cc-api-data.adobe.io,REJECT
+  - DOMAIN,lcs-cops.adobe.io,REJECT
+  - DOMAIN,cai-splunk-proxy.adobe.io,REJECT
   - DOMAIN-KEYWORD,czzy,DIRECT
   - DOMAIN-KEYWORD,linkedin,Proxy
   - RULE-SET,OpenAI,OpenAI
