@@ -40,5 +40,5 @@ def fetch_and_convert(url, output_file):
 # 配置远程文件 URL 和输出文件路径
 if __name__ == "__main__":
     remote_file_url = "https://testingcf.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb/pihole.txt"  # 添加引号
-    output_json_file = "AWS.json"
+    output_json_file = "AGS.json"
     fetch_and_convert(remote_file_url, output_json_file)
