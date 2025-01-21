@@ -371,7 +371,7 @@ proxy-groups:
       - Thailand
       - India
       - Philippines
-  - name: Adobe
+  - name: AGS
     icon: https://testingcf.jsdelivr.net/gh/vexcv/hosting/icon/Adobe.png
     type: select
     proxies:
@@ -471,184 +471,113 @@ proxy-groups:
       - REJECT
     include-all: true
     filter: "(?i)^(?!.*(?:GB|Days|Left|Expire|Date)).*"
-rule-providers:
+rule-providers!:
+  AICHAT:
+    type: http
+    behavior: domain
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.yaml
+    interval: 86400
   OpenAI:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/openai.yaml
     interval: 86400
   Google:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.yaml
     interval: 86400
   Apple:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.yaml
     interval: 86400
   Microsoft:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.yaml
     interval: 86400
   PayPal:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.yaml
     interval: 86400
   YouTube:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.yaml
     interval: 86400
   X:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/x.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/x.yaml
   Spotify:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.yaml
     interval: 86400
   Netflix:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.yaml
     interval: 86400
   Disney:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.yaml
     interval: 86400
   HBO:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/hbo.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/hbo.yaml
     interval: 86400
   TikTok:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.yaml
     interval: 86400
   BiliBili:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bilibili.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bilibili.yaml
     interval: 86400
   Steam:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.yaml
     interval: 86400
   Telegram:
     type: http
     behavior: domain
-    format: mrs
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs
+    format: yaml
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.yaml
+    interval: 86400
+  AGS:
+    type: http
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb/pihole.txt
     interval: 86400
 rules:
   - DOMAIN,dog.ssrdog.com,Proxy
-  - DOMAIN-KEYWORD,adobe-dns,Adobe
-  - DOMAIN-KEYWORD,licensingstack,Adobe
-  - DOMAIN-KEYWORD,wwis-dubc,Adobe
-  - DOMAIN-KEYWORD,practivate,Adobe
-  - DOMAIN-KEYWORD,ereg.wip,Adobe
-  - DOMAIN-KEYWORD,3dns-,Adobe
-  - DOMAIN-KEYWORD,activate.adobe,Adobe
-  - DOMAIN-KEYWORD,practivate.adobe,Adobe
-  - DOMAIN-KEYWORD,license.adobe,Adobe
-  - DOMAIN-KEYWORD,licenses.adobe,Adobe
-  - DOMAIN-KEYWORD,genuine.adobe,Adobe
-  - DOMAIN-KEYWORD,activate.wip,Adobe
-  - DOMAIN-KEYWORD,wip.adobe,Adobe
-  - DOMAIN-KEYWORD,activate-sea,Adobe
-  - DOMAIN-KEYWORD,activate-sjc,Adobe
-  - DOMAIN-KEYWORD,cc-cdn.adobe,Adobe
-  - DOMAIN-KEYWORD,adobe.com-cn.edgesuite,Adobe
-  - DOMAIN-KEYWORD,adobe.com.edgesuite,Adobe
-  - DOMAIN-SUFFIX,oobesaas.adobe.com,Adobe
-  - DOMAIN-SUFFIX,adobe.io,Adobe
-  - DOMAIN-SUFFIX,prod.cloud.adobe.io,Adobe
-  - DOMAIN-SUFFIX,adobestats.io,Adobe
-  - DOMAIN-SUFFIX,us-east-1.elb.amazonaws.com,Adobe
-  - DOMAIN-SUFFIX,adobegenuine.com,Adobe
-  - DOMAIN-SUFFIX,3dns.adobe.com,Adobe
-  - DOMAIN-SUFFIX,adobe.demdex.net,Adobe
-  - DOMAIN-SUFFIX,adobe.tt.omtrdc.net,Adobe
-  - DOMAIN-SUFFIX,adobedc.demdex.net,Adobe
-  - DOMAIN-SUFFIX,adobeereg.com,Adobe
-  - DOMAIN-SUFFIX,adobedtm.com,Adobe
-  - DOMAIN-SUFFIX,adobejanus.com,Adobe
-  - DOMAIN-SUFFIX,services.adobe.com,Adobe
-  - DOMAIN-SUFFIX,bam.nr-data.net,Adobe
-  - DOMAIN-SUFFIX,cclibraries-defaults-cdn.adobe.com,Adobe
-  - DOMAIN-SUFFIX,adobe.com.edgekey.net,Adobe
-  - DOMAIN-SUFFIX,adobedtm.com.edgekey.net,Adobe
-  - DOMAIN-SUFFIX,crl.verisign.net,Adobe
-  - DOMAIN-SUFFIX,crlog-crcn.adobe.com,Adobe
-  - DOMAIN-SUFFIX,crs.cr.adobe.com,Adobe
-  - DOMAIN-SUFFIX,edgeproxy-irl1.cloud.adobe.io,Adobe
-  - DOMAIN-SUFFIX,ereg.adobe.com,Adobe
-  - DOMAIN-SUFFIX,ethos.adobe.net,Adobe
-  - DOMAIN-SUFFIX,geo2.adobe.com,Adobe
-  - DOMAIN-SUFFIX,hl2rcv.adobe.com,Adobe
-  - DOMAIN-SUFFIX,stage.adobe.com,Adobe
-  - DOMAIN-SUFFIX,k.sni.global.fastly.net,Adobe
-  - DOMAIN-SUFFIX,ood.opsource.net,Adobe
-  - DOMAIN-SUFFIX,adobegenuine.com,Adobe
-  - DOMAIN-SUFFIX,prod.cloud.adobe.io,Adobe
-  - DOMAIN-SUFFIX,adobejanus.com,Adobe
-  - DOMAIN-SUFFIX,adobe.com.edgekey.net,Adobe
-  - DOMAIN-SUFFIX,sstats.adobe.com,Adobe
-  - DOMAIN-SUFFIX,licensingstack.com,Adobe
-  - DOMAIN-SUFFIX,adobeereg.com,Adobe
-  - IP-CIDR,100.24.211.130/32,Adobe
-  - IP-CIDR,13.227.103.57/32,Adobe
-  - IP-CIDR,162.247.242.20/32,Adobe
-  - IP-CIDR,18.228.243.121/32,Adobe
-  - IP-CIDR,18.230.164.221/32,Adobe
-  - IP-CIDR,199.232.114.137/32,Adobe
-  - IP-CIDR,23.22.30.141/32,Adobe
-  - IP-CIDR,3.208.248.199/32,Adobe
-  - IP-CIDR,3.216.32.253/32,Adobe
-  - IP-CIDR,3.219.243.226/32,Adobe
-  - IP-CIDR,3.220.11.113/32,Adobe
-  - IP-CIDR,3.221.72.231/32,Adobe
-  - IP-CIDR,34.192.151.90/32,Adobe
-  - IP-CIDR,34.215.42.13/32,Adobe
-  - IP-CIDR,34.237.241.83/32,Adobe
-  - IP-CIDR,44.240.189.42/32,Adobe
-  - IP-CIDR,52.10.49.85/32,Adobe
-  - IP-CIDR,52.20.222.155/32,Adobe
-  - IP-CIDR,52.208.86.132/32,Adobe
-  - IP-CIDR,52.6.155.20/32,Adobe
-  - IP-CIDR,52.84.156.37/32,Adobe
-  - IP-CIDR,54.156.135.114/32,Adobe
-  - IP-CIDR,54.208.86.132/32,Adobe
-  - IP-CIDR,54.221.228.134/32,Adobe
-  - IP-CIDR,54.224.241.105/32,Adobe
-  - IP-CIDR,63.140.38.120/32,Adobe
-  - IP-CIDR,63.140.38.160/32,Adobe
-  - IP-CIDR,63.140.38.169/32,Adobe
-  - IP-CIDR,63.140.38.219/32,Adobe
-  - IP-CIDR,65.8.207.109/32,Adobe
   - DOMAIN-KEYWORD,czzy,DIRECT
   - DOMAIN-KEYWORD,linkedin,Proxy
+  - RULE-SET,AICHAT,OpenAI
   - RULE-SET,OpenAI,OpenAI
   - RULE-SET,Google,Google
   - RULE-SET,Apple,Apple
@@ -664,6 +593,7 @@ rules:
   - RULE-SET,BiliBili,BiliBili
   - RULE-SET,Steam,Steam
   - RULE-SET,Telegram,Telegram
+  - RULE-SET,AGS,AGS
   - DOMAIN,local.adguard.org,DIRECT
   - DOMAIN,www.hkinventory.com,Hong Kong
   - DOMAIN,us.hkinventory.com,United States
