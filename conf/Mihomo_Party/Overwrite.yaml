@@ -1,4 +1,16 @@
+# SSRDOG
 # https://mihomo.party/docs/guide/override/yaml
+# 外部控制 (API)
+external-ui-url: https://ghfast.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
+external-ui: ui
+external-ui-name: metacubexd
+external-controller: 0.0.0.0:9090
+external-controller-cors:
+  allow-origins:
+    - '*'
+  allow-private-network: true
+dns:
+  prefer-h3: true
 proxy-groups:
   - name: Proxy
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
@@ -120,6 +132,29 @@ proxy-groups:
       - Philippines
   - name: Microsoft
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png
+    type: select
+    proxies:
+      - Proxy
+      - DIRECT
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - Korea
+      - Singapore
+      - United States
+      - Canada
+      - United Kingdom
+      - Turkey
+      - Netherlands
+      - France
+      - Germany
+      - Vietnam
+      - Malaysia
+      - Thailand
+      - India
+      - Philippines
+  - name: Linkedin
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Linkedin.png
     type: select
     proxies:
       - Proxy
@@ -475,97 +510,104 @@ rule-providers!:
   AICHAT:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs
     interval: 86400
   OpenAI:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/openai.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/openai.mrs
     interval: 86400
   Google:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs
     interval: 86400
   Apple:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs
     interval: 86400
   Microsoft:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs
+    interval: 86400
+  Linkedin:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/linkedin.mrs
     interval: 86400
   PayPal:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.mrs
     interval: 86400
   YouTube:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs
     interval: 86400
   X:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/x.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/x.mrs
+    interval: 86400
   Spotify:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
     interval: 86400
   Netflix:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs
     interval: 86400
   Disney:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.mrs
     interval: 86400
   HBO:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/hbo.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/hbo.mrs
     interval: 86400
   TikTok:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs
     interval: 86400
   BiliBili:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bilibili.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bilibili.mrs
     interval: 86400
   Steam:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs
     interval: 86400
   Telegram:
     type: http
     behavior: domain
-    format: yaml
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.yaml
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs
     interval: 86400
   AGS:
     type: http
@@ -575,13 +617,24 @@ rule-providers!:
     interval: 86400
 rules:
   - DOMAIN,dog.ssrdog.com,Proxy
-  - DOMAIN-KEYWORD,czzy,DIRECT
-  - DOMAIN-KEYWORD,linkedin,Proxy
+  - DOMAIN-SUFFIX,smtp.qq.com,DIRECT
+  - DOMAIN-SUFFIX,imap.qq.com,DIRECT
+  - DOMAIN-SUFFIX,pop.qq.com,DIRECT
+  - DOMAIN-SUFFIX,smtp.163.com,DIRECT
+  - DOMAIN-SUFFIX,imap.163.com,DIRECT
+  - DOMAIN-SUFFIX,pop.163.com,DIRECT
+  - DOMAIN-SUFFIX,smtp.exmail.qq.com,DIRECT
+  - DOMAIN-SUFFIX,imap.exmail.qq.com,DIRECT
+  - DOMAIN-SUFFIX,pop.exmail.qq.com,DIRECT
+  - DOMAIN-SUFFIX,smtp.office365.com,DIRECT
+  - DOMAIN-SUFFIX,imap.office365.com,DIRECT
+  - DOMAIN-SUFFIX,pop-mail.outlook.com,DIRECT
   - RULE-SET,AICHAT,OpenAI
   - RULE-SET,OpenAI,OpenAI
   - RULE-SET,Google,Google
   - RULE-SET,Apple,Apple
   - RULE-SET,Microsoft,Microsoft
+  - RULE-SET,Linkedin,Linkedin
   - RULE-SET,PayPal,PayPal
   - RULE-SET,YouTube,YouTube
   - RULE-SET,X,X
@@ -594,6 +647,8 @@ rules:
   - RULE-SET,Steam,Steam
   - RULE-SET,Telegram,Telegram
   - RULE-SET,AGS,AGS
+  # - DOMAIN-KEYWORD,adobe,REJECT
+  - DOMAIN-KEYWORD,czzy,DIRECT
   - DOMAIN,local.adguard.org,DIRECT
   - DOMAIN,www.hkinventory.com,Hong Kong
   - DOMAIN,us.hkinventory.com,United States
