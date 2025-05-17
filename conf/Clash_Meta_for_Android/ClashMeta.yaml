@@ -129,12 +129,13 @@ subscribe-url: http://your-another-service-provider
 # 节点提供商配置
 proxy-providers:
   SSRDOG:
+    # provider类型，可选http / file / inline
+    type: http
+    # 可选文件路径，不可重复，不填写时会使用 url 的 MD5 作为此文件的文件名
+    path: ./ssrdog.yaml
     # 每隔 14400 秒（4 小时）更新一次节点信息
     interval: 14400
     # 提供商的订阅链接
-    url: https://your-another-service-provider
-  providers-name:
-    interval: 14400
     url: https://your-another-service-provider
 
 # 功能策略组
@@ -452,99 +453,99 @@ rule-providers:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.mrs
 
   google:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs
 
   apple:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs
 
   microsoft:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs
 
   paypal:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.mrs
 
   youtube:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs
 
   x:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/x.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/x.mrs
 
   netflix:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs
 
   spotify:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
 
   disney:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.mrs
 
   tiktok:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs
 
   bilibili:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bilibili.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bilibili.mrs
 
   steam:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs
 
   telegram:
     type: http
     interval: 86400
     behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.list
+    format: mrs
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs
 
 #分流规则引用
 rules:
