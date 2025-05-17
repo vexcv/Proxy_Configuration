@@ -1,1 +1,602 @@
+# Author: vexcv
+# Update: 2025.5.20
+# Telegram: https://t.me/vexcso
 
+# 混合代理端口，用于接收 HTTP、HTTPS 和 SOCKS5 的请求
+mixed-port: 7890
+# 是否允许局域网设备通过本地代理访问
+allow-lan: true
+# 代理程序监听的地址，'*' 表示监听所有网络接口
+bind-address: '*'
+# 代理模式：rule（按规则分流）、global（全局代理）、direct（全局直连）
+mode: rule
+# 日志级别：warning（警告）、info（一般信息）、debug（调试）
+log-level: warning
+# 是否启用 IPv6 支持
+ipv6: true
+
+# 程序运行时的配置存储选项
+profile:
+  # 是否保存用户上次选择的代理节点
+  store-selected: true
+  # 是否启用追踪模式（用于调试）
+  tracing: false
+  # 是否保存虚拟 IP 映射，适用于 fake-ip 模式
+  store-fake-ip: false
+
+# 统一延迟优化，减少规则解析对性能的影响
+unified-delay: true
+
+# 静态主机映射
+hosts:
+  # 将域名 dnslog.cn 静态解析为指定 IP 地址
+  dnslog.cn: 47.244.138.18
+
+# 内置 DNS 配置
+dns:
+  # 是否启用内置 DNS 服务
+  enable: true
+  # 是否支持 IPv6 地址的 DNS 解析
+  ipv6: true
+  # 监听 IPv6 和 IPv4 的通用地址
+  listen: '[::]:1053'
+  # DNS 增强模式：fake-ip(使用虚拟 IP), redir-host(返回真实 IP), Fake-IP 模式会为未解析的域名分配虚拟 IP,可能会与某些特定应用(如局域网共享,某些游戏服务不兼容) 如果遇到兼容性问题, 可以切换为 redir-host 模式
+  enhanced-mode: fake-ip
+  # 虚拟 IP 地址范围，fake-ip 模式下使用
+  fake-ip-range: '198.18.0.1/16'
+  # 是否使用 hosts 映射表
+  use-hosts: true
+  # 默认的上游 DNS 服务器
+  default-nameserver:
+    # 阿里 DNS（IPv6）
+    - '2400:3200::1'
+    # 阿里 DNS
+    - '223.5.5.5'
+    # 腾讯 DNS（IPv6）
+    # '2402:4e00::'
+    # Google DNS（IPv6）
+    # '2001:4860:4860::8888'
+    # Cloudflare DNS（IPv6）
+    # '2606:4700:4700::1111'
+    # 腾讯 DNS
+    # '119.28.28.28'
+    # Google DNS
+    # '8.8.8.8'
+    # Cloudflare DNS
+    # '1.1.1.1'
+  # DoH(DNS over HTTPS)服务器
+  nameserver:
+    # 阿里公共 DNS 的 DoH 服务
+    - "https://dns.alidns.com/dns-query"
+    # 腾讯公共 DNS 的 DoH 服务
+    # "https://doh.pub/dns-query"
+    # Cloudflare 公共 DNS 的 DoH 服务
+    # "https://1.1.1.1/dns-query"
+    # 阿里公共 DoH IPv6 优先
+    # "https://[2400:3200::1]/dns-query"
+    # 腾讯公共 DoH IPv6 优先
+    # "https://[2402:4e00::]/dns-query"
+    # Google DoH IPv6 优先
+    # "https://[2001:4860:4860::8888]/dns-query"
+    # Cloudflare DoH IPv6 优先
+    # "https://[2606:4700:4700::1111]/dns-query"
+    # 请确保系统支持 QUIC 协议，启用后会加速部分服务
+    # Cloudflare DoQ 服务
+    # "quic://1.1.1.1:853"
+    # Cloudflare DoQ IPv6 优先
+    # "quic://[2606:4700:4700::1111]:853"
+  # fake-ip 模式下不使用虚拟 IP 的域名, 这些域名相关的解析请求将会返回它们真实的IP地址
+  fake-ip-filter:
+    # 匹配所有 .lan 后缀的域名
+    - '*.lan'
+    # 排除所有本地设备域名，避免误用虚拟 IP 地址
+    - '*.local'
+    # 腾讯本地登录服务
+    - 'localhost.ptlogin2.qq.com'
+    # Windows 网络连通性检测
+    - 'dns.msftncsi.com'
+    # Nintendo Switch 服务
+    - '*.srv.nintendo.net'
+    # PlayStation 网络
+    - '*.stun.playstation.net'
+    # Xbox 服务
+    - 'xbox.*.microsoft.com'
+    # Xbox Live 服务
+    - '*.xboxlive.com'
+  # 备用 DNS 服务器，用于主 DNS 解析失败时
+  fallback:
+    # Google DNS（IPv6）
+    - '2001:4860:4860::8888'
+    # Cloudflare DNS（IPv6）
+    - '2606:4700:4700::1111'
+    # Google 公共 DNS
+    - '8.8.8.8'
+    # Cloudflare 公共 DNS
+    - '1.1.1.1'
+  # 备用 DNS 的过滤规则
+  fallback-filter:
+    # 启用 GEOIP 过滤（基于地理位置判断是否代理）
+    geoip: true
+    # 过滤规则的国家码
+    geoip-code: CN
+    # 备用 DNS 需要过滤的 IP 范围
+    ipcidr:
+      # 广播地址等特殊 IP 段
+      - '240.0.0.0/4'
+
+# 获取节点提供商流量信息并在主页显示
+subscribe-url: http://your-another-service-provider
+# 节点提供商配置
+proxy-providers:
+  SSRDOG:
+    # 每隔 14400 秒（4 小时）更新一次节点信息
+    interval: 14400
+    # 提供商的订阅链接
+    url: https://your-another-service-provider
+  providers-name:
+    interval: 14400
+    url: https://your-another-service-provider
+
+# 功能策略组
+proxy-groups:
+  - name: Proxy
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
+    interval: 14400
+    lazy: true
+    tolerance: 50
+    type: select
+    include-all: true
+
+  - name: Auto
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
+    interval: 14400
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    include-all: true
+    filter: "(?i)^(?!.*(?:GB|Days|Left|Expire|Date)).*"
+
+  - name: OpenAI
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+
+  - name: Google
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+
+  - name: Apple
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
+    type: select
+    proxies:
+      - DIRECT
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+
+  - name: Microsoft
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+      - DIRECT
+
+  - name: PayPal
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/PayPal.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+      - DIRECT
+
+  - name: YouTube
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/YouTube.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+
+  - name: X
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/X.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+
+  - name: NETFLIX
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Netflix.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+
+  - name: Spotify
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Spotify.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+      - DIRECT
+
+  - name: Disney+
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Disney+.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+
+  - name: TikTok
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+      - DIRECT
+
+  - name: BiliBili
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/bilibili_3.png
+    type: select
+    proxies:
+      - DIRECT
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+
+  - name: Steam
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Steam.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+      - DIRECT
+
+  - name: Telegram
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+
+  - name: Uncaptured
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png
+    type: select
+    proxies:
+      - Proxy
+      - Hong Kong
+      - Taiwan
+      - Japan
+      - South Korea
+      - Singapore
+      - United States
+      - Other Regions
+      - Auto
+      - DIRECT
+
+  # 地区策略组
+  - name: Hong Kong
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
+    interval: 14400
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    include-all: true
+    filter: "(?i)(澳门|🇲🇴|港|🇭🇰|HK|Hong)"
+
+  - name: Taiwan
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png
+    interval: 14400
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    include-all: true
+    filter: "(?i)(台|🇹🇼|湾|TW|Taiwan)"
+
+  - name: Japan
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
+    interval: 14400
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    include-all: true
+    filter: "(?i)(日|🇯🇵|东京|大阪|JP|Japan)"
+
+  - name: South Korea
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png
+    interval: 14400
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    include-all: true
+    filter: "(?i)(韩|🇰🇷|KR|Korea)"
+
+  - name: Singapore
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
+    interval: 14400
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    include-all: true
+    filter: "(?i)(新加坡|坡|狮城|🇸🇬|SG|Singapore)"
+
+  - name: United States
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
+    interval: 14400
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    include-all: true
+    filter: "(?i)(美|🇺🇲|US|States|America)"
+
+  - name: Other Regions
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
+    interval: 14400
+    lazy: true
+    tolerance: 50
+    type: select
+    url: http://cp.cloudflare.com/generate_204
+    include-all: true
+    filter: "(?i)^(?!.*(?:🇭🇰|🇹🇼|🇯🇵|🇰🇷|🇺🇸|🇸🇬|🇨🇳|港|HK|Hong|台|TW|Taiwan|日本|JP|Japan|韩|KR|Korea|新加坡|SG|Singapore|美|US|States|GB|Days|Left|Expire|Date)).*"
+
+# 远程规则集
+rule-providers:
+  category-ai-chat-!cn:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.list
+
+  google:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.list
+
+  apple:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.list
+
+  microsoft:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.list
+
+  paypal:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.list
+
+  youtube:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.list
+
+  x:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/x.list
+
+  netflix:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.list
+
+  spotify:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.list
+
+  disney:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.list
+
+  tiktok:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.list
+
+  bilibili:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bilibili.list
+
+  steam:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.list
+
+  telegram:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.list
+
+#分流规则引用
+rules:
+  # 全局禁用QUIC协议, 或设置匹配策略组
+  # SCRIPT,quic,REJECT
+  - DOMAIN,dog.ssrdog.com,Proxy
+  - DOMAIN-KEYWORD,czzy,DIRECT
+  - DOMAIN-KEYWORD,linkedin,Proxy
+  - RULE-SET,category-ai-chat-!cn,OpenAI
+  - RULE-SET,google,Google
+  - RULE-SET,apple,Apple
+  - RULE-SET,microsoft,Microsoft
+  - RULE-SET,paypal,PayPal
+  - RULE-SET,youtube,YouTube
+  - RULE-SET,x,X
+  - RULE-SET,netflix,NETFLIX
+  - RULE-SET,spotify,Spotify
+  - RULE-SET,disney,Disney+
+  - RULE-SET,tiktok,TikTok
+  - RULE-SET,bilibili,BiliBili
+  - RULE-SET,steam,Steam
+  - RULE-SET,telegram,Telegram
+  # Apple LBS
+  # DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
+  # DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
+  # DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
+  # DOMAIN-SUFFIX,push.apple.com,DIRECT
+  # Apple OCSP
+  # PROCESS-NAME,trustd,Proxy
+  - DOMAIN,local.adguard.org,DIRECT
+  - DOMAIN-SUFFIX,local,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - IP-CIDR,172.16.0.0/12,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,17.0.0.0/8,DIRECT
+  - IP-CIDR,100.64.0.0/10,DIRECT
+  - IP-CIDR,224.0.0.0/4,DIRECT
+  - IP-CIDR,203.0.113.0/24,DIRECT
+  - IP-CIDR,192.0.2.0/24,DIRECT
+  - IP-CIDR6,fe80::/10,DIRECT
+  - GEOIP,CN,DIRECT
+  - GEOIP,LAN,DIRECT
+  - MATCH,Uncaptured
+
+# 脚本
+# script:
+  # shortcuts:
+    # quic: network == 'udp' and dst_port == 443
+    # 功能：
+      # 定义一个快捷规则 quic，用来匹配所有使用 UDP 且目标端口为 443 的流量
+      # 该规则不会直接影响流量，只是用于标记或匹配 QUIC 流量
+    # 使用场景：
+      # 分流：识别 QUIC 流量后，将其分配到不同的代理组或直接连接
+      # 阻止：在不使用 QUIC 时，配合 REJECT 规则禁止其通过
