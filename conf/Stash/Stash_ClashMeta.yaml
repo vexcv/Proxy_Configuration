@@ -466,7 +466,7 @@ rules:
   # RULE-SET,netflix_ip,NETFLIX
   # RULE-SET,x_ip,X
   # RULE-SET,telegram_ip,Telegram
-  - MATCH,Uncaptured
+  - FINAL,Uncaptured
 
 # 脚本
 # script:
