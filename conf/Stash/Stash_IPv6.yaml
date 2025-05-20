@@ -4,6 +4,8 @@
 
 # 混合代理端口，用于接收 HTTP、HTTPS 和 SOCKS5 的请求
 mixed-port: 7890
+# 是否启用 IPv6 支持
+ipv6: true
 # 是否允许局域网设备通过本地代理访问
 allow-lan: true
 # 代理程序监听的地址，'*' 表示监听所有网络接口
@@ -12,8 +14,13 @@ bind-address: '*'
 mode: rule
 # 日志级别：warning（警告）、info（一般信息）、debug（调试）
 log-level: warning
-# 是否启用 IPv6 支持
-ipv6: true
+tcp-concurrent: true
+external-controller: 127.0.0.1:9090
+external-ui: ui
+external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+
+find-process-mode: strict
+global-client-fingerprint: chrome
 
 # 程序运行时的配置存储选项
 profile:
@@ -26,6 +33,30 @@ profile:
 
 # 统一延迟优化，减少规则解析对性能的影响
 unified-delay: true
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.push.apple.com"
+
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack:
+    - "any:53"
+    - "tcp://any:53"
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
 
 # 静态主机映射
 hosts:
@@ -48,10 +79,12 @@ dns:
   use-hosts: true
   # 默认的上游 DNS 服务器
   default-nameserver:
+    - tls://223.5.5.5
+    - tls://223.6.6.6
     # 阿里 DNS（IPv6）
-    - '2400:3200::1'
+    # '2400:3200::1'
     # 阿里 DNS
-    - '223.5.5.5'
+    # '223.5.5.5'
     # 腾讯 DNS（IPv6）
     # '2402:4e00::'
     # Google DNS（IPv6）
@@ -66,10 +99,10 @@ dns:
     # '1.1.1.1'
   # DoH(DNS over HTTPS)服务器
   nameserver:
-    # 阿里公共 DNS 的 DoH 服务
-    - "https://dns.alidns.com/dns-query"
     # 腾讯公共 DNS 的 DoH 服务
-    # "https://doh.pub/dns-query"
+    - https://doh.pub/dns-query
+    # 阿里公共 DNS 的 DoH 服务
+    - https://dns.alidns.com/dns-query
     # Cloudflare 公共 DNS 的 DoH 服务
     # "https://1.1.1.1/dns-query"
     # 阿里公共 DoH IPv6 优先
@@ -129,13 +162,11 @@ subscribe-url: http://your-another-service-provider
 # 节点提供商配置
 proxy-providers:
   SSRDOG:
+    type: http
     # 每隔 14400 秒（4 小时）更新一次节点信息
-    interval: 14400
+    interval: 86400
     # 提供商的订阅链接
-    url: http://your-another-service-provider
-  providers-name:
-    interval: 14400
-    url: http://your-another-service-provider
+    url: ""
 
 # 功能策略组
 proxy-groups:
@@ -151,7 +182,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
     interval: 14400
     lazy: true
-    tolerance: 50
+    tolerance: 10
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     include-all: true
@@ -160,220 +191,87 @@ proxy-groups:
   - name: OpenAI
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  - name: Github
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png
+    type: select
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: Google
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: Apple
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
     type: select
-    proxies:
-      - DIRECT
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
+    proxies: [Direct,Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: Microsoft
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
-      - DIRECT
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: PayPal
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/PayPal.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
-      - DIRECT
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: YouTube
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/YouTube.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: X
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/X.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: NETFLIX
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Netflix.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: Spotify
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Spotify.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
-      - DIRECT
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: Disney+
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Disney+.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: TikTok
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
-      - DIRECT
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: BiliBili
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/bilibili_3.png
     type: select
-    proxies:
-      - DIRECT
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
-
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+  
   - name: Steam
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Steam.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
-      - DIRECT
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: Telegram
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  - name: China
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China_Map.png
+    type: select
+    proxies: [Direct,Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: Uncaptured
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png
     type: select
-    proxies:
-      - Proxy
-      - Hong Kong
-      - Taiwan
-      - Japan
-      - South Korea
-      - Singapore
-      - United States
-      - Other Regions
-      - Auto
-      - DIRECT
+    proxies: [Direct,Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   # 地区策略组
   - name: Hong Kong
@@ -446,105 +344,75 @@ proxy-groups:
     include-all: true
     filter: "(?i)^(?!.*(?:🇭🇰|🇹🇼|🇯🇵|🇰🇷|🇺🇸|🇸🇬|🇨🇳|港|HK|Hong|台|TW|Taiwan|日本|JP|Japan|韩|KR|Korea|新加坡|SG|Singapore|美|US|States|GB|Days|Left|Expire|Date)).*"
 
+# 规则锚点
+rule-anchor:
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
 # 远程规则集
 rule-providers:
   category-ai-chat-!cn:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.list
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.mrs"
 
-  google:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.list
+  google_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs"
 
-  apple:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.list
+  apple_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs"
 
-  microsoft:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.list
+  microsoft_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs"
 
-  paypal:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.list
+  paypal_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.mrs"
 
-  youtube:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.list
+  youtube_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs"
 
-  x:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/x.list
+  x_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/x.mrs"
 
-  netflix:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.list
+  netflix_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs"
 
-  spotify:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.list
+  spotify_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs"
 
-  disney:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.list
+  disney_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.mrs"
 
-  tiktok:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.list
+  tiktok_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs"
 
-  bilibili:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bilibili.list
+  bilibili_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bilibili.mrs"
 
-  steam:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.list
+  steam_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs"
 
   telegram:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.list
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs"
+
+  geolocation-!cn:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"
+
+  private_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs"
 
 #分流规则引用
 rules:
