@@ -350,112 +350,107 @@ rule-anchor:
   domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
 # 远程规则集
 rule-providers:
-  category-ai-chat-!cn:
+  AI_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.mrs"
-
   google_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs"
-
   apple_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs"
-
   microsoft_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs"
-
   paypal_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.mrs"
-
   youtube_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs"
-
   x_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/x.mrs"
-
   netflix_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs"
-
   spotify_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs"
-
   disney_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.mrs"
-
   tiktok_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs"
-
   bilibili_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bilibili.mrs"
-
   steam_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs"
-
-  telegram:
+  telegram_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs"
-
+  cn_domain:
+    <<: *domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs"
   geolocation-!cn:
     <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"
-
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs"
   private_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs"
 
+  private_ip:
+    <<: *ip
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs"
+  cn_ip:
+    <<: *ip
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs"
+  google_ip:
+    <<: *ip
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.mrs"
+  netflix_ip:
+    <<: *ip
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.mrs"
+  x_ip:
+    <<: *ip
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/twitter.mrs"
+  telegram_ip:
+    <<: *ip
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.mrs"
+
 #分流规则引用
 rules:
-  # 全局禁用QUIC协议, 或设置匹配策略组
-  # SCRIPT,quic,REJECT
+  - GEOIP,LAN,DIRECT,no-resolve
   - DOMAIN,dog.ssrdog.com,Proxy
   - DOMAIN-KEYWORD,czzy,DIRECT
   - DOMAIN-KEYWORD,linkedin,Proxy
-  - RULE-SET,category-ai-chat-!cn,OpenAI
-  - RULE-SET,google,Google
-  - RULE-SET,apple,Apple
-  - RULE-SET,microsoft,Microsoft
-  - RULE-SET,paypal,PayPal
-  - RULE-SET,youtube,YouTube
-  - RULE-SET,x,X
-  - RULE-SET,netflix,NETFLIX
-  - RULE-SET,spotify,Spotify
-  - RULE-SET,disney,Disney+
-  - RULE-SET,tiktok,TikTok
-  - RULE-SET,bilibili,BiliBili
-  - RULE-SET,steam,Steam
-  - RULE-SET,telegram,Telegram
-  # Apple LBS
-  # DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
-  # DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
-  # DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
-  # DOMAIN-SUFFIX,push.apple.com,DIRECT
-  # Apple OCSP
-  # PROCESS-NAME,trustd,Proxy
-  - DOMAIN,local.adguard.org,DIRECT
-  - DOMAIN-SUFFIX,local,DIRECT
-  - IP-CIDR,127.0.0.0/8,DIRECT
-  - IP-CIDR,172.16.0.0/12,DIRECT
-  - IP-CIDR,192.168.0.0/16,DIRECT
-  - IP-CIDR,10.0.0.0/8,DIRECT
-  - IP-CIDR,17.0.0.0/8,DIRECT
-  - IP-CIDR,100.64.0.0/10,DIRECT
-  - IP-CIDR,224.0.0.0/4,DIRECT
-  - IP-CIDR,203.0.113.0/24,DIRECT
-  - IP-CIDR,192.0.2.0/24,DIRECT
-  - IP-CIDR6,fe80::/10,DIRECT
-  - GEOIP,CN,DIRECT
-  - GEOIP,LAN,DIRECT
+  - RULE-SET,AI_domain,OpenAI
+  - RULE-SET,google_domain,Google
+  - RULE-SET,apple_domain,Apple
+  - RULE-SET,microsoft_domain,Microsoft
+  - RULE-SET,paypal_domain,PayPal
+  - RULE-SET,youtube_domain,YouTube
+  - RULE-SET,x_domain,X
+  - RULE-SET,netflix_domain,NETFLIX
+  - RULE-SET,spotify_domain,Spotify
+  - RULE-SET,disney_domain,Disney+
+  - RULE-SET,tiktok_domain,TikTok
+  - RULE-SET,bilibili_domain,BiliBili
+  - RULE-SET,steam_domain,Steam
+  - RULE-SET,telegram_domain,Telegram
+  - RULE-SET,cn_domain,China
+  - RULE-SET,geolocation-!cn,Uncaptured
+  - RULE-SET,private_domain,DIRECT
+
+  - RULE-SET,private_ip,DIRECT,no-resolve
+  - RULE-SET,cn_ip,China
+  - RULE-SET,google_ip,Google
+  - RULE-SET,netflix_ip,NETFLIX
+  - RULE-SET,x_ip,X
+  - RULE-SET,telegram_ip,Telegram
   - MATCH,Uncaptured
 
 # 脚本
