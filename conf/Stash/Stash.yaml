@@ -353,6 +353,9 @@ rule-providers:
   AI_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.mrs"
+  github_domain:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"
   google_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs"
@@ -427,7 +430,9 @@ rules:
   - DOMAIN,dog.ssrdog.com,Proxy
   - DOMAIN-KEYWORD,czzy,DIRECT
   - DOMAIN-KEYWORD,linkedin,Proxy
+
   - RULE-SET,AI_domain,OpenAI
+  - RULE-SET,github_domain,Github
   - RULE-SET,google_domain,Google
   - RULE-SET,apple_domain,Apple
   - RULE-SET,microsoft_domain,Microsoft
