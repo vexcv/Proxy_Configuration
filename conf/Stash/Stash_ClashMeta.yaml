@@ -168,17 +168,13 @@ proxy-providers:
     # 提供商的订阅链接
     url: ""
 
-proxies: 
-  - name: "直连"
-    type: direct
-    udp: true
 # 功能策略组
 proxy-groups:
   - name: Proxy
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
     interval: 14400
     lazy: true
-    tolerance: 50
+    tolerance: 10
     type: select
     include-all: true
 
@@ -191,6 +187,11 @@ proxy-groups:
     url: http://cp.cloudflare.com/generate_204
     include-all: true
     filter: "(?i)^(?!.*(?:GB|Days|Left|Expire|Date)).*"
+
+  - name: Uncaptured
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png
+    type: select
+    proxies: [DIRECT,Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: OpenAI
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
@@ -210,7 +211,7 @@ proxy-groups:
   - name: Apple
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
     type: select
-    proxies: [直连,Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+    proxies: [DIRECT,Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: Microsoft
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png
@@ -267,22 +268,17 @@ proxy-groups:
     type: select
     proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
-  - name: China
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China_Map.png
-    type: select
-    proxies: [直连,Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
-
-  - name: Uncaptured
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png
-    type: select
-    proxies: [直连,Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+  # name: China
+  # icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China_Map.png
+  # type: select
+  # proxies: [DIRECT,Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   # 地区策略组
   - name: Hong Kong
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     interval: 14400
     lazy: true
-    tolerance: 50
+    tolerance: 10
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     include-all: true
@@ -292,7 +288,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png
     interval: 14400
     lazy: true
-    tolerance: 50
+    tolerance: 10
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     include-all: true
@@ -302,7 +298,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
     interval: 14400
     lazy: true
-    tolerance: 50
+    tolerance: 10
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     include-all: true
@@ -312,7 +308,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png
     interval: 14400
     lazy: true
-    tolerance: 50
+    tolerance: 10
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     include-all: true
@@ -322,7 +318,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
     interval: 14400
     lazy: true
-    tolerance: 50
+    tolerance: 10
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     include-all: true
@@ -332,7 +328,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
     interval: 14400
     lazy: true
-    tolerance: 50
+    tolerance: 10
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     include-all: true
@@ -342,7 +338,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
     interval: 14400
     lazy: true
-    tolerance: 50
+    tolerance: 10
     type: select
     url: http://cp.cloudflare.com/generate_204
     include-all: true
@@ -350,8 +346,8 @@ proxy-groups:
 
 # 规则锚点
 rule-anchor:
-  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: text}
   domain: &domain {type: http, interval: 86400, behavior: domain, format: text}
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: text}
 # 远程规则集
 rule-providers:
   AI_domain:
@@ -399,12 +395,12 @@ rule-providers:
   telegram_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.list"
-  cn_domain:
-    <<: *domain
-    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.list"
-  geolocation-!cn:
-    <<: *domain
-    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.list"
+  # cn_domain:
+  # <<: *domain
+  # url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.list"
+  # geolocation-!cn:
+  # <<: *domain
+  # url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.list"
   private_domain:
     <<: *domain
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.list"
@@ -412,28 +408,38 @@ rule-providers:
   private_ip:
     <<: *ip
     url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.list"
-  cn_ip:
-    <<: *ip
-    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.list"
-  google_ip:
-    <<: *ip
-    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.list"
-  netflix_ip:
-    <<: *ip
-    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.list"
-  x_ip:
-    <<: *ip
-    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/twitter.list"
-  telegram_ip:
-    <<: *ip
-    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.list"
+  # cn_ip:
+  # <<: *ip
+  # url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.list"
+  # google_ip:
+  # <<: *ip
+  # url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.list"
+  # netflix_ip:
+  # <<: *ip
+  # url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.list"
+  # x_ip:
+  # <<: *ip
+  # url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/twitter.list"
+  # telegram_ip:
+  # <<: *ip
+  # url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.list"
 
 #分流规则引用
 rules:
-  - GEOIP,LAN,直连,no-resolve
+  - GEOIP,LAN,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT
+
   - DOMAIN,dog.ssrdog.com,Proxy
-  - DOMAIN-KEYWORD,czzy,直连
+  - DOMAIN-KEYWORD,czzy,DIRECT
   - DOMAIN-KEYWORD,linkedin,Proxy
+
+  # Apple LBS
+  # DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
+  # DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
+  # DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
+  # DOMAIN-SUFFIX,push.apple.com,DIRECT
+  # Apple OCSP
+  # PROCESS-NAME,trustd,Proxy
 
   - RULE-SET,AI_domain,OpenAI
   - RULE-SET,github_domain,Github
@@ -450,16 +456,16 @@ rules:
   - RULE-SET,bilibili_domain,BiliBili
   - RULE-SET,steam_domain,Steam
   - RULE-SET,telegram_domain,Telegram
-  - RULE-SET,cn_domain,China
-  - RULE-SET,geolocation-!cn,Uncaptured
-  - RULE-SET,private_domain,直连
+  # RULE-SET,cn_domain,China
+  # RULE-SET,geolocation-!cn,Uncaptured
+  - RULE-SET,private_domain,DIRECT
 
-  - RULE-SET,private_ip,直连,no-resolve
-  - RULE-SET,cn_ip,China
-  - RULE-SET,google_ip,Google
-  - RULE-SET,netflix_ip,NETFLIX
-  - RULE-SET,x_ip,X
-  - RULE-SET,telegram_ip,Telegram
+  - RULE-SET,private_ip,DIRECT,no-resolve
+  # RULE-SET,cn_ip,China
+  # RULE-SET,google_ip,Google
+  # RULE-SET,netflix_ip,NETFLIX
+  # RULE-SET,x_ip,X
+  # RULE-SET,telegram_ip,Telegram
   - MATCH,Uncaptured
 
 # 脚本
