@@ -191,7 +191,7 @@ proxy-groups:
   - name: Uncaptured
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png
     type: select
-    proxies: [DIRECT,Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+    proxies: [Proxy,DIRECT,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
   - name: OpenAI
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
