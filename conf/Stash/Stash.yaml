@@ -441,8 +441,8 @@ rules:
   # RULE-SET,netflix_ip,NETFLIX
   # RULE-SET,x_ip,X
   # RULE-SET,telegram_ip,Telegram
-  - GEOIP,LAN,DIRECT,no-resolve
   - GEOIP,CN,DIRECT
+  - GEOIP,LAN,DIRECT,no-resolve
   - MATCH,Uncaptured
 
 # 脚本
