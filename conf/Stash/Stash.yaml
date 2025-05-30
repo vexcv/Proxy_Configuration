@@ -193,11 +193,6 @@ proxy-groups:
     type: select
     proxies: [Proxy,DIRECT,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
-  - name: Linkedin
-    icon: https://ghfast.top/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Linkedin.png
-    type: select
-    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
-
   - name: OpenAI
     icon: https://ghfast.top/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
     type: select
@@ -355,9 +350,6 @@ rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: text}
 # 远程规则集
 rule-providers:
-  linkedin:
-    <<: *domain
-    url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/linkedin.list"
   AI_domain:
     <<: *domain
     url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-chat-!cn.list"
@@ -437,8 +429,9 @@ rules:
   - GEOIP,LAN,DIRECT,no-resolve
   - GEOIP,CN,DIRECT
 
-  - DOMAIN,dog.ssrdog.com,Proxy
+  - DOMAIN,dog.ssrdog.com,PROXY
   - DOMAIN-KEYWORD,czzy,DIRECT
+  - DOMAIN-KEYWORD,linkedin,PROXY
 
   # Apple LBS
   # DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
@@ -448,7 +441,6 @@ rules:
   # Apple OCSP
   # PROCESS-NAME,trustd,Proxy
 
-  - RULE-SET,linkedin,Linkedin
   - RULE-SET,AI_domain,OpenAI
   - RULE-SET,github_domain,Github
   - RULE-SET,google_domain,Google
