@@ -429,9 +429,11 @@ rules:
   - GEOIP,LAN,DIRECT,no-resolve
   - GEOIP,CN,DIRECT
 
+  - DOMAIN-SUFFIX,linkedin.com,Proxy
+  - DOMAIN-SUFFIX,linkedin.cn,Proxy
+  - DOMAIN-KEYWORD,linkedin,Proxy
   - DOMAIN,dog.ssrdog.com,Proxy
   - DOMAIN-KEYWORD,czzy,DIRECT
-  - DOMAIN-KEYWORD,linkedin,Proxy
 
   # Apple LBS
   # DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
