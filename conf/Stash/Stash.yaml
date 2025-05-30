@@ -13,7 +13,7 @@ bind-address: '*'
 # 代理模式：rule（按规则分流）、global（全局代理）、direct（全局直连）
 mode: rule
 # 日志级别：warning（警告）、info（一般信息）、debug（调试）
-log-level: warning
+log-level: info
 tcp-concurrent: true
 external-controller: 127.0.0.1:9090
 external-ui: ui
@@ -404,11 +404,6 @@ rule-providers:
 
 #分流规则引用
 rules:
-  - GEOIP,LAN,DIRECT,no-resolve
-  - GEOIP,CN,DIRECT
-
-  - DOMAIN-SUFFIX,linkedin.com,Proxy
-  - DOMAIN-SUFFIX,linkedin.cn,Proxy
   - DOMAIN-KEYWORD,linkedin,Proxy
   - DOMAIN,dog.ssrdog.com,Proxy
   - DOMAIN-KEYWORD,czzy,DIRECT
@@ -446,6 +441,8 @@ rules:
   # RULE-SET,netflix_ip,NETFLIX
   # RULE-SET,x_ip,X
   # RULE-SET,telegram_ip,Telegram
+  - GEOIP,LAN,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT
   - MATCH,Uncaptured
 
 # 脚本
