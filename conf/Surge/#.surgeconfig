@@ -1,8 +1,12 @@
+# Author: vexcv
+# Update: 2025.6.16
+# Telegram: https://t.me/vexcso
 # Surge 的规则配置手册: https://manual.nssurge.com/
-# Thanks @Hackl0us SS-Rule-Snippet
+# 适用版本：iOS/macOS的Surge 5
+
 [General]
 dns-server = 119.29.29.29, 223.5.5.5
-ipv6 = false
+ipv6 = true
 loglevel = notify
 skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, localhost, *.local
 internet-test-url = http://connect.rom.miui.com/generate_204
@@ -28,32 +32,40 @@ hide-udp = 1
 keyword-filter-type = none
 hide-crash-reporter-request = 1
 [Proxy]
-
 [Proxy Group]
-SSRDOG = select, Auto, 19.55 GB | 850 GB, Traffic Reset: 27 Days Left, Expire Date: 2026-08-13, 🇭🇰 Hong Kong丨01, 🇭🇰 Hong Kong丨02, 🇭🇰 Hong Kong丨03, 🇭🇰 Hong Kong丨04, 🇭🇰 Hong Kong丨05, 🇭🇰 Hong Kong丨06, 🇭🇰 Hong Kong丨07, 🇭🇰 Hong Kong丨08, 🇭🇰 Hong Kong丨09, 🇭🇰 Hong Kong丨10, 🇭🇰 Hong Kong丨11, 🇭🇰 Hong Kong丨12, 🇭🇰 Hong Kong丨13, 🇭🇰 Hong Kong丨14, 🇭🇰 Hong Kong丨15, 🇨🇳 Taiwan丨01, 🇨🇳 Taiwan丨02, 🇨🇳 Taiwan丨03, 🇨🇳 Taiwan丨04, 🇨🇳 Taiwan丨05, 🇨🇳 Taiwan丨06, 🇨🇳 Taiwan丨07, 🇨🇳 Taiwan丨08, 🇨🇳 Taiwan丨09, 🇨🇳 Taiwan丨10, 🇸🇬 Singapore丨01, 🇸🇬 Singapore丨02, 🇸🇬 Singapore丨03, 🇸🇬 Singapore丨04, 🇸🇬 Singapore丨05, 🇸🇬 Singapore丨06, 🇸🇬 Singapore丨07, 🇸🇬 Singapore丨08, 🇸🇬 Singapore丨09, 🇸🇬 Singapore丨10, 🇯🇵 Japan丨01, 🇯🇵 Japan丨02, 🇯🇵 Japan丨03, 🇯🇵 Japan丨04, 🇯🇵 Japan丨05, 🇯🇵 Japan丨06, 🇯🇵 Japan丨07, 🇯🇵 Japan丨08, 🇯🇵 Japan丨09, 🇯🇵 Japan丨10, 🇺🇸 United States丨01, 🇺🇸 United States丨02, 🇺🇸 United States丨03, 🇺🇸 United States丨04, 🇺🇸 United States丨05, 🇺🇸 United States丨06, 🇺🇸 United States丨07, 🇺🇸 United States丨08, 🇺🇸 United States丨09, 🇺🇸 United States丨10, 🇰🇷 South Korea丨01, 🇨🇦 Canada丨01, 🇬🇧 Great Britain丨01, 🇹🇷 Turkey丨01, 🇮🇳 India丨01, 🇳🇱 Netherlands丨01, 🇫🇷 France | 01, 🇩🇪 Germany | 01, 🇻🇳 Vietnam | 01, 🇲🇾 Malaysia丨01, 🇹🇭 Thailand丨01, 🇵🇭 Philippines丨01
-Auto = fallback, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan, 🇬🇧 Great Britain , 🇨🇦 Canada, 🇰🇷 Korea, 🇹🇷 Turkey, 🇳🇱 Netherlands, 🇫🇷 France, 🇩🇪 Germany, 🇻🇳 Vietnam, 🇲🇾 Malaysia, 🇹🇭 Thailand
-🇭🇰 Hong Kong = select, 🇭🇰 Hong Kong丨01, 🇭🇰 Hong Kong丨02, 🇭🇰 Hong Kong丨03, 🇭🇰 Hong Kong丨04, 🇭🇰 Hong Kong丨05, 🇭🇰 Hong Kong丨06, 🇭🇰 Hong Kong丨07, 🇭🇰 Hong Kong丨08, 🇭🇰 Hong Kong丨09, 🇭🇰 Hong Kong丨10, 🇭🇰 Hong Kong丨11, 🇭🇰 Hong Kong丨12, 🇭🇰 Hong Kong丨13, 🇭🇰 Hong Kong丨14, 🇭🇰 Hong Kong丨15
-🇸🇬 Singapore = select, 🇸🇬 Singapore丨01, 🇸🇬 Singapore丨02, 🇸🇬 Singapore丨03, 🇸🇬 Singapore丨04, 🇸🇬 Singapore丨05, 🇸🇬 Singapore丨06, 🇸🇬 Singapore丨07, 🇸🇬 Singapore丨08, 🇸🇬 Singapore丨09, 🇸🇬 Singapore丨10
-🇯🇵 Japan = select, 🇯🇵 Japan丨01, 🇯🇵 Japan丨02, 🇯🇵 Japan丨03, 🇯🇵 Japan丨04, 🇯🇵 Japan丨05, 🇯🇵 Japan丨06, 🇯🇵 Japan丨07, 🇯🇵 Japan丨08, 🇯🇵 Japan丨09, 🇯🇵 Japan丨10
-🇰🇷 Korea = select, 🇰🇷 South Korea丨01
-🇨🇦 Canada = select, 🇨🇦 Canada丨01
-🇺🇸 United States = select, 🇺🇸 United States丨01, 🇺🇸 United States丨02, 🇺🇸 United States丨03, 🇺🇸 United States丨04, 🇺🇸 United States丨05, 🇺🇸 United States丨06, 🇺🇸 United States丨07, 🇺🇸 United States丨08, 🇺🇸 United States丨09, 🇺🇸 United States丨10
-🇨🇳 Taiwan = select, 🇨🇳 Taiwan丨01, 🇨🇳 Taiwan丨02, 🇨🇳 Taiwan丨03, 🇨🇳 Taiwan丨04, 🇨🇳 Taiwan丨05, 🇨🇳 Taiwan丨06, 🇨🇳 Taiwan丨07, 🇨🇳 Taiwan丨08, 🇨🇳 Taiwan丨09, 🇨🇳 Taiwan丨10
-🇬🇧 Great Britain = select, 🇬🇧 Great Britain丨01
-🇹🇷 Turkey = select, 🇹🇷 Turkey丨01
-🇳🇱 Netherlands = select, 🇳🇱 Netherlands丨01
-🇫🇷 France = select, 🇫🇷 France | 01
-🇩🇪 Germany = select, 🇩🇪 Germany | 01
-🇻🇳 Vietnam = select, 🇻🇳 Vietnam | 01
-🇲🇾 Malaysia = select, 🇲🇾 Malaysia丨01
-🇹🇭 Thailand = select, 🇹🇭 Thailand丨01
+SSRDOG = select, update-interval=86400, policy-path=您的订阅链接, hidden=true
+Proxy = select, include-other-group=SSRDOG, hidden=false, persistent=1
+🇭🇰 Hong Kong = url-test, update-interval=0, tolerance = 20, include-other-group=SSRDOG, evaluate-before-use=true, include-other-group=SSRDOG, policy-regex-filter=(澳门|🇲🇴|港|🇭🇰|HK|Hong), hidden=false
+🇹🇼 Taiwan = url-test, update-interval=0, tolerance = 20, include-other-group=SSRDOG, evaluate-before-use=true, include-other-group=SSRDOG, policy-regex-filter=(台|🇹🇼|湾|TW|Taiwan), hidden=false
+🇯🇵 Japan = url-test, update-interval=0, tolerance = 20, include-other-group=SSRDOG, evaluate-before-use=true, include-other-group=SSRDOG, policy-regex-filter=(日|🇯🇵|东京|大阪|JP|Japan), hidden=false
+🇰🇷 Korea = url-test, update-interval=0, tolerance = 20, include-other-group=SSRDOG, evaluate-before-use=true, include-other-group=SSRDOG, policy-regex-filter=(韩|🇰🇷|KR|Korea), hidden=false
+🇸🇬 Singapore = url-test, update-interval=0, tolerance = 20, include-other-group=SSRDOG, evaluate-before-use=true, include-other-group=SSRDOG, policy-regex-filter=(新加坡|坡|狮城|🇸🇬|SG|Singapore), hidden=false
+🇺🇸 United States = url-test, update-interval=0, tolerance = 20, include-other-group=SSRDOG, evaluate-before-use=true, include-other-group=SSRDOG, policy-regex-filter=(美|🇺🇲|US|States|America), hidden=false
+Other Regions = select, include-other-group=SSRDOG, policy-regex-filter=^(?!.*(距离|重置|过期|到期|剩余|GB|Traffic|Expire|Days|Left|Date|香港|HK|HKG|Hong Kong|台湾|TW|TWN|Taiwan|日本|JP|JPN|Japan|美国|US|USA|United States|新加坡|狮城|SG|SGP|Singapore)), hidden=false
 [Rule]
-RULE-SET,https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/Bahamut/Bahamut.list,🇨🇳 Taiwan
-RULE-SET,https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/DMM/DMM.list,🇯🇵 Japan
-RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/linkedin.list,SSRDOG
-RULE-SET,https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/Lan/Lan.list,DIRECT
-DOMAIN-SET,https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/ChinaMax/ChinaMax_Domain.list,DIRECT
-RULE-SET,https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/ChinaMax/ChinaMax_No_IPv6.list,DIRECT
-FINAL,SSRDOG,dns-failed
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-chat-!cn.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/linkedin.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/x.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/disney.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam.list,Proxy
+# RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.list,Proxy
+# RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.list,Proxy
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.list,DIRECT
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.list,DIRECT
+RULE-SET,LAN,DIRECT
+GEOIP,LAN,DIRECT
+FINAL,Proxy,dns-failed
 [URL Rewrite]
 ^http:\/\/www\.google\.cn https://www.google.com 302
