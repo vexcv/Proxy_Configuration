@@ -1,0 +1,128 @@
+# Surge 的规则配置手册: https://manual.nssurge.com/
+# Thanks @Hackl0us SS-Rule-Snippet
+[General]
+dns-server = 119.29.29.29, 223.5.5.5
+ipv6 = false
+loglevel = notify
+skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, localhost, *.local
+internet-test-url = http://connect.rom.miui.com/generate_204
+proxy-test-url = http://www.gstatic.com/generate_204
+test-timeout = 4
+exclude-simple-hostnames = true
+read-etc-hosts = true
+show-error-page-for-reject = true
+disable-geoip-db-auto-update = true
+http-api-web-dashboard = true
+hijack-dns = *:53
+http-listen = 0.0.0.0
+socks5-listen = 0.0.0.0
+wifi-assist = true
+allow-wifi-access = true
+wifi-access-http-port = 6152
+wifi-access-socks5-port = 6153
+[Replica]
+hide-apple-request = 1
+hide-crashlytics-request = true
+use-keyword-filter = false
+hide-udp = 1
+keyword-filter-type = none
+hide-crash-reporter-request = 1
+[Proxy]
+19.55 GB | 850 GB=ss,hk001.dogsvip.site,16001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+Traffic Reset: 27 Days Left=ss,hk001.dogsvip.site,16001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+Expire Date: 2026-08-13=ss,hk001.dogsvip.site,16001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨01=ss,hk001.dogsvip.site,16001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨02=ss,hk002.dogsvip.site,16002,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨03=ss,hk003.dogsvip.site,16003,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨04=ss,hk004.dogsvip.site,16004,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨05=ss,hk005.dogsvip.site,16005,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨06=ss,hk006.dogsvip.site,16006,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨07=ss,hk007.dogsvip.site,16007,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨08=ss,hk008.dogsvip.site,16008,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨09=ss,hk009.dogsvip.site,16009,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨10=ss,hk010.dogsvip.site,16010,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨11=ss,hk011.dogsvip.site,16011,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨12=ss,hk012.dogsvip.site,16012,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨13=ss,hk013.dogsvip.site,16013,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨14=ss,hk014.dogsvip.site,16014,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇭🇰 Hong Kong丨15=ss,hk015.dogsvip.site,16015,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇨🇳 Taiwan丨01=ss,tw001.dogsvip.site,17001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇨🇳 Taiwan丨02=ss,tw002.dogsvip.site,17002,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇨🇳 Taiwan丨03=ss,tw003.dogsvip.site,17003,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇨🇳 Taiwan丨04=ss,tw004.dogsvip.site,17004,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇨🇳 Taiwan丨05=ss,tw005.dogsvip.site,17005,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇨🇳 Taiwan丨06=ss,tw006.dogsvip.site,17006,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇨🇳 Taiwan丨07=ss,tw007.dogsvip.site,17007,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇨🇳 Taiwan丨08=ss,tw008.dogsvip.site,17008,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇨🇳 Taiwan丨09=ss,tw009.dogsvip.site,17009,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇨🇳 Taiwan丨10=ss,tw009.dogsvip.site,17010,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇸🇬 Singapore丨01=ss,sg001.dogsvip.site,18001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇸🇬 Singapore丨02=ss,sg002.dogsvip.site,18002,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇸🇬 Singapore丨03=ss,sg003.dogsvip.site,18003,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇸🇬 Singapore丨04=ss,sg004.dogsvip.site,18004,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇸🇬 Singapore丨05=ss,sg005.dogsvip.site,18005,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇸🇬 Singapore丨06=ss,sg006.dogsvip.site,18006,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇸🇬 Singapore丨07=ss,sg007.dogsvip.site,18007,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇸🇬 Singapore丨08=ss,sg008.dogsvip.site,18008,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇸🇬 Singapore丨09=ss,sg009.dogsvip.site,18009,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇸🇬 Singapore丨10=ss,sg010.dogsvip.site,18010,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇯🇵 Japan丨01=ss,jp001.dogsvip.site,19001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇯🇵 Japan丨02=ss,jp002.dogsvip.site,19002,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇯🇵 Japan丨03=ss,jp003.dogsvip.site,19004,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇯🇵 Japan丨04=ss,jp004.dogsvip.site,19004,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇯🇵 Japan丨05=ss,jp005.dogsvip.site,19004,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇯🇵 Japan丨06=ss,jp006.dogsvip.site,19006,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇯🇵 Japan丨07=ss,jp007.dogsvip.site,19007,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇯🇵 Japan丨08=ss,jp008.dogsvip.site,19008,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇯🇵 Japan丨09=ss,jp009.dogsvip.site,19009,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇯🇵 Japan丨10=ss,jp010.dogsvip.site,19010,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇺🇸 United States丨01=ss,us001.dogsvip.site,20001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇺🇸 United States丨02=ss,us002.dogsvip.site,20002,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇺🇸 United States丨03=ss,us003.dogsvip.site,20003,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇺🇸 United States丨04=ss,us004.dogsvip.site,20004,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇺🇸 United States丨05=ss,us005.dogsvip.site,20005,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇺🇸 United States丨06=ss,us006.dogsvip.site,20006,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇺🇸 United States丨07=ss,us007.dogsvip.site,20007,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇺🇸 United States丨08=ss,us008.dogsvip.site,20008,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇺🇸 United States丨09=ss,us009.dogsvip.site,20009,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇺🇸 United States丨10=ss,us010.dogsvip.site,20010,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇰🇷 South Korea丨01=ss,kr001.dogsvip.site,21001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇨🇦 Canada丨01=ss,ca001.dogsvip.site,22002,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇬🇧 Great Britain丨01=ss,uk001.dogsvip.site,23001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇹🇷 Turkey丨01=ss,tr001.dogsvip.site,24001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇮🇳 India丨01=ss,in001.dogsvip.site,25001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇳🇱 Netherlands丨01=ss,nl001.dogsvip.site,26001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇫🇷 France | 01=ss,fr001.dogsvip.site,27001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇩🇪 Germany | 01=ss,de001.dogsvip.site,28001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇻🇳 Vietnam | 01=ss,vn001.dogsvip.site,29001,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇲🇾 Malaysia丨01=ss,myr01.dogsvip.site,29010,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇹🇭 Thailand丨01=ss,tha01.dogsvip.site,29015,encrypt-method=aes-256-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+🇵🇭 Philippines丨01=ss,ph01.dogsvip.site,29020,encrypt-method=aes-128-gcm,password=0da7490c-0d81-4910-a80b-f51bf50c0e74,tfo=true,udp-relay=true
+[Proxy Group]
+SSRDOG = select, Auto, 19.55 GB | 850 GB, Traffic Reset: 27 Days Left, Expire Date: 2026-08-13, 🇭🇰 Hong Kong丨01, 🇭🇰 Hong Kong丨02, 🇭🇰 Hong Kong丨03, 🇭🇰 Hong Kong丨04, 🇭🇰 Hong Kong丨05, 🇭🇰 Hong Kong丨06, 🇭🇰 Hong Kong丨07, 🇭🇰 Hong Kong丨08, 🇭🇰 Hong Kong丨09, 🇭🇰 Hong Kong丨10, 🇭🇰 Hong Kong丨11, 🇭🇰 Hong Kong丨12, 🇭🇰 Hong Kong丨13, 🇭🇰 Hong Kong丨14, 🇭🇰 Hong Kong丨15, 🇨🇳 Taiwan丨01, 🇨🇳 Taiwan丨02, 🇨🇳 Taiwan丨03, 🇨🇳 Taiwan丨04, 🇨🇳 Taiwan丨05, 🇨🇳 Taiwan丨06, 🇨🇳 Taiwan丨07, 🇨🇳 Taiwan丨08, 🇨🇳 Taiwan丨09, 🇨🇳 Taiwan丨10, 🇸🇬 Singapore丨01, 🇸🇬 Singapore丨02, 🇸🇬 Singapore丨03, 🇸🇬 Singapore丨04, 🇸🇬 Singapore丨05, 🇸🇬 Singapore丨06, 🇸🇬 Singapore丨07, 🇸🇬 Singapore丨08, 🇸🇬 Singapore丨09, 🇸🇬 Singapore丨10, 🇯🇵 Japan丨01, 🇯🇵 Japan丨02, 🇯🇵 Japan丨03, 🇯🇵 Japan丨04, 🇯🇵 Japan丨05, 🇯🇵 Japan丨06, 🇯🇵 Japan丨07, 🇯🇵 Japan丨08, 🇯🇵 Japan丨09, 🇯🇵 Japan丨10, 🇺🇸 United States丨01, 🇺🇸 United States丨02, 🇺🇸 United States丨03, 🇺🇸 United States丨04, 🇺🇸 United States丨05, 🇺🇸 United States丨06, 🇺🇸 United States丨07, 🇺🇸 United States丨08, 🇺🇸 United States丨09, 🇺🇸 United States丨10, 🇰🇷 South Korea丨01, 🇨🇦 Canada丨01, 🇬🇧 Great Britain丨01, 🇹🇷 Turkey丨01, 🇮🇳 India丨01, 🇳🇱 Netherlands丨01, 🇫🇷 France | 01, 🇩🇪 Germany | 01, 🇻🇳 Vietnam | 01, 🇲🇾 Malaysia丨01, 🇹🇭 Thailand丨01, 🇵🇭 Philippines丨01
+Auto = fallback, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan, 🇬🇧 Great Britain , 🇨🇦 Canada, 🇰🇷 Korea, 🇹🇷 Turkey, 🇳🇱 Netherlands, 🇫🇷 France, 🇩🇪 Germany, 🇻🇳 Vietnam, 🇲🇾 Malaysia, 🇹🇭 Thailand
+🇭🇰 Hong Kong = select, 🇭🇰 Hong Kong丨01, 🇭🇰 Hong Kong丨02, 🇭🇰 Hong Kong丨03, 🇭🇰 Hong Kong丨04, 🇭🇰 Hong Kong丨05, 🇭🇰 Hong Kong丨06, 🇭🇰 Hong Kong丨07, 🇭🇰 Hong Kong丨08, 🇭🇰 Hong Kong丨09, 🇭🇰 Hong Kong丨10, 🇭🇰 Hong Kong丨11, 🇭🇰 Hong Kong丨12, 🇭🇰 Hong Kong丨13, 🇭🇰 Hong Kong丨14, 🇭🇰 Hong Kong丨15
+🇸🇬 Singapore = select, 🇸🇬 Singapore丨01, 🇸🇬 Singapore丨02, 🇸🇬 Singapore丨03, 🇸🇬 Singapore丨04, 🇸🇬 Singapore丨05, 🇸🇬 Singapore丨06, 🇸🇬 Singapore丨07, 🇸🇬 Singapore丨08, 🇸🇬 Singapore丨09, 🇸🇬 Singapore丨10
+🇯🇵 Japan = select, 🇯🇵 Japan丨01, 🇯🇵 Japan丨02, 🇯🇵 Japan丨03, 🇯🇵 Japan丨04, 🇯🇵 Japan丨05, 🇯🇵 Japan丨06, 🇯🇵 Japan丨07, 🇯🇵 Japan丨08, 🇯🇵 Japan丨09, 🇯🇵 Japan丨10
+🇰🇷 Korea = select, 🇰🇷 South Korea丨01
+🇨🇦 Canada = select, 🇨🇦 Canada丨01
+🇺🇸 United States = select, 🇺🇸 United States丨01, 🇺🇸 United States丨02, 🇺🇸 United States丨03, 🇺🇸 United States丨04, 🇺🇸 United States丨05, 🇺🇸 United States丨06, 🇺🇸 United States丨07, 🇺🇸 United States丨08, 🇺🇸 United States丨09, 🇺🇸 United States丨10
+🇨🇳 Taiwan = select, 🇨🇳 Taiwan丨01, 🇨🇳 Taiwan丨02, 🇨🇳 Taiwan丨03, 🇨🇳 Taiwan丨04, 🇨🇳 Taiwan丨05, 🇨🇳 Taiwan丨06, 🇨🇳 Taiwan丨07, 🇨🇳 Taiwan丨08, 🇨🇳 Taiwan丨09, 🇨🇳 Taiwan丨10
+🇬🇧 Great Britain = select, 🇬🇧 Great Britain丨01
+🇹🇷 Turkey = select, 🇹🇷 Turkey丨01
+🇳🇱 Netherlands = select, 🇳🇱 Netherlands丨01
+🇫🇷 France = select, 🇫🇷 France | 01
+🇩🇪 Germany = select, 🇩🇪 Germany | 01
+🇻🇳 Vietnam = select, 🇻🇳 Vietnam | 01
+🇲🇾 Malaysia = select, 🇲🇾 Malaysia丨01
+🇹🇭 Thailand = select, 🇹🇭 Thailand丨01
+[Rule]
+RULE-SET,https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/Bahamut/Bahamut.list,🇨🇳 Taiwan
+RULE-SET,https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/DMM/DMM.list,🇯🇵 Japan
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/linkedin.list,SSRDOG
+RULE-SET,https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/Lan/Lan.list,DIRECT
+DOMAIN-SET,https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/ChinaMax/ChinaMax_Domain.list,DIRECT
+RULE-SET,https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/ChinaMax/ChinaMax_No_IPv6.list,DIRECT
+FINAL,SSRDOG,dns-failed
+[URL Rewrite]
+^http:\/\/www\.google\.cn https://www.google.com 302
