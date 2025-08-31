@@ -73,7 +73,7 @@ hide-crash-reporter-request = 1
 # > 代理服务器（在此处添加你的代理服务器配置）
 
 [Proxy Group]
-# > 手动选择
+# > 服务分组
 Proxy = select, policy-path=url, update-interval=1440, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://raw.githubusercontent.com/Irrucky/Tool/main/Surge/icon/surge-1.png
 StarLink = select, policy-path=url, update-interval=7200, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 Apple = select, DIRECT, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
@@ -86,7 +86,7 @@ Disney+ = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Ta
 Spotify = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
 Telegram = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
 GlobalMedia = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ForeignMedia.png
-# > 地区节点分组
+# > 地区分组
 🇺🇸 United States = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇺🇸|美|US|States|America), hidden=1, icon-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 🇭🇰 Hong Kong = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇭🇰|港|澳门|🇲🇴|HK|Hong), hidden=1, icon-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 🇹🇼 Taiwan = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇨🇳|🇹🇼|台|湾|TW|Taiwan), hidden=1, icon-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
