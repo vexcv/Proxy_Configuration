@@ -74,36 +74,24 @@ hide-crash-reporter-request = 1
 
 [Proxy Group]
 # > 手动选择
-Proxy = select, policy-path=url, update-interval=1440, no-alert=false, hidden=false, include-all-proxies=true, persistent=true, icon-url=https://raw.githubusercontent.com/Irrucky/Tool/main/Surge/icon/surge-1.png
+Proxy = select, policy-path=url, update-interval=1440, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://raw.githubusercontent.com/Irrucky/Tool/main/Surge/icon/surge-1.png
 
-StarLink = select, policy-path=url, update-interval=7200, no-alert=false, hidden=false, include-all-proxies=true, persistent=true
-
-🇭🇰 Hong Kong = smart, update-interval=36000, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(澳门|🇲🇴|港|🇭🇰|HK|Hong), hidden=false
-
-🇹🇼 Taiwan = smart, update-interval=36000, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(台|🇹🇼|湾|TW|Taiwan), hidden=false
-
-🇯🇵 Japan = smart, update-interval=36000, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(日|🇯🇵|东京|大阪|JP|Japan), hidden=false
-
-🇰🇷 Korea = smart, update-interval=36000, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(韩|🇰🇷|KR|Korea), hidden=false
-
-🇸🇬 Singapore = smart, update-interval=36000, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(新加坡|坡|狮城|🇸🇬|SG|Singapore), hidden=false
-
-🇺🇸 United States = smart, update-interval=36000, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(美|🇺🇲|US|States|America), hidden=false
-
-Other Regions = select, include-other-group=Proxy, policy-regex-filter=^(?!.*(距离|重置|过期|到期|剩余|GB|Traffic|Expire|Days|Left|Date|香港|HK|HKG|Hong Kong|台湾|TW|TWN|Taiwan|日本|JP|JPN|Japan|美国|US|USA|United States|新加坡|狮城|SG|SGP|Singapore)), hidden=false
+StarLink = select, policy-path=url, update-interval=7200, no-alert=false, hidden=false, include-all-proxies=false, persistent=true
 
 # > 地区节点分组
-🇭🇰 香港节点 = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇭🇰|港|澳门|🇲🇴|HK|Hong), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Hong_Kong.png
+🇭🇰 Hong Kong = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇭🇰|港|澳门|🇲🇴|HK|Hong), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Hong_Kong.png
 
-🇨🇳 台湾节点 = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇨🇳|🇹🇼|台|湾|TW|Taiwan), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/China.png
+🇨🇳 Taiwan = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇨🇳|🇹🇼|台|湾|TW|Taiwan), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/China.png
 
-🇯🇵 日本节点 = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇯🇵|日|东京|大阪|JP|Japan), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Japan.png
+🇯🇵 Japan = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇯🇵|日|东京|大阪|JP|Japan), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Japan.png
 
-🇰🇷 韩国节点 = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇰🇷|韩|KR|Korea), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/South_Korea.png
+🇰🇷 Korea = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇰🇷|韩|KR|Korea), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/South_Korea.png
 
-🇸🇬 新加坡节点 = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇸🇬|新加坡|坡|狮城|SG|Singapore), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Singapore.png
+🇸🇬 Singapore = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇸🇬|新加坡|坡|狮城|SG|Singapore), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Singapore.png
 
-🇺🇸 美国节点 = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇺🇸|美|US|States|America), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/United_States.png
+🇺🇸 United States = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇺🇸|美|US|States|America), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/United_States.png
+
+Other Regions = select, include-other-group=Proxy, policy-regex-filter=^(?!.*(距离|重置|过期|到期|剩余|GB|Traffic|Expire|Days|Left|Date|香港|HK|HKG|Hong Kong|台湾|TW|TWN|Taiwan|日本|JP|JPN|Japan|美国|US|USA|United States|新加坡|狮城|SG|SGP|Singapore)), hidden=false
 
 [Rule]
 # > 阻止 UDP 443 端口
