@@ -21,7 +21,6 @@ wifi-access-socks5-port = 6153
 
 [Proxy]
 
-
 [Proxy Group]
 Proxy = select, policy-path=url, update-interval=7200, no-alert=false, hidden=false, include-all-proxies=true, persistent=true
 StarLink = select, policy-path=url, update-interval=7200, no-alert=false, hidden=false, include-all-proxies=true, persistent=true
