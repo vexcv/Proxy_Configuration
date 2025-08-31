@@ -26,8 +26,8 @@ test-timeout = 3
 internet-test-url = http://www.bing.com
 # > 代理测速 URL
 proxy-test-url = http://www.gstatic.com/generate_204
-# > 自定义 GeoIP 数据库 https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb
-geoip-maxmind-url = https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
+# > 自定义 GeoIP 数据库
+geoip-maxmind-url = https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb
 # > 排除简单主机名
 exclude-simple-hostnames = true
 # > DNS 服务器
@@ -75,129 +75,97 @@ hide-crash-reporter-request = 1
 [Proxy Group]
 # > 手动选择
 Proxy = select, policy-path=url, update-interval=1440, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://raw.githubusercontent.com/Irrucky/Tool/main/Surge/icon/surge-1.png
-
 StarLink = select, policy-path=url, update-interval=7200, no-alert=false, hidden=false, include-all-proxies=false, persistent=true
-
+Apple = select, DIRECT, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Apple_Arcade.png
+AI = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/chxm1023/ChatGPT5.png
+Microsoft = select, DIRECT, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
+YouTube = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/youtube.png
+TikTok = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/tiktok.png
+Netflix = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
+Disney+ = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney.png
+Spotify = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/spotify.png
+Telegram = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/erdongchanyo/Telegram.png
+GlobalMedia = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HKMTMedia.png
 # > 地区节点分组
-🇭🇰 Hong Kong = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇭🇰|港|澳门|🇲🇴|HK|Hong), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Hong_Kong.png
-
-🇨🇳 Taiwan = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇨🇳|🇹🇼|台|湾|TW|Taiwan), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/China.png
-
-🇯🇵 Japan = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇯🇵|日|东京|大阪|JP|Japan), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Japan.png
-
-🇰🇷 Korea = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇰🇷|韩|KR|Korea), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/South_Korea.png
-
-🇸🇬 Singapore = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇸🇬|新加坡|坡|狮城|SG|Singapore), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Singapore.png
-
 🇺🇸 United States = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇺🇸|美|US|States|America), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/United_States.png
-
+🇭🇰 Hong Kong = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇭🇰|港|澳门|🇲🇴|HK|Hong), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Hong_Kong.png
+🇹🇼 Taiwan = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇨🇳|🇹🇼|台|湾|TW|Taiwan), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/China.png
+🇯🇵 Japan = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇯🇵|日|东京|大阪|JP|Japan), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Japan.png
+🇰🇷 Korea = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇰🇷|韩|KR|Korea), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/South_Korea.png
+🇸🇬 Singapore = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇸🇬|新加坡|坡|狮城|SG|Singapore), hidden=1, icon-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Singapore.png
 Other Regions = select, include-other-group=Proxy, policy-regex-filter=^(?!.*(距离|重置|过期|到期|剩余|GB|Traffic|Expire|Days|Left|Date|香港|HK|HKG|Hong Kong|台湾|TW|TWN|Taiwan|日本|JP|JPN|Japan|美国|US|USA|United States|新加坡|狮城|SG|SGP|Singapore)), hidden=false
 
 [Rule]
-# > 阻止 UDP 443 端口
+# > Block UDP 443
 AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
-
-# > 防止应用循环请求
+# > Prevent App Loop Requests
 IP-CIDR,0.0.0.0/32,REJECT,no-resolve
-
-# > 规则修正（解决一些网站无法访问的问题）
-RULE-SET,https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/master/Surge/Ruleset/Unbreak.list,DIRECT
-
-# > 微信规则
-RULE-SET,https://github.com/NobyDa/Script/raw/master/Surge/WeChat.list,DIRECT
-
-# > 局域网规则
+# > WeChat Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/WeChat/WeChat.list,DIRECT
+# > LAN Rules
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Lan/Lan.list,DIRECT
 RULE-SET,LAN,DIRECT
-
-# > 广告拦截（增强版）
-RULE-SET,https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/refs/heads/main/Filters/AWAvenue-Ads-Rule-Surge-RULE-SET.list,REJECT,extended-matching
-RULE-SET,https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/master/Surge/Ruleset/AdBlock.list,REJECT
-
-# > AI 聊天服务
-RULE-SET,https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-chat-!cn.list,🤖 智能助理
-RULE-SET,https://raw.githubusercontent.com/EAlyce/conf/refs/heads/main/Rule/OpenAI.list,🤖 智能助理
-
-# > 苹果服务
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple_All_No_Resolve.list,🍎 苹果服务
-
-# > 微软服务
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list,Ⓜ️ 微软服务
-
-# > GitHub 代码托管
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GitHub/GitHub.list,🟢 全球加速,no-resolve
-
-# > 社交平台
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Telegram/Telegram.list,📱 社交平台
-RULE-SET,https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.list,📱 社交平台
-RULE-SET,https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/x.list,📱 社交平台
-
-# > 游戏平台
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Epic/Epic.list,🎮 游戏平台
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Sony/Sony.list,🎮 游戏平台
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Steam/Steam.list,🎮 游戏平台
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Nintendo/Nintendo.list,🎮 游戏平台
-
-# > 国际流媒体
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube.list,📺 国际媒体
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Netflix/Netflix.list,📺 国际媒体
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Disney/Disney.list,📺 国际媒体
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Spotify/Spotify.list,📺 国际媒体
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TikTok/TikTok.list,📺 国际媒体
-RULE-SET,https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/master/Surge/Ruleset/Streaming.list,📺 国际媒体
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GlobalMedia/GlobalMedia_All_No_Resolve.list,📺 国际媒体
-
-# > 港台地区流媒体
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/BiliBili/BiliBili.list,🖥️ 港台番剧
-RULE-SET,https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/master/Surge/Ruleset/StreamingSE.list,🖥️ 港台番剧
-
-# > 国内媒体
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMedia/ChinaMedia.list,💿 国内媒体
-RULE-SET,https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/master/Surge/Ruleset/StreamingCN.list,💿 国内媒体
-
-# > 全球服务
-RULE-SET,https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.list,🟢 全球加速
-RULE-SET,https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/linkedin.list,🟢 全球加速
-RULE-SET,https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.list,🟢 全球加速
-RULE-SET,https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/master/Surge/Ruleset/Global.list,🟢 全球加速
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Proxy/Proxy_All_No_Resolve.list,🟢 全球加速,extended-matching
-
-# > 私有网络
-RULE-SET,https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.list,DIRECT
-RULE-SET,https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.list,DIRECT
-
-# > 中国大陆规则
+# > Ad Blocker
+# RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Advertising/Advertising.list,REJECT
+# > Apple Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple_All_No_Resolve.list,Apple
+# > Artificial Intelligence
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI.list,AI
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Claude/Claude.list,AI
+# > Google Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google.list,Proxy
+# > LinkedIn Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/LinkedIn/LinkedIn.list,Proxy
+# > PayPal Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PayPal/PayPal.list,Proxy
+# > Global Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Proxy/Proxy_All_No_Resolve.list,Proxy,extended-matching
+# > Microsoft Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list,Microsoft
+# > GitHub Code Hosting
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GitHub/GitHub.list,Proxy,no-resolve
+# > YouTube Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube.list,YouTube
+# > TikTok Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TikTok/TikTok.list,TikTok
+# > Netflix Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Netflix/Netflix.list,Netflix
+# > Disney+ Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Disney/Disney.list,Disney+
+# > Spotify Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Spotify/Spotify.list,Spotify
+# > Telegram Services
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Telegram/Telegram.list,Telegram
+# > X Services
+RULE-SET,https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/x.list,Proxy
+# > China Media
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMedia/ChinaMedia.list,DIRECT
+# > Global Media
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GlobalMedia/GlobalMedia_All_No_Resolve.list,GlobalMedia
+# > Mainland Media
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMedia/ChinaMedia.list,DIRECT
+# > ChinaMax ALL
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_All.list,DIRECT,extended-matching
-
-# > 地理位置规则
+# > Adobe AGS
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/AGS.txt,REJECT
+# > Geoip Country
 GEOIP,CN,DIRECT
 GEOIP,LAN,DIRECT
-
-# > 兜底规则（以上规则都不匹配时使用）
-FINAL,🟣 法外狂徒,dns-failed
+# > Fallback rule (used when none of the above rules match)
+FINAL,DIRECT,dns-failed
 
 [Host]
-# > 微信相关域名
+# > WeChat
+*.tencent.com = 119.29.29.29
+*.qq.com = 119.29.29.29
 *.weixin.com = 119.29.29.29
-# > Firebase 云消息推送
+# > Firebase Cloud Messaging
 mtalk.google.com = 108.177.125.188
 # > Apple TestFlight
 *testflight.apple.com = server:8.8.4.4
 
 [URL Rewrite]
-# > Google 中国重定向到国际版
+# > Google CN redirect
 ^https?:\/\/(www\.)?g\.cn https://www.google.com 302
 ^https?:\/\/(www\.)?google\.cn https://www.google.com 302
 ^http:\/\/www\.google\.cn https://www.google.com 302
-
-[MITM]
-# > 跳过服务器证书验证
-skip-server-cert-verify = true
-# > TCP 连接
-tcp-connection = true
-# > HTTP/2 支持
-h2 = true
-# > 监听的主机名（用于 HTTPS 解密）
-hostname = *, %APPEND% pan.baidu.com, *account.wps.cn, *account.wps.com, api22-normal-c-alisg.tiktokv.com:443, webcast-normal.tiktokv.com:443, %APPEND% www.google.cn, www.g.cn
-# > 禁用的主机名
-hostname-disabled = *
