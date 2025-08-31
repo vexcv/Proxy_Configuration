@@ -51,7 +51,7 @@ disable-geoip-db-auto-update = true
 # > UDP 策略不支持时的行为 UDP 退回行为
 udp-policy-not-supported-behaviour = REJECT
 # > Wi-Fi 助手 网络质量差时自动切换
-wifi-assist = false
+wifi-assist = true
 # > UDP 优先级
 udp-priority = false
 
