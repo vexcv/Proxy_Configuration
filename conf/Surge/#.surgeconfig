@@ -20,7 +20,7 @@ wifi-access-http-port = 6152
 wifi-access-socks5-port = 6153
 
 [Proxy]
-🇺🇸 US-Trojan = trojan, us.odoospace.com, 18088, password=6thVnFMd43, skip-cert-verify=true, sni=us.odoospace.com
+
 
 [Proxy Group]
 Proxy = select, policy-path=url, update-interval=7200, no-alert=false, hidden=false, include-all-proxies=true, persistent=true
