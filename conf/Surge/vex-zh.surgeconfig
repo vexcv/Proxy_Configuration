@@ -1,8 +1,8 @@
-# 作者: https://github.com/vexcv (优化版)
-# 更新: 2025.9.1
+# Author: https://github.com/vexcv
+# Update: 2025.9.1
 # Telegram: https://t.me/vexcso
-# Surge 配置手册: https://manual.nssurge.com/
-# 适用版本: iOS/macOS 的 Surge 5
+# Surge Configuration Manual: https://manual.nssurge.com/
+# Compatible Version: iOS/macOS Surge 5
 
 [General]
 # > 日志级别
