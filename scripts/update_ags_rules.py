@@ -11,7 +11,7 @@ clean_rules = [line.strip() for line in lines if line.strip().startswith("- DOMA
 clean_rules = [rule[2:].strip() for rule in clean_rules]
 
 # 指定输出路径（这里放在仓库根目录）
-output_file = "Proxy_Configuration/conf/Surge/rule/AGS.list"
+output_file = "conf/Surge/rule/AGS.list"
 
 # 保存
 with open(output_file, "w") as f:
