@@ -8,7 +8,7 @@ lines = response.text.splitlines()
 
 # 提取规则（保留 Surge 格式：DOMAIN,example.com）
 clean_rules = [line.strip() for line in lines if line.strip().startswith("- DOMAIN,")]
-clean_rules = [rule[2:].strip() for rule in clean_rules]  # 去掉 "- "
+clean_rules = [rule[2:].strip() for rule in clean_rules]
 
 # 指定输出路径（这里放在仓库根目录）
 output_file = "Proxy_Configuration/conf/Surge/rule/AGS.list"
