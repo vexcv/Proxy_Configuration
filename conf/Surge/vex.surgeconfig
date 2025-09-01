@@ -75,7 +75,7 @@ hide-crash-reporter-request = 1
 [Proxy Group]
 # > 服务分组
 Proxy = select, policy-path=url, update-interval=1440, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://ghfast.top/https://raw.githubusercontent.com/Irrucky/Tool/main/Surge/icon/surge-1.png
-StarLink = select, policy-path=url, update-interval=7200, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://ghfast.top/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+# StarLink = select, policy-path=url, update-interval=7200, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://ghfast.top/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 Apple = select, DIRECT, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://ghfast.top/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
 AI = select, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://ghfast.top/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
 Microsoft = select, DIRECT, Proxy, 🇺🇸 United States, 🇭🇰 Hong Kong, 🇹🇼 Taiwan, 🇯🇵 Japan, 🇰🇷 Korea, 🇸🇬 Singapore, icon-url=https://ghfast.top/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
@@ -147,7 +147,7 @@ RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_r
 # > ChinaMax ALL
 RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_All.list,DIRECT,extended-matching
 # > Adobe AGS
-RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/AGS.txt,REJECT
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/AGS.list,REJECT
 # > Geoip Country
 GEOIP,CN,DIRECT
 GEOIP,LAN,DIRECT
