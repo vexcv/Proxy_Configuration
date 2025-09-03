@@ -96,6 +96,8 @@ RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_r
 RULE-SET,LAN,DIRECT
 # > Ad Blocker
 RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Advertising/Advertising.list,REJECT,extended-matching
+# > Adobe AGS
+RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/AGS.list,REJECT,extended-matching
 # > Apple Services
 RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple_All_No_Resolve.list,Apple
 # > Artificial Intelligence
@@ -133,8 +135,6 @@ RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_r
 # RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMedia/ChinaMedia.list,DIRECT
 # > ChinaMax ALL
 # RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_All.list,DIRECT,extended-matching
-# > Adobe AGS
-RULE-SET,https://ghfast.top/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/AGS.list,REJECT,extended-matching
 # > Geoip Country
 GEOIP,CN,DIRECT
 GEOIP,US,"🇺🇸 United States"
