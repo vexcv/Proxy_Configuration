@@ -1,3 +1,9 @@
+# Author: vexcv
+# Update: 2025.9.3
+# Telegram: https://t.me/vexcso
+# Surge Configuration Manual: https://manual.nssurge.com/
+# Compatible Version: iOS/macOS Surge 5
+
 [General]
 # > 日志级别
 loglevel = notify
