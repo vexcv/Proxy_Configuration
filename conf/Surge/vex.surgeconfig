@@ -148,7 +148,7 @@ GEOIP,CN,DIRECT
 # GEOIP,CA,"🇨🇦 Canada"
 # GEOIP,FR,"🇫🇷 France"
 # GEOIP,NL,"🇳🇱 Netherlands"
-# GEOIP,LAN,DIRECT
+GEOIP,LAN,DIRECT
 # > Fallback rule (used when none of the above rules match)
 FINAL,Proxy,dns-failed
 
