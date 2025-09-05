@@ -2,7 +2,7 @@
 > 作者: https://github.com/vexcv  
 > Telegram: https://t.me/vexcso  
 > Surge 官方手册: https://manual.nssurge.com/  
-> 兼容版本: iOS/macOS Surge 5（公司网络全托管自用版）
+> 兼容版本: iOS/macOS Surge 5（公司网络全接管自用版）
 
 ---
 
