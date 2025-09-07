@@ -1,4 +1,4 @@
-# vex 2025.5.20
+# Date 2025.9.8
 # https://mihomo.party/docs/guide/override/yaml
 # 外部控制 (API)
 external-ui-url: https://ghfast.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
@@ -11,6 +11,20 @@ external-controller-cors:
   allow-private-network: true
 dns:
   prefer-h3: true
++proxies:
+  - name: "🇺🇸 United States 自建"
+    server: us.odoospace.com
+    port: 16888
+    type: vless
+    uuid: 7d90a833-23da-44e7-8e2d-68e2cd9e6388
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: LE5s4yLLXe7gh2ebff1N1nPQZ-JW9uJBbJFyGloRzxA
+      short-id: "139c92"
+    servername: zeddigitalmedia.com
+    client-fingerprint: chrome
+    network: tcp
 proxy-groups:
   - name: Proxy
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
