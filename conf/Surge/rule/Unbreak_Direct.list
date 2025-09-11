@@ -1,13 +1,13 @@
 # 规则名称: Unbreak Direct
 
 # AnyDesk
-DOMAIN-SUFFIX,anydesk.com,DIRECT
+DOMAIN-SUFFIX,anydesk.com
 # ToDesk
 DOMAIN-SUFFIX,todesk.com
 # 向日葵
-DOMAIN-SUFFIX,oray.com,DIRECT
-DOMAIN-KEYWORD,sunlogin,DIRECT
+DOMAIN-SUFFIX,oray.com
+DOMAIN-KEYWORD,sunlogin
 # TeamViewer
-DOMAIN-SUFFIX,teamviewer.com,DIRECT
+DOMAIN-SUFFIX,teamviewer.com
 # IC Source
 DOMAIN-SUFFIX,icsource.com
