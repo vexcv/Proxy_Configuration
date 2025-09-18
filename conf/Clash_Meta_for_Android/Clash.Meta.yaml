@@ -1,5 +1,5 @@
 # Author: vexcv
-# Update: 2025.9.17
+# Update: 2025.9.18
 # Telegram: https://t.me/vexcso
 
 # 混合代理端口，用于接收 HTTP、HTTPS 和 SOCKS5 的请求
@@ -13,7 +13,7 @@ bind-address: '*'
 # 代理模式：rule（按规则分流）、global（全局代理）、direct（全局直连）
 mode: rule
 # 日志级别：warning（警告）、info（一般信息）、debug（调试）
-log-level: warning
+log-level: info
 tcp-concurrent: true
 external-controller: 127.0.0.1:9090
 external-ui: ui
@@ -50,13 +50,14 @@ sniffer:
 
 tun:
   enable: true
-  stack: mixed
+  stack: system
   dns-hijack:
     - "any:53"
     - "tcp://any:53"
   auto-route: true
   auto-redirect: true
   auto-detect-interface: true
+
 
 # 静态主机映射
 hosts:
@@ -79,45 +80,12 @@ dns:
   use-hosts: true
   # 默认的上游 DNS 服务器
   default-nameserver:
-    - tls://223.5.5.5
-    - tls://223.6.6.6
-    # 阿里 DNS（IPv6）
-    # '2400:3200::1'
-    # 阿里 DNS
-    # '223.5.5.5'
-    # 腾讯 DNS（IPv6）
-    # '2402:4e00::'
-    # Google DNS（IPv6）
-    # '2001:4860:4860::8888'
-    # Cloudflare DNS（IPv6）
-    # '2606:4700:4700::1111'
-    # 腾讯 DNS
-    # '119.28.28.28'
-    # Google DNS
-    # '8.8.8.8'
-    # Cloudflare DNS
-    # '1.1.1.1'
+    - '119.29.29.29'
+    - '223.5.5.5'
   # DoH(DNS over HTTPS)服务器
   nameserver:
-    # 腾讯公共 DNS 的 DoH 服务
     - https://doh.pub/dns-query
-    # 阿里公共 DNS 的 DoH 服务
     - https://dns.alidns.com/dns-query
-    # Cloudflare 公共 DNS 的 DoH 服务
-    # "https://1.1.1.1/dns-query"
-    # 阿里公共 DoH IPv6 优先
-    # "https://[2400:3200::1]/dns-query"
-    # 腾讯公共 DoH IPv6 优先
-    # "https://[2402:4e00::]/dns-query"
-    # Google DoH IPv6 优先
-    # "https://[2001:4860:4860::8888]/dns-query"
-    # Cloudflare DoH IPv6 优先
-    # "https://[2606:4700:4700::1111]/dns-query"
-    # 请确保系统支持 QUIC 协议，启用后会加速部分服务
-    # Cloudflare DoQ 服务
-    # "quic://1.1.1.1:853"
-    # Cloudflare DoQ IPv6 优先
-    # "quic://[2606:4700:4700::1111]:853"
   # fake-ip 模式下不使用虚拟 IP 的域名, 这些域名相关的解析请求将会返回它们真实的IP地址
   fake-ip-filter:
     # 匹配所有 .lan 后缀的域名
@@ -138,14 +106,8 @@ dns:
     - '*.xboxlive.com'
   # 备用 DNS 服务器，用于主 DNS 解析失败时
   fallback:
-    # Google DNS（IPv6）
-    - '2001:4860:4860::8888'
-    # Cloudflare DNS（IPv6）
-    - '2606:4700:4700::1111'
-    # Google 公共 DNS
-    - '8.8.8.8'
-    # Cloudflare 公共 DNS
-    - '1.1.1.1'
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
   # 备用 DNS 的过滤规则
   fallback-filter:
     # 启用 GEOIP 过滤（基于地理位置判断是否代理）
@@ -164,7 +126,7 @@ proxy-providers:
     # 每隔 14400 秒（4 小时）更新一次节点信息
     interval: 86400
     # 提供商的订阅链接
-    url: ""
+    url: url
 
 # 功能策略组
 proxy-groups:
@@ -213,6 +175,11 @@ proxy-groups:
 
   - name: Microsoft
     icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+    type: select
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  - name: LinkedIn
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Linkedin.png
     type: select
     proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
@@ -363,6 +330,9 @@ rule-providers:
   microsoft_domain:
     <<: *domain
     url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.list"
+  linkedin_domain:
+    <<: *domain
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/linkedin.list"
   paypal_domain:
     <<: *domain
     url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.list"
@@ -424,12 +394,8 @@ rule-providers:
 
 #分流规则引用
 rules:
-  - GEOIP,LAN,DIRECT,no-resolve
-  - GEOIP,CN,DIRECT
-
   - DOMAIN,dog.ssrdog.com,Proxy
   - DOMAIN-KEYWORD,czzy,DIRECT
-  - DOMAIN-KEYWORD,linkedin,Proxy
 
   # Apple LBS
   # DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
@@ -444,6 +410,7 @@ rules:
   - RULE-SET,google_domain,Google
   - RULE-SET,apple_domain,Apple
   - RULE-SET,microsoft_domain,Microsoft
+  - RULE-SET,linkdin_domain,LinkedIn
   - RULE-SET,paypal_domain,PayPal
   - RULE-SET,youtube_domain,YouTube
   - RULE-SET,x_domain,X
@@ -464,6 +431,8 @@ rules:
   # RULE-SET,netflix_ip,NETFLIX
   # RULE-SET,x_ip,X
   # RULE-SET,telegram_ip,Telegram
+  - GEOIP,LAN,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT
   - MATCH,Uncaptured
 
 # 脚本
