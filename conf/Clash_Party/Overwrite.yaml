@@ -1,4 +1,4 @@
-# Date 2025/12/9
+# Date 1/1/2026
 # https://mihomo.party/docs/guide/override/yaml
 # 外部控制 (API)
 external-ui-url: https://gh-proxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
@@ -614,7 +614,7 @@ rule-providers!:
     type: http
     behavior: domain
     format: text
-    url: https://gh-proxy.com/https://raw.githubusercontent.com/ignaciocastro/a-dove-is-dumb/pihole.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/ignaciocastro/a-dove-is-dumb/main/pihole.txt
     interval: 86400
 rules:
   - DOMAIN,dog.ssrdog.com,Proxy
