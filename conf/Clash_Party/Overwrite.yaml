@@ -1,4 +1,4 @@
-# Date 1/1/2026
+# Date 1/28/2026
 # https://mihomo.party/docs/guide/override/yaml
 # 外部控制 (API)
 external-ui-url: https://gh-proxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
@@ -617,6 +617,7 @@ rule-providers!:
     url: https://gh-proxy.com/https://raw.githubusercontent.com/ignaciocastro/a-dove-is-dumb/main/pihole.txt
     interval: 86400
 rules:
+  - DOMAIN-SUFFIX,cdw.com,United States
   - DOMAIN,dog.ssrdog.com,Proxy
   - DOMAIN-SUFFIX,smtp.qq.com,DIRECT
   - DOMAIN-SUFFIX,imap.qq.com,DIRECT
@@ -649,12 +650,13 @@ rules:
   - RULE-SET,Telegram,Telegram
   - RULE-SET,AGS,AGS
   # - DOMAIN-KEYWORD,adobe,REJECT
-  - DOMAIN-KEYWORD,czzy,DIRECT
-  - DOMAIN,local.adguard.org,DIRECT
+  # - DOMAIN-SUFFIX,adobelogin.com,REJECT
+  # - DOMAIN-SUFFIX,adobe.io,REJECT
+  - DOMAIN-SUFFIX,czzymovie.com,DIRECT
   - DOMAIN,www.hkinventory.com,Hong Kong
   - DOMAIN,us.hkinventory.com,United States
   - DOMAIN,cn.hkinventory.com,DIRECT
-  - DOMAIN,local,DIRECT
+  - DOMAIN,local.adguard.org,DIRECT
   - IP-CIDR,127.0.0.0/8,DIRECT
   - IP-CIDR,172.16.0.0/12,DIRECT
   - IP-CIDR,192.168.0.0/16,DIRECT
