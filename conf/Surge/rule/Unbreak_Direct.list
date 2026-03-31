@@ -1,16 +1,6 @@
-# 规则名称: Unbreak Direct
+# NAME: Unbreak Direct
+# UPDATED: 20256-03-31
 
-# AnyDesk
-DOMAIN-SUFFIX,anydesk.com
-# ToDesk
-DOMAIN-SUFFIX,todesk.com
-# 向日葵
-DOMAIN-SUFFIX,oray.com
-DOMAIN-KEYWORD,sunlogin
-# TeamViewer
-DOMAIN-SUFFIX,teamviewer.com
-# IC Source
-DOMAIN-SUFFIX,icsource.com
 # 企业微信
 DOMAIN-SUFFIX,wecom.qq.com
 DOMAIN-SUFFIX,weixin.qq.com
@@ -24,3 +14,14 @@ DOMAIN-SUFFIX,cloud.tencent.com
 # 保险（腾讯IP段）
 IP-CIDR,183.60.0.0/16,no-resolve
 IP-CIDR,203.205.0.0/16,no-resolve
+# AnyDesk
+DOMAIN-SUFFIX,anydesk.com
+# ToDesk
+DOMAIN-SUFFIX,todesk.com
+# 向日葵
+DOMAIN-SUFFIX,oray.com
+DOMAIN-KEYWORD,sunlogin
+# TeamViewer
+DOMAIN-SUFFIX,teamviewer.com
+# IC Source
+DOMAIN-SUFFIX,icsource.com
