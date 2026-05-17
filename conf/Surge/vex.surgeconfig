@@ -1,5 +1,5 @@
 # Author: https://github.com/vexcv
-# Update: 2025.9.6
+# Update: 2026-05-18
 # Telegram: https://t.me/vexcso
 # Surge Configuration Manual: https://manual.nssurge.com/
 # Compatible Version: iOS/macOS Surge 5 (公司网络全接管自用版)
@@ -56,7 +56,7 @@ http-api-tls = false
 
 [Proxy Group]
 # > 服务分组
-Proxy = select, policy-path=URL, update-interval=86400, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Irrucky/Tool/main/Surge/icon/surge-1.png
+Proxy = select, policy-path=URL, update-interval=false, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Irrucky/Tool/main/Surge/icon/surge-1.png
 # StarLink = select, policy-path=URL, update-interval=86400, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 Apple = select, DIRECT, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
 AI = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
