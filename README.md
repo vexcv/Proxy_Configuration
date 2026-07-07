@@ -29,7 +29,7 @@
   | **服务商**            | **CN访问**                     | **GB访问**                | **个人评价**          |
   |-----------------------|----------------------------|----------------------------|-----------------------|
   | [SSRDOG](https://dog.ssrdog.com/#/register?code=P1kHvKDm) | [大陆](https://st2.hosbb.com/#/register?code=P1kHvKDm) | [国际](https://dog.ssrdog.com/#/register?code=P1kHvKDm) | 本人长期使用 极其稳定 延迟低 支持团队谦虚友好 力荐 |
-  | [TGA](https://tagss.pro/#/auth/oEVimMqa) | [大陆](https://tagss09.pro/#/auth/oEVimMqa) | [国际](https://tagss.pro/#/auth/oEVimMqa) | 节点覆盖最广 从北极到南极 更新节点会损耗流量 有特殊地区需求的话推荐 |
+  | [TGA](https://tagss.pro/#/auth/oEVimMqa) | [大陆](https://tagss14.pro/#/auth/oEVimMqa) | [国际](https://tagss.pro/#/auth/oEVimMqa) | 节点覆盖最广 从北极到南极 更新节点会损耗流量 有特殊地区需求的话推荐 |
 
 ## 规则和脚本和图标
 
