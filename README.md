@@ -11,9 +11,6 @@
 - 使用本项目的配置时，如果在特定场景下出现问题，可以通过Telegram联系作者[@vexcso](https://t.me/vexcso)
 
 ## Tips
-
-<details>
-  <summary>点击展开</summary>
   
   - 经过长时间的使用体验，感觉 Quantumult X 更加的成熟稳定，尽管App已经很久没有更新了，如果多多支持正版相信还是有更新的可能
   
@@ -24,23 +21,15 @@
   - 大部分懒人配置都建议全部使用IPv4，以及禁用UDP连接，但个人实际使用发现很多App现在都支持IPv6，并且都采用HTTP/3协议(禁用会导致一些问题，比如OpenAI)，所以我的配置中默认都开启这些功能
 
   - 在DNS的配置中，传统DNS的占用更低效率更高兼容性更好，但是DoH并不会带来很差的体验
-  
-</details>
 
 ## 服务提供商
-
-<details>
-  <summary>点击展开</summary>
 
   > 推荐个人比较喜欢的服务商，如果你的预算极其有限还是建议使用小型机场
 
   | **服务商**            | **CN访问**                     | **GB访问**                | **个人评价**          |
   |-----------------------|----------------------------|----------------------------|-----------------------|
-  | [SSRDOG](https://dog.ssrdog.com/#/register?code=JMbxlJz9) | [大陆](https://st1.hosbb.com/#/register?code=JMbxlJz9) | [国际](https://dog.ssrdog.com/#/register?code=JMbxlJz9) | 本人长期使用 极其稳定 延迟低 支持团队谦虚友好 力荐 |
+  | [SSRDOG](https://dog.ssrdog.com/#/register?code=P1kHvKDm) | [大陆](https://st2.hosbb.com/#/register?code=P1kHvKDm) | [国际](https://dog.ssrdog.com/#/register?code=P1kHvKDm) | 本人长期使用 极其稳定 延迟低 支持团队谦虚友好 力荐 |
   | [TGA](https://tagss.pro/#/auth/ytH0tDkE) | [大陆](https://tagss09.pro/#/auth/ytH0tDkE) | [国际](https://tagss.pro/#/auth/ytH0tDkE) | 节点覆盖最广 从北极到南极 更新节点会损耗流量 有特殊地区需求的话推荐 |
-  
-</details>
-
 
 ## 规则和脚本和图标
 
