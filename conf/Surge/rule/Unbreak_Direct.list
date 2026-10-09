@@ -1,5 +1,5 @@
 # NAME: Unbreak Direct
-# UPDATED: 20256-03-31
+# UPDATED: 2026-10-09
 
 # 企业微信
 DOMAIN-SUFFIX,wecom.qq.com
@@ -25,3 +25,5 @@ DOMAIN-KEYWORD,sunlogin
 DOMAIN-SUFFIX,teamviewer.com
 # IC Source
 DOMAIN-SUFFIX,icsource.com
+# Tailscale
+DOMAIN-SUFFIX,ts.net,DIRECT
