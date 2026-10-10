@@ -25,5 +25,3 @@ DOMAIN-KEYWORD,sunlogin
 DOMAIN-SUFFIX,teamviewer.com
 # IC Source
 DOMAIN-SUFFIX,icsource.com
-# Tailscale
-DOMAIN-SUFFIX,ts.net,DIRECT
