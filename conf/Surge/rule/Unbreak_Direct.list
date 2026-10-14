@@ -25,3 +25,5 @@ DOMAIN-KEYWORD,sunlogin
 DOMAIN-SUFFIX,teamviewer.com
 # IC Source
 DOMAIN-SUFFIX,icsource.com
+# Thunderbird
+DOMAIN-SUFFIX,thunderbird.net
