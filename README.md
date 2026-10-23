@@ -1,4 +1,4 @@
-# Quantumult X, Stash, Mihomo Party, Clash Meta for Android 的配置文件 懒人配置 2025
+# Quantumult X, Stash, Mihomo Party, Clash Meta for Android 的配置文件 懒人配置 2026
 
 ## 使用说明
 
