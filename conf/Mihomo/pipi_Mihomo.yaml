@@ -269,10 +269,10 @@ proxy-groups:
     # 此策略组允许选择的策略组或代理节点列表
     proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
-  # LinkedIn 服务专用策略组
-  - name: LinkedIn
+  # edIn 服务专用策略组
+  - name: edIn
     # 策略组图标，仅影响客户端界面显示
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Linkedin.png
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/edin.png
     # 策略组类型为 select，表示由用户手动选择
     type: select
     # 此策略组允许选择的策略组或代理节点列表
@@ -545,7 +545,7 @@ rule-providers:
     <<: *domain
     # 远程规则列表的下载地址
     url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.list"
-  # LinkedIn 服务域名规则集
+  # edIn 服务域名规则集
   linkedin_domain:
     # 继承上方 domain 通用模板参数
     <<: *domain
@@ -670,7 +670,7 @@ rules:
   # Microsoft 流量交由 Microsoft 策略组
   - RULE-SET,microsoft_domain,Microsoft
   # LinkedIn 流量交由 LinkedIn 策略组（请核对规则集名称拼写）
-  - RULE-SET,linkdein_domain,LinkedIn
+  - RULE-SET,linkedin_domain,LinkedIn
   # PayPal 流量交由 PayPal 策略组
   - RULE-SET,paypal_domain,PayPal
   # YouTube 流量交由 YouTube 策略组
