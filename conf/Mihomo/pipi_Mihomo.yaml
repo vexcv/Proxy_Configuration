@@ -224,10 +224,10 @@ proxy-groups:
     # 此策略组允许选择的策略组或代理节点列表
     proxies: [Proxy,DIRECT,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
-  # OpenAI / ChatGPT 服务专用策略组
-  - name: OpenAI
+  # AI 服务专用策略组
+  - name: AI
     # 策略组图标，仅影响客户端界面显示
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Anthropic.png
     # 策略组类型为 select，表示由用户手动选择
     type: select
     # 此策略组允许选择的策略组或代理节点列表
@@ -611,9 +611,11 @@ rule-providers:
     <<: *domain
     # 远程规则列表的下载地址
     url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.list"
-  # cn_domain:
-  # <<: *domain
-  # url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.list"
+  cn_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.list"
   # geolocation-!cn:
   # <<: *domain
   # url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.list"
@@ -657,8 +659,8 @@ rules:
   # Apple OCSP
   # PROCESS-NAME,trustd,Proxy
 
-  # AI 聊天服务流量交由 OpenAI 策略组
-  - RULE-SET,AI_domain,OpenAI
+  # AI 聊天服务流量交由 AI 策略组
+  - RULE-SET,AI_domain,AI
   # GitHub 流量交由 Github 策略组
   - RULE-SET,github_domain,Github
   # Google 流量交由 Google 策略组
@@ -689,7 +691,7 @@ rules:
   - RULE-SET,steam_domain,Steam
   # Telegram 流量交由 Telegram 策略组
   - RULE-SET,telegram_domain,Telegram
-  # RULE-SET,cn_domain,China
+  - RULE-SET,cn_domain,DIRECT
   # RULE-SET,geolocation-!cn,Uncaptured
   # 私有、局域网及本地域名直接连接
   - RULE-SET,private_domain,DIRECT
