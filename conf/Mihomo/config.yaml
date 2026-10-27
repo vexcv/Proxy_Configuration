@@ -113,9 +113,13 @@ dns:
   prefer-h3: false
   # 禁用 IPv6 DNS 解析，与顶层 ipv6 设置保持一致
   ipv6: false
-  # 保留原配置的本地 DNS 监听端口
-  # 内置 DNS 的监听地址和端口；1053 为非标准 DNS 端口
-  listen: '[::]:1053'
+  # DNS 服务监听，支持 UDP 和 TCP
+  # 指定内置 DNS 服务的监听地址及端口
+  # 1053 为非标准 DNS 端口
+  # 如需让局域网设备直接使用本机 DNS，应配置监听地址
+  # 并在其他设备上指定本机 IP 和 DNS 端口
+  # 默认不单独开放 DNS 监听
+  # listen: 0.0.0.0:1053
   # DNS 增强模式：fake-ip
   enhanced-mode: fake-ip
   # 虚拟 IP 地址范围
@@ -653,7 +657,7 @@ rules:
   - RULE-SET,apple_domain,Apple
   # Microsoft 流量交由 Microsoft 策略组
   - RULE-SET,microsoft_domain,Microsoft
-  # LinkedIn 流量交由 LinkedIn 策略组（请核对规则集名称拼写）
+  # LinkedIn 流量交由 LinkedIn 策略组
   - RULE-SET,linkedin_domain,LinkedIn
   # PayPal 流量交由 PayPal 策略组
   - RULE-SET,paypal_domain,PayPal
