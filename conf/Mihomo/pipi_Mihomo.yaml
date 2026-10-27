@@ -1,0 +1,724 @@
+# upload=1073741824; download=5368709120; total=107374182400; expire=1798761600;
+# Author: vexcv
+# Update: 2025.9.18
+# Telegram: https://t.me/vexcso
+
+# 混合代理端口，用于接收 HTTP、HTTPS 和 SOCKS5 的请求
+mixed-port: 7890
+# 是否启用 IPv6 支持
+ipv6: false
+# 是否允许局域网设备通过本地代理访问
+allow-lan: true
+# 代理程序监听的地址，'*' 表示监听所有网络接口
+bind-address: '*'
+# 代理模式：rule（按规则分流）、global（全局代理）、direct（全局直连）
+mode: rule
+# 日志级别：warning（警告）、info（一般信息）、debug（调试）
+log-level: info
+# 是否并发建立 TCP 连接，以减少连接建立阶段的等待时间
+tcp-concurrent: true
+# 外部控制器 API 监听地址；仅绑定本机回环地址，避免直接暴露到局域网
+external-controller: 127.0.0.1:9090
+# 外部控制面板的本地目录
+external-ui: ui
+# 外部控制面板的下载地址；首次使用或目录缺失时可供客户端获取面板文件
+external-ui-url: "https://gh-proxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+
+# 进程匹配模式：strict 表示严格匹配发起连接的进程
+find-process-mode: strict
+# 全局 TLS 客户端指纹，模拟 Chrome 浏览器的 TLS 指纹
+global-client-fingerprint: chrome
+
+# 程序运行时的配置存储选项
+profile:
+  # 是否保存用户上次选择的代理节点
+  store-selected: true
+  # 是否启用追踪模式（用于调试）
+  tracing: false
+  # 是否保存虚拟 IP 映射，适用于 fake-ip 模式
+  store-fake-ip: true
+
+# 统一延迟优化，减少规则解析对性能的影响
+unified-delay: true
+
+# 流量嗅探配置：尝试从连接中识别真实访问域名，辅助规则分流
+sniffer:
+  # 是否启用流量嗅探
+  enable: true
+  # 指定需要嗅探的协议及目标端口
+  sniff:
+    # HTTP 流量嗅探设置
+    HTTP:
+      # 对 80 端口及 8080–8880 端口范围进行 HTTP 嗅探
+      ports: [80, 8080-8880]
+      # 使用嗅探到的域名覆盖原始目标信息，辅助域名规则匹配
+      override-destination: true
+    # TLS/HTTPS 握手嗅探设置
+    TLS:
+      # 对常见 HTTPS 端口进行 TLS 嗅探
+      ports: [443, 8443]
+    # QUIC 协议嗅探设置
+    QUIC:
+      # 对常见 QUIC 端口进行嗅探
+      ports: [443, 8443]
+  # 以下域名跳过嗅探，避免对指定服务进行域名覆写
+  skip-domain:
+    # 小米云相关流量
+    - "Mijia Cloud"
+    # Apple 推送通知服务
+    - "+.push.apple.com"
+
+# TUN 虚拟网卡配置：接管系统网络流量并交由规则进行分流
+tun:
+  # 是否启用 TUN 模式
+  enable: true
+  # TUN 网络协议栈；mixed 的具体实现行为取决于核心版本
+  stack: mixed
+  # 劫持发往 53 端口的 DNS 请求，交由内置 DNS 处理
+  dns-hijack:
+    # 劫持任意地址的 UDP DNS 请求
+    - "any:53"
+    # 劫持任意地址的 TCP DNS 请求
+    - "tcp://any:53"
+  # 自动配置系统路由，将流量导入 TUN
+  auto-route: true
+  # 自动重定向符合条件的流量；支持情况取决于系统与核心版本
+  auto-redirect: true
+  # 自动检测出口网卡，减少路由回环风险
+  auto-detect-interface: true
+
+
+# 静态主机映射
+hosts:
+  # 将域名 dnslog.cn 静态解析为指定 IP 地址
+  dnslog.cn: 47.244.138.18
+
+# 内置 DNS 配置
+dns:
+  # 是否启用内置 DNS 服务
+  enable: true
+  # 禁用 IPv6 DNS 解析，与顶层 ipv6 设置保持一致
+  ipv6: false
+  # 保留原配置的本地 DNS 监听端口
+  # 内置 DNS 的监听地址和端口；1053 为非标准 DNS 端口
+  listen: '[::]:1053'
+  # DNS 增强模式：fake-ip
+  enhanced-mode: fake-ip
+  # 虚拟 IP 地址范围
+  fake-ip-range: '198.18.0.1/16'
+  # 不使用系统 hosts，使用下方自定义 hosts
+  use-system-hosts: false
+  use-hosts: true
+  # 默认引导 DNS：用于解析 DNS 服务器自身的域名
+  default-nameserver:
+    - 119.29.29.29  # 腾讯 DNSPod 公共 DNS
+    - 223.5.5.5     # 阿里公共 DNS，作为备用引导 DNS
+  # 常规域名解析服务器：使用加密 DNS（DoH）
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  # 备用 DNS：当 fallback-filter 判断主 DNS 结果不合适时，使用海外 DoH 重新解析
+  fallback:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+  # 备用 DNS 的过滤规则
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+  # 用于解析代理节点服务器域名的 DNS；同样优先使用腾讯 DNSPod
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+    - tls://dot.pub:853
+    - https://dns.alidns.com/dns-query
+    - tls://223.5.5.5:853
+  # 仅当代理节点服务器域名属于 *.251313.xyz 时，才按需启用以下专用策略
+  # proxy-server-nameserver-policy:
+  #   "+.123.xyz":
+  #     - https://dns.alidns.com/dns-query
+  #     - tls://223.5.5.5:853
+  # fake-ip 模式下返回真实 IP 的域名列表
+  fake-ip-filter:
+    # 匹配 .lan 局域网域名
+    - '*.lan'
+    # 匹配 .local 本地域名
+    - '*.local'
+    # 腾讯本地登录服务
+    - localhost.ptlogin2.qq.com
+    # Windows 网络连通性检测
+    - dns.msftncsi.com
+    # Nintendo Switch 服务
+    - '*.srv.nintendo.net'
+    # PlayStation STUN 服务
+    - '*.stun.playstation.net'
+    # Xbox 相关服务
+    - 'xbox.*.microsoft.com'
+    # Xbox Live 服务
+    - '*.xboxlive.com'
+
+# 本地服务器
+proxies:
+  - name: 🇺🇸 US California
+    type: socks5
+    server: example.com
+    port: 8888
+    username: name
+    password: pwd
+
+# 节点提供商配置
+proxy-providers:
+  # SSRDOG 节点订阅提供商配置
+  SSRDOG:
+    # 通过 HTTP(S) 订阅地址获取节点列表
+    type: http
+    # 每隔 86400 秒（24 小时）更新一次节点信息
+    interval: 86400
+    # 提供商的订阅链接
+    # 订阅地址占位符：请替换为 SSRDOG 实际订阅链接
+    url: url
+
+# 功能策略组
+proxy-groups:
+  # 通用手动代理选择组，可手动选择节点或其他策略组
+  - name: Proxy
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png
+    # 测速间隔，单位为秒；主要用于测速策略组，14400 秒为 4 小时
+    interval: 14400
+    # 懒惰测速选项：主要用于测速策略组，具体是否生效取决于策略组类型
+    lazy: true
+    # 延迟切换容差，单位为毫秒；主要用于自动测速策略组
+    tolerance: 10
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 自动纳入配置中可用的代理节点
+    include-all: true
+
+  # 通用自动测速组，根据测速结果选择延迟较低的节点
+  - name: Auto
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
+    # 测速间隔，单位为秒；主要用于测速策略组，14400 秒为 4 小时
+    interval: 14400
+    # 懒惰测速选项：主要用于测速策略组，具体是否生效取决于策略组类型
+    lazy: true
+    # 延迟切换容差，单位为毫秒；主要用于自动测速策略组
+    tolerance: 10
+    # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
+    type: url-test
+    # 连通性测试 URL，通常供 url-test 等测速策略组使用
+    url: http://cp.cloudflare.com/generate_204
+    # 自动纳入配置中可用的代理节点
+    include-all: true
+    # 节点名称筛选正则表达式，只让符合条件的节点进入该组
+    filter: "(?i)^(?!.*(?:GB|Days|Left|Expire|Date)).*"
+
+  # 兜底策略组；未被前面规则命中的流量会进入此组
+  - name: Uncaptured
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,DIRECT,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # OpenAI / ChatGPT 服务专用策略组
+  - name: OpenAI
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # GitHub 服务专用策略组
+  - name: Github
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # Google 服务专用策略组
+  - name: Google
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # Apple 服务专用策略组，默认列表中优先提供直连选项
+  - name: Apple
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [DIRECT,Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # Microsoft 服务专用策略组
+  - name: Microsoft
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # LinkedIn 服务专用策略组
+  - name: LinkedIn
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Linkedin.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # PayPal 服务专用策略组
+  - name: PayPal
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # YouTube 服务专用策略组
+  - name: YouTube
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # X（原 Twitter）服务专用策略组
+  - name: X
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # Netflix 服务专用策略组
+  - name: NETFLIX
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # Spotify 服务专用策略组
+  - name: Spotify
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # Disney+ 服务专用策略组
+  - name: Disney+
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney+.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # TikTok 服务专用策略组
+  - name: TikTok
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # 哔哩哔哩服务专用策略组
+  - name: BiliBili
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+  
+  # Steam 服务专用策略组
+  - name: Steam
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # Telegram 服务专用策略组
+  - name: Telegram
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # name: China
+  # icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
+  # type: select
+  # proxies: [DIRECT,Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
+
+  # 地区策略组
+  # 香港地区自动测速组，根据节点名称筛选香港节点
+  - name: Hong Kong
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+    # 测速间隔，单位为秒；主要用于测速策略组，14400 秒为 4 小时
+    interval: 14400
+    # 懒惰测速选项：主要用于测速策略组，具体是否生效取决于策略组类型
+    lazy: true
+    # 延迟切换容差，单位为毫秒；主要用于自动测速策略组
+    tolerance: 10
+    # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
+    type: url-test
+    # 连通性测试 URL，通常供 url-test 等测速策略组使用
+    url: http://cp.cloudflare.com/generate_204
+    # 自动纳入配置中可用的代理节点
+    include-all: true
+    # 节点名称筛选正则表达式，只让符合条件的节点进入该组
+    filter: "(?i)(澳门|🇲🇴|港|🇭🇰|HK|Hong)"
+
+  # 台湾地区自动测速组，根据节点名称筛选台湾节点
+  - name: Taiwan
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+    # 测速间隔，单位为秒；主要用于测速策略组，14400 秒为 4 小时
+    interval: 14400
+    # 懒惰测速选项：主要用于测速策略组，具体是否生效取决于策略组类型
+    lazy: true
+    # 延迟切换容差，单位为毫秒；主要用于自动测速策略组
+    tolerance: 10
+    # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
+    type: url-test
+    # 连通性测试 URL，通常供 url-test 等测速策略组使用
+    url: http://cp.cloudflare.com/generate_204
+    # 自动纳入配置中可用的代理节点
+    include-all: true
+    # 节点名称筛选正则表达式，只让符合条件的节点进入该组
+    filter: "(?i)(台|🇹🇼|湾|TW|Taiwan)"
+
+  # 日本地区自动测速组，根据节点名称筛选日本节点
+  - name: Japan
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+    # 测速间隔，单位为秒；主要用于测速策略组，14400 秒为 4 小时
+    interval: 14400
+    # 懒惰测速选项：主要用于测速策略组，具体是否生效取决于策略组类型
+    lazy: true
+    # 延迟切换容差，单位为毫秒；主要用于自动测速策略组
+    tolerance: 10
+    # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
+    type: url-test
+    # 连通性测试 URL，通常供 url-test 等测速策略组使用
+    url: http://cp.cloudflare.com/generate_204
+    # 自动纳入配置中可用的代理节点
+    include-all: true
+    # 节点名称筛选正则表达式，只让符合条件的节点进入该组
+    filter: "(?i)(日|🇯🇵|东京|大阪|JP|Japan)"
+
+  # 韩国地区自动测速组，根据节点名称筛选韩国节点
+  - name: South Korea
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+    # 测速间隔，单位为秒；主要用于测速策略组，14400 秒为 4 小时
+    interval: 14400
+    # 懒惰测速选项：主要用于测速策略组，具体是否生效取决于策略组类型
+    lazy: true
+    # 延迟切换容差，单位为毫秒；主要用于自动测速策略组
+    tolerance: 10
+    # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
+    type: url-test
+    # 连通性测试 URL，通常供 url-test 等测速策略组使用
+    url: http://cp.cloudflare.com/generate_204
+    # 自动纳入配置中可用的代理节点
+    include-all: true
+    # 节点名称筛选正则表达式，只让符合条件的节点进入该组
+    filter: "(?i)(韩|🇰🇷|KR|Korea)"
+
+  # 新加坡地区自动测速组，根据节点名称筛选新加坡节点
+  - name: Singapore
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+    # 测速间隔，单位为秒；主要用于测速策略组，14400 秒为 4 小时
+    interval: 14400
+    # 懒惰测速选项：主要用于测速策略组，具体是否生效取决于策略组类型
+    lazy: true
+    # 延迟切换容差，单位为毫秒；主要用于自动测速策略组
+    tolerance: 10
+    # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
+    type: url-test
+    # 连通性测试 URL，通常供 url-test 等测速策略组使用
+    url: http://cp.cloudflare.com/generate_204
+    # 自动纳入配置中可用的代理节点
+    include-all: true
+    # 节点名称筛选正则表达式，只让符合条件的节点进入该组
+    filter: "(?i)(新加坡|坡|狮城|🇸🇬|SG|Singapore)"
+
+  # 美国地区自动测速组，根据节点名称筛选美国节点
+  - name: United States
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+    # 测速间隔，单位为秒；主要用于测速策略组，14400 秒为 4 小时
+    interval: 14400
+    # 懒惰测速选项：主要用于测速策略组，具体是否生效取决于策略组类型
+    lazy: true
+    # 延迟切换容差，单位为毫秒；主要用于自动测速策略组
+    tolerance: 10
+    # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
+    type: url-test
+    # 连通性测试 URL，通常供 url-test 等测速策略组使用
+    url: http://cp.cloudflare.com/generate_204
+    # 自动纳入配置中可用的代理节点
+    include-all: true
+    # 节点名称筛选正则表达式，只让符合条件的节点进入该组
+    filter: "(?i)(美|🇺🇲|US|States|America)"
+
+  # 其他地区节点组，排除已单独分组的常见地区及套餐信息节点
+  - name: Other Regions
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/World_Map.png
+    # 测速间隔，单位为秒；主要用于测速策略组，14400 秒为 4 小时
+    interval: 14400
+    # 懒惰测速选项：主要用于测速策略组，具体是否生效取决于策略组类型
+    lazy: true
+    # 延迟切换容差，单位为毫秒；主要用于自动测速策略组
+    tolerance: 10
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 连通性测试 URL，通常供 url-test 等测速策略组使用
+    url: http://cp.cloudflare.com/generate_204
+    # 自动纳入配置中可用的代理节点
+    include-all: true
+    # 节点名称筛选正则表达式，只让符合条件的节点进入该组
+    filter: "(?i)^(?!.*(?:🇭🇰|🇹🇼|🇯🇵|🇰🇷|🇺🇸|🇸🇬|🇨🇳|港|HK|Hong|台|TW|Taiwan|日本|JP|Japan|韩|KR|Korea|新加坡|SG|Singapore|美|US|States|GB|Days|Left|Expire|Date)).*"
+
+# 规则锚点
+rule-anchor:
+  # 域名规则集通用模板：HTTP 下载、每天更新、按域名列表解析
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: text}
+  # IP 规则集通用模板：HTTP 下载、每天更新、按 IP/CIDR 列表解析
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: text}
+# 远程规则集
+rule-providers:
+  # AI 聊天及相关服务域名规则集
+  AI_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-chat-!cn.list"
+  # GitHub 域名规则集
+  github_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.list"
+  # Google 服务域名规则集
+  google_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.list"
+  # Apple 服务域名规则集
+  apple_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.list"
+  # Microsoft 服务域名规则集
+  microsoft_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.list"
+  # LinkedIn 服务域名规则集
+  linkedin_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/linkedin.list"
+  # PayPal 服务域名规则集
+  paypal_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.list"
+  # YouTube 域名规则集
+  youtube_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.list"
+  # X（原 Twitter）域名规则集
+  x_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/x.list"
+  # Netflix 域名规则集
+  netflix_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.list"
+  # Spotify 域名规则集
+  spotify_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.list"
+  # Disney+ 域名规则集
+  disney_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/disney.list"
+  # TikTok 域名规则集
+  tiktok_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.list"
+  # 哔哩哔哩域名规则集
+  bilibili_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.list"
+  # Steam 域名规则集
+  steam_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam.list"
+  # Telegram 域名规则集
+  telegram_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.list"
+  # cn_domain:
+  # <<: *domain
+  # url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.list"
+  # geolocation-!cn:
+  # <<: *domain
+  # url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.list"
+  # 局域网、私有及本地域名规则集
+  private_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.list"
+
+  # 局域网及私有 IP 地址规则集
+  private_ip:
+    # 继承上方 IP 规则集通用模板参数
+    <<: *ip
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.list"
+  # cn_ip:
+  # <<: *ip
+  # url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.list"
+  # google_ip:
+  # <<: *ip
+  # url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.list"
+  # netflix_ip:
+  # <<: *ip
+  # url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.list"
+  # x_ip:
+  # <<: *ip
+  # url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/twitter.list"
+  # telegram_ip:
+  # <<: *ip
+  # url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.list"
+
+#分流规则引用
+rules:
+  # SSRDOG 服务域名固定交由 Proxy 策略组处理
+  - DOMAIN,dog.ssrdog.com,Proxy
+  # 域名包含 czzy 关键字时直接连接
+  - DOMAIN-KEYWORD,czzy,DIRECT
+
+  # Apple LBS
+  # DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
+  # DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
+  # DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
+  # DOMAIN-SUFFIX,push.apple.com,DIRECT
+  # Apple OCSP
+  # PROCESS-NAME,trustd,Proxy
+
+  # AI 聊天服务流量交由 OpenAI 策略组
+  - RULE-SET,AI_domain,OpenAI
+  # GitHub 流量交由 Github 策略组
+  - RULE-SET,github_domain,Github
+  # Google 流量交由 Google 策略组
+  - RULE-SET,google_domain,Google
+  # Apple 流量交由 Apple 策略组
+  - RULE-SET,apple_domain,Apple
+  # Microsoft 流量交由 Microsoft 策略组
+  - RULE-SET,microsoft_domain,Microsoft
+  # LinkedIn 流量交由 LinkedIn 策略组（请核对规则集名称拼写）
+  - RULE-SET,linkdein_domain,LinkedIn
+  # PayPal 流量交由 PayPal 策略组
+  - RULE-SET,paypal_domain,PayPal
+  # YouTube 流量交由 YouTube 策略组
+  - RULE-SET,youtube_domain,YouTube
+  # X 流量交由 X 策略组
+  - RULE-SET,x_domain,X
+  # Netflix 流量交由 NETFLIX 策略组
+  - RULE-SET,netflix_domain,NETFLIX
+  # Spotify 流量交由 Spotify 策略组
+  - RULE-SET,spotify_domain,Spotify
+  # Disney+ 流量交由 Disney+ 策略组
+  - RULE-SET,disney_domain,Disney+
+  # TikTok 流量交由 TikTok 策略组
+  - RULE-SET,tiktok_domain,TikTok
+  # 哔哩哔哩流量交由 BiliBili 策略组
+  - RULE-SET,bilibili_domain,BiliBili
+  # Steam 流量交由 Steam 策略组
+  - RULE-SET,steam_domain,Steam
+  # Telegram 流量交由 Telegram 策略组
+  - RULE-SET,telegram_domain,Telegram
+  # RULE-SET,cn_domain,China
+  # RULE-SET,geolocation-!cn,Uncaptured
+  # 私有、局域网及本地域名直接连接
+  - RULE-SET,private_domain,DIRECT
+
+  # 私有/局域网 IP 直接连接，且不额外进行域名解析
+  - RULE-SET,private_ip,DIRECT,no-resolve
+  # RULE-SET,cn_ip,China
+  # RULE-SET,google_ip,Google
+  # RULE-SET,netflix_ip,NETFLIX
+  # RULE-SET,x_ip,X
+  # RULE-SET,telegram_ip,Telegram
+  # 目标 IP 属于局域网地址时直接连接
+  - GEOIP,LAN,DIRECT,no-resolve
+  # 目标 IP 地理位置匹配中国时直接连接
+  - GEOIP,CN,DIRECT
+  # 最终兜底规则：其余未匹配流量交由 Uncaptured 策略组
+  - MATCH,Uncaptured
+
+# 脚本
+# script:
+  # shortcuts:
+    # quic: network == 'udp' and dst_port == 443
+    # 功能：
+      # 定义一个快捷规则 quic，用来匹配所有使用 UDP 且目标端口为 443 的流量
+      # 该规则不会直接影响流量，只是用于标记或匹配 QUIC 流量
+    # 使用场景：
+      # 分流：识别 QUIC 流量后，将其分配到不同的代理组或直接连接
+      # 阻止：在不使用 QUIC 时，配合 REJECT 规则禁止其通过
