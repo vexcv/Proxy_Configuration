@@ -30,74 +30,80 @@ tcp-concurrent: true
 # external-ui-url: "https://gh-proxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 # API CORS 标头配置
 # external-controller-cors:
-#   允许来自任意来源的网页通过浏览器跨域访问 API
+#   # 允许来自任意来源的网页通过浏览器跨域访问 API
 #   allow-origins:
 #     - '*'
-#   允许符合浏览器私有网络访问限制条件的请求访问本机或局域网中的控制器
+#   # 允许符合浏览器私有网络访问限制条件的请求访问本机或局域网中的控制器
 #   allow-private-network: true
+# ==================== 外部控制器与面板 ====================
+
+# ==================== GUI 管理的核心设置 ====================
+# 以下设置交由 Clash Party GUI 管理，默认不在 YAML 中启用。
+# 如以后更换客户端，可根据需要恢复。
 
 # 进程匹配模式：strict 表示严格匹配发起连接的进程
-find-process-mode: strict
-# 全局 TLS 客户端指纹，模拟 Chrome 浏览器的 TLS 指纹
-global-client-fingerprint: chrome
+# find-process-mode: strict
+# 全局 TLS 客户端指纹已弃用，不建议恢复使用
+# global-client-fingerprint: chrome
 
 # 程序运行时的配置存储选项
-profile:
-  # 是否保存用户上次选择的代理节点
-  store-selected: true
-  # 是否启用追踪模式（用于调试）
-  tracing: false
-  # 是否保存虚拟 IP 映射，适用于 fake-ip 模式
-  store-fake-ip: true
+# profile:
+#   # 是否保存用户上次选择的代理节点
+#   store-selected: true
+#   # 是否启用追踪模式（用于调试）
+#   tracing: false
+#   # 是否保存虚拟 IP 映射，适用于 fake-ip 模式
+#   store-fake-ip: true
 
 # 统一延迟优化，减少规则解析对性能的影响
-unified-delay: true
+# unified-delay: true
 
 # 流量嗅探配置：尝试从连接中识别真实访问域名，辅助规则分流
-sniffer:
-  # 是否启用流量嗅探
-  enable: true
-  # 指定需要嗅探的协议及目标端口
-  sniff:
-    # HTTP 流量嗅探设置
-    HTTP:
-      # 对 80 端口及 8080–8880 端口范围进行 HTTP 嗅探
-      ports: [80, 8080-8880]
-      # 使用嗅探到的域名覆盖原始目标信息，辅助域名规则匹配
-      override-destination: true
-    # TLS/HTTPS 握手嗅探设置
-    TLS:
-      # 对常见 HTTPS 端口进行 TLS 嗅探
-      ports: [443, 8443]
-    # QUIC 协议嗅探设置
-    QUIC:
-      # 对常见 QUIC 端口进行嗅探
-      ports: [443, 8443]
-  # 以下域名跳过嗅探，避免对指定服务进行域名覆写
-  skip-domain:
-    # 小米云相关流量
-    - "Mijia Cloud"
-    # Apple 推送通知服务
-    - "+.push.apple.com"
+# sniffer:
+#   # 是否启用流量嗅探
+#   enable: true
+#   # 指定需要嗅探的协议及目标端口
+#   sniff:
+#     # HTTP 流量嗅探设置
+#     HTTP:
+#       # 对 80 端口及 8080–8880 端口范围进行 HTTP 嗅探
+#       ports: [80, 8080-8880]
+#       # 使用嗅探到的域名覆盖原始目标信息，辅助域名规则匹配
+#       override-destination: true
+#     # TLS/HTTPS 握手嗅探设置
+#     TLS:
+#       # 对常见 HTTPS 端口进行 TLS 嗅探
+#       ports: [443, 8443]
+#     # QUIC 协议嗅探设置
+#     QUIC:
+#       # 对常见 QUIC 端口进行嗅探
+#       ports: [443, 8443]
+#   # 以下域名跳过嗅探，避免对指定服务进行域名覆写
+#   skip-domain:
+#     # 小米云相关流量
+#     - "Mijia Cloud"
+#     # Apple 推送通知服务
+#     - "+.push.apple.com"
 
 # TUN 虚拟网卡配置：接管系统网络流量并交由规则进行分流
-tun:
-  # 是否启用 TUN 模式
-  enable: true
-  # TUN 网络协议栈；mixed 的具体实现行为取决于核心版本
-  stack: mixed
-  # 劫持发往 53 端口的 DNS 请求，交由内置 DNS 处理
-  dns-hijack:
-    # 劫持任意地址的 UDP DNS 请求
-    - "any:53"
-    # 劫持任意地址的 TCP DNS 请求
-    - "tcp://any:53"
-  # 自动配置系统路由，将流量导入 TUN
-  auto-route: true
-  # 自动重定向符合条件的流量；支持情况取决于系统与核心版本
-  auto-redirect: true
-  # 自动检测出口网卡，减少路由回环风险
-  auto-detect-interface: true
+# tun:
+#   # 是否启用 TUN 模式
+#   enable: true
+#   # TUN 网络协议栈；mixed 的具体实现行为取决于核心版本
+#   stack: mixed
+#   # 劫持发往 53 端口的 DNS 请求，交由内置 DNS 处理
+#   dns-hijack:
+#     # 劫持任意地址的 UDP DNS 请求
+#     - "any:53"
+#     # 劫持任意地址的 TCP DNS 请求
+#     - "tcp://any:53"
+#   # 自动配置系统路由，将流量导入 TUN
+#   auto-route: true
+#   # 自动重定向符合条件的流量；支持情况取决于系统与核心版本
+#   auto-redirect: true
+#   # 自动检测出口网卡，减少路由回环风险
+#   auto-detect-interface: true
+# ==================== GUI 管理的核心设置 ====================
 
 # 内置 DNS 配置
 dns:
