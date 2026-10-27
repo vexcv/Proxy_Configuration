@@ -269,10 +269,10 @@ proxy-groups:
     # 此策略组允许选择的策略组或代理节点列表
     proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
-  # edIn 服务专用策略组
-  - name: edIn
+  # LinkedIn 服务专用策略组
+  - name: LinkedIn
     # 策略组图标，仅影响客户端界面显示
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/edin.png
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/linkedin.png
     # 策略组类型为 select，表示由用户手动选择
     type: select
     # 此策略组允许选择的策略组或代理节点列表
@@ -336,24 +336,6 @@ proxy-groups:
   - name: TikTok
     # 策略组图标，仅影响客户端界面显示
     icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
-    # 策略组类型为 select，表示由用户手动选择
-    type: select
-    # 此策略组允许选择的策略组或代理节点列表
-    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
-
-  # 哔哩哔哩服务专用策略组
-  - name: BiliBili
-    # 策略组图标，仅影响客户端界面显示
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
-    # 策略组类型为 select，表示由用户手动选择
-    type: select
-    # 此策略组允许选择的策略组或代理节点列表
-    proxies: [Proxy,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
-  
-  # Steam 服务专用策略组
-  - name: Steam
-    # 策略组图标，仅影响客户端界面显示
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png
     # 策略组类型为 select，表示由用户手动选择
     type: select
     # 此策略组允许选择的策略组或代理节点列表
@@ -545,7 +527,7 @@ rule-providers:
     <<: *domain
     # 远程规则列表的下载地址
     url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.list"
-  # edIn 服务域名规则集
+  # LinkedIn 服务域名规则集
   linkedin_domain:
     # 继承上方 domain 通用模板参数
     <<: *domain
@@ -593,18 +575,6 @@ rule-providers:
     <<: *domain
     # 远程规则列表的下载地址
     url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.list"
-  # 哔哩哔哩域名规则集
-  bilibili_domain:
-    # 继承上方 domain 通用模板参数
-    <<: *domain
-    # 远程规则列表的下载地址
-    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.list"
-  # Steam 域名规则集
-  steam_domain:
-    # 继承上方 domain 通用模板参数
-    <<: *domain
-    # 远程规则列表的下载地址
-    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam.list"
   # Telegram 域名规则集
   telegram_domain:
     # 继承上方 domain 通用模板参数
@@ -685,12 +655,9 @@ rules:
   - RULE-SET,disney_domain,Disney+
   # TikTok 流量交由 TikTok 策略组
   - RULE-SET,tiktok_domain,TikTok
-  # 哔哩哔哩流量交由 BiliBili 策略组
-  - RULE-SET,bilibili_domain,BiliBili
-  # Steam 流量交由 Steam 策略组
-  - RULE-SET,steam_domain,Steam
   # Telegram 流量交由 Telegram 策略组
   - RULE-SET,telegram_domain,Telegram
+  # CN 域名直接连接
   - RULE-SET,cn_domain,DIRECT
   # RULE-SET,geolocation-!cn,Uncaptured
   # 私有、局域网及本地域名直接连接
