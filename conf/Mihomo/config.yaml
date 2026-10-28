@@ -127,18 +127,18 @@ dns:
   # 使用系统 hosts，使用下方自定义 hosts
   use-system-hosts: true
   use-hosts: true
-  # 默认引导 DNS：用于解析 DNS 服务器自身的域名
+  # 引导 DNS：用于解析 DNS 服务器自身的域名
   default-nameserver:
     - 119.29.29.29  # 腾讯 DNSPod 公共 DNS
     - 223.5.5.5     # 阿里公共 DNS，作为备用引导 DNS
-  # 常规域名解析服务器：使用加密 DNS（DoH）
+  # 主 DNS，常规域名解析服务器：使用加密 DNS（DoH），默认直连
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-  # 备用 DNS：当 fallback-filter 判断主 DNS 结果不合适时，使用海外 DoH 重新解析
+  # 备用 DNS：当 fallback-filter 判断主 DNS 结果不合适时，使用海外 DoH 重新解析，经 Proxy 策略组连接
   fallback:
-    - https://cloudflare-dns.com/dns-query
-    - https://dns.google/dns-query
+    - "https://cloudflare-dns.com/dns-query#Proxy"
+    - "https://dns.google/dns-query#Proxy"
   # 备用 DNS 的过滤规则
   fallback-filter:
     geoip: true
@@ -146,12 +146,14 @@ dns:
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
-  # 用于解析代理节点服务器域名的 DNS；同样优先使用腾讯 DNSPod
+  # 满足备用解析条件时才发起备用查询
+  fallback-lazy-query: true
+  # 用于解析代理节点服务器域名的 DNS；优先使用阿里 DoH；避免建立代理前出现 DNS 依赖问题
   proxy-server-nameserver:
-    - https://doh.pub/dns-query
-    - tls://dot.pub:853
     - https://dns.alidns.com/dns-query
     - tls://223.5.5.5:853
+    - https://doh.pub/dns-query
+    - tls://dot.pub:853
   # 仅当代理节点服务器域名属于 *.251313.xyz 时，才按需启用以下专用策略
   # proxy-server-nameserver-policy:
   #   "+.123.xyz":
