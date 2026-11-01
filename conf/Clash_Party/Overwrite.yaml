@@ -407,13 +407,13 @@ proxy-groups:
       - Thailand
       - India
       - Philippines
-  - name: AGS
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/hosting/main/icon/Adobe.png
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-      - Proxy
+# - name: AGS
+#   icon: https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/hosting/main/icon/Adobe.png
+#   type: select
+#   proxies:
+#     - REJECT
+#     - DIRECT
+#     - Proxy
   - name: Hong Kong
     icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
     type: select
@@ -610,12 +610,12 @@ rule-providers!:
     format: mrs
     url: https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
     interval: 86400
-  AGS:
-    type: http
-    behavior: domain
-    format: text
-    url: https://gh-proxy.com/https://raw.githubusercontent.com/ignaciocastro/a-dove-is-dumb/main/pihole.txt
-    interval: 86400
+# AGS:
+#   type: http
+#   behavior: domain
+#   format: text
+#   url: https://gh-proxy.com/https://raw.githubusercontent.com/ignaciocastro/a-dove-is-dumb/main/pihole.txt
+#   interval: 86400
 rules:
   - DOMAIN-SUFFIX,cdw.com,United States
   - DOMAIN,dog.ssrdog.com,Proxy
@@ -648,7 +648,7 @@ rules:
   - RULE-SET,BiliBili,BiliBili
   - RULE-SET,Steam,Steam
   - RULE-SET,Telegram,Telegram
-  - RULE-SET,AGS,AGS
+  # - RULE-SET,AGS,AGS
   # - DOMAIN-KEYWORD,adobe,REJECT
   # - DOMAIN-SUFFIX,adobelogin.com,REJECT
   # - DOMAIN-SUFFIX,adobe.io,REJECT
