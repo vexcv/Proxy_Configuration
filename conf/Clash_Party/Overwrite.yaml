@@ -415,92 +415,117 @@ proxy-groups:
 #     - DIRECT
 #     - Proxy
   - name: Hong Kong
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     type: select
     include-all: true
     filter: "(?i)(澳门|🇲🇴|港|🇭🇰|HK|Hong)"
   - name: Taiwan
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png
     type: select
     include-all: true
     filter: "(?i)(台|🇹🇼|湾|TW|Taiwan)"
   - name: Japan
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
     type: select
     include-all: true
     filter: "(?i)(日|🇯🇵|东京|大阪|JP|Japan)"
   - name: Korea
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png
     type: select
     include-all: true
     filter: "(?i)(韩|🇰🇷|KR|Korea)"
   - name: Singapore
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
     type: select
     include-all: true
     filter: "(?i)(新加坡|坡|狮城|🇸🇬|SG|Singapore)"
   - name: Canada
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Canada.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Canada.png
     type: select
     include-all: true
     filter: "(?i)(加拿大|🇨🇦|Canada)"
   - name: United States
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
     type: select
     include-all: true
     filter: "(?i)(美|🇺🇲|US|States|America)"
   - name: United Kingdom
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_Kingdom.png
     type: select
     include-all: true
     filter: "(?i)(英|🇬🇧|Great Britain|UK)"
   - name: Turkey
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Turkey.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Turkey.png
     type: select
     include-all: true
     filter: "(?i)(土耳其|🇹🇷|Turkey)"
   - name: Netherlands
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/hosting/main/icon/flag/Netherlands.png
+    icon: https://testingcf.jsdelivr.net/gh/vexcv/hosting/icon/flag/Netherlands.png
     type: select
     include-all: true
     filter: "(?i)(荷兰|🇳🇱|Netherlands)"
   - name: France
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/France.png
     type: select
     include-all: true
     filter: "(?i)(法|🇫🇷|France)"
   - name: Germany
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Germany.png
     type: select
     include-all: true
     filter: "(?i)(德|🇩🇪|Germany)"
+  - name: Italy
+    icon: https://testingcf.jsdelivr.net/gh/vexcv/hosting/icon/flag/Italy.png
+    type: select
+    include-all: true
+    filter: "(?i)(意|🇮🇹|Italy|Italia)"
+  - name: Sweden
+    icon: https://testingcf.jsdelivr.net/gh/vexcv/hosting/icon/flag/Sweden.png
+    type: select
+    include-all: true
+    filter: "(?i)(瑞典|🇸🇪|Sweden|Sverige)"
+  - name: Australia
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Australia.png
+    type: select
+    include-all: true
+    filter: "(?i)(澳大利亚|🇦🇺|Australia)"
+  - name: Brazil
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Brazil.png
+    type: select
+    include-all: true
+    filter: "(?i)(巴西|🇧🇷|Brazil|Brazil)"
+  - name: Spain
+    icon: https://testingcf.jsdelivr.net/gh/vexcv/hosting/icon/flag/Spain.png
+    type: select
+    include-all: true
+    filter: "(?i)(西班牙|🇪🇸|Spain|España)"
   - name: Vietnam
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/hosting/main/icon/flag/Vietnam.png
+    icon: https://testingcf.jsdelivr.net/gh/vexcv/hosting/icon/flag/Vietnam.png
     type: select
     include-all: true
     filter: "(?i)(越南|🇻🇳|Vietnam)"
   - name: Malaysia
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Malaysia.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Malaysia.png
     type: select
     include-all: true
     filter: "(?i)(马来西亚|🇲🇾|Malaysia)"
   - name: Thailand
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Thailand.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Thailand.png
     type: select
     include-all: true
     filter: "(?i)(泰国|🇹🇭|Thailand)"
   - name: India
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/India.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/India.png
     type: select
     include-all: true
     filter: "(?i)(印度|🇮🇳|India)"
   - name: Philippines
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Philippines.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Philippines.png
     type: select
     include-all: true
     filter: "(?i)(菲律宾|🇵🇭|Philippines)"
   - name: GLOBAL
-    icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Global.png
     type: select
     proxies:
       - DIRECT
