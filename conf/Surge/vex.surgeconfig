@@ -86,7 +86,9 @@ Other Regions = select, include-other-group=Proxy, hidden=false, policy-regex-fi
 # > Block UDP 443
 # AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
 # > Prevent App Loop Requests
-# IP-CIDR,0.0.0.0/32,REJECT,no-resolve
+IP-CIDR,0.0.0.0/32,REJECT,no-resolve
+# > Ad Blocker
+RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Advertising/Advertising.list,REJECT,pre-matching,extended-matching
 # > Unbreak
 RULE-SET,https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/Unbreak.list,DIRECT,extended-matching
 # > WeChat Services
@@ -127,10 +129,8 @@ RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Twitter/Twitter.list,Proxy,extended-matching
 # > Global Media
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GlobalMedia/GlobalMedia_All_No_Resolve.list,GlobalMedia,extended-matching
-# > Ad Blocker
-RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Advertising/Advertising.list,REJECT,pre-matching,extended-matching
 # > Adobe AGS
-RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/AGS.list,REJECT,pre-matching,extended-matching
+# RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/AGS.list,REJECT,pre-matching,extended-matching
 # > Mainland Media
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMedia/ChinaMedia.list,DIRECT,extended-matching
 # > ChinaMax ALL
@@ -153,9 +153,12 @@ GEOIP,LAN,DIRECT
 FINAL,Proxy,dns-failed
 
 [URL Rewrite]
-# > Google CN redirect
-^https?:\/\/(www\.)?g\.cn https://www.google.com 302
-^https?:\/\/(www\.)?google\.cn https://www.google.com 302
-^http:\/\/www\.google\.cn https://www.google.com 302
+# > Google CN redirect (keep path & query)
+^https?:\/\/(www\.)?g\.cn(\/.*)?$ https://www.google.com$2 302
+^https?:\/\/(www\.)?google\.cn(\/.*)?$ https://www.google.com$2 302
+^https?:\/\/(www\.)?google\.com\.hk(\/.*)?$ https://www.google.com$2 302
+# > Bing CN redirect (keep path & query)
+^https?:\/\/cn\.bing\.com(\/.*)?$ https://www.bing.com$1 302
 
 [MITM]
+hostname = %APPEND% g.cn, www.g.cn, google.cn, www.google.cn, google.com.hk, www.google.com.hk, cn.bing.com
