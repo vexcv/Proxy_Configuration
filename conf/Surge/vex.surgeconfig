@@ -1,8 +1,8 @@
 # Author: https://github.com/vexcv
-# Update: 2026-05-18
+# Update: 2026-11-05
 # Telegram: https://t.me/vexcso
 # Surge Configuration Manual: https://manual.nssurge.com/
-# Compatible Version: iOS/macOS Surge 5 (公司网络全接管自用版)
+# Compatible Version: iOS/macOS Surge 6 (公司家庭网络全接管自用版)
 
 [General]
 # > 日志级别
@@ -24,7 +24,7 @@ ipv6-vif = disabled
 # > 测试超时（秒）
 test-timeout = 2
 # > CN 网络连接测试 URL
-internet-test-url = http://www.gstatic.com/generate_204
+internet-test-url = http://connectivitycheck.platform.hicloud.com/generate_204
 # > 代理测速 URL
 proxy-test-url = http://www.gstatic.com/generate_204
 # > 排除简单主机名
@@ -37,13 +37,13 @@ encrypted-dns-server = https://doh.pub/dns-query, https://dns.alidns.com/dns-que
 hijack-dns = *:53
 # > 从 /etc/hosts 读取 DNS 记录
 read-etc-hosts = true
-# > 当前连接的 Wi-Fi 不是 Surge 配置中指定的「主 Wi-Fi」则使用默认策略
-skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, localhost, *.local, *.crashlytics.com
 # > Skip Proxy 跳过代理 Surge 5.8.0 默认 VIF Only
-always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com, *.battlenet.com.cn, *.battlenet.com, *.blzstatic.cn, *.battle.net, *.msftconnecttest.com, *.msftncsi.com, stun.l.google.com
+skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, localhost, *.local, *.crashlytics.com
 # > Always Real IP
-udp-policy-not-supported-behaviour = REJECT
+always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com, *.battlenet.com.cn, *.battlenet.com, *.blzstatic.cn, *.battle.net, *.msftconnecttest.com, *.msftncsi.com, stun.l.google.com
 # > UDP 策略不支持时的行为 UDP 退回行为
+udp-policy-not-supported-behaviour = REJECT
+# 关闭 UDP 数据包的优先传输机制（一视同仁处理 TCP 和 UDP，防止大流量 UDP 挤占通道，更省电）
 udp-priority = false
 # > Wi-Fi 助手 网络质量差时自动切换 (仅iOS)
 # wifi-assist = true
@@ -51,16 +51,17 @@ udp-priority = false
 use-local-host-item-for-proxy = false
 # > 远程控制器
 http-api-web-dashboard = false
-external-controller-access = 108108@0.0.0.0:6170
-http-api-tls = false
+external-controller-access = IlIlIlIlIl@0.0.0.0:6170
+http-api-tls = true
 
 [Proxy Group]
 # > 服务分组
-Proxy = select, policy-path=URL, update-interval=false, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Irrucky/Tool/main/Surge/icon/surge-1.png
-# StarLink = select, policy-path=URL, update-interval=86400, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+Proxy = select, policy-path=URL, update-interval=0, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Irrucky/Tool/main/Surge/icon/surge-1.png
+# > # > 当前连接的 Wi-Fi 不是 Surge 配置中指定的「主 Wi-Fi」则使用默认策略(移动设备使用)(注意大小写，有空格要用双引号)
+AutoNetwork = ssid, default = Proxy, "Home-WiFi" = DIRECT, "Company-WiFi" = DIRECT, cellular = Proxy
 Apple = select, DIRECT, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
 AI = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
-Microsoft = select, DIRECT, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
+Microsoft = select, Proxy, DIRECT, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
 YouTube = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
 TikTok = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
 Netflix = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
@@ -80,22 +81,22 @@ GlobalMedia = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "�
 🇫🇷 France = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇫🇷|法|FR|France), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
 🇳🇱 Netherlands = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇳🇱|荷兰|NL|Netherlands), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netherlands.png
 🇩🇪 Germany = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇩🇪|德|DE|Germany), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png
-Other Regions = select, include-other-group=Proxy, hidden=false, policy-regex-filter=^(?!.*(距离|重置|过期|到期|剩余|GB|Traffic|Expire|Days|Left|Date|香港|HK|HKG|Hong Kong|台湾|TW|TWN|Taiwan|日本|JP|JPN|Japan|美国|US|USA|United States|新加坡|狮城|SG|SGP|Singapore|🇨🇦|加拿大|CA|Canada|🇬🇧|英|UK|Great Britain|🇫🇷|法|FR|France|🇳🇱|荷兰|NL|Netherlands|🇩🇪|德|DE|Germany)), icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color//World_Map.png
+Other Regions = select, include-other-group=Proxy, hidden=false, policy-regex-filter=^(?!.*(距离|重置|过期|到期|剩余|GB|Traffic|Expire|Days|Left|Date|香港|HK|HKG|Hong Kong|台湾|TW|TWN|Taiwan|日本|JP|JPN|Japan|韩|KR|Korea|美国|US|USA|United States|新加坡|狮城|SG|SGP|Singapore|🇨🇦|加拿大|CA|Canada|🇬🇧|英|UK|Great Britain|🇫🇷|法|FR|France|🇳🇱|荷兰|NL|Netherlands|🇩🇪|德|DE|Germany)), icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color//World_Map.png
 
 [Rule]
+# > LAN Rules
+RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Lan/Lan.list,DIRECT
+RULE-SET,LAN,DIRECT
 # > Block UDP 443
 # AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
 # > Prevent App Loop Requests
 IP-CIDR,0.0.0.0/32,REJECT,no-resolve
-# > Ad Blocker
-RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Advertising/Advertising.list,REJECT,pre-matching,extended-matching
 # > Unbreak
 RULE-SET,https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/Unbreak.list,DIRECT,extended-matching
+# > Ad Blocker
+RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Advertising/Advertising.list,REJECT,pre-matching,extended-matching
 # > WeChat Services
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/WeChat/WeChat.list,DIRECT,extended-matching
-# > LAN Rules
-RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Lan/Lan.list,DIRECT
-RULE-SET,LAN,DIRECT
 # > Apple Services
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple_All_No_Resolve.list,Apple
 # > Artificial Intelligence
@@ -107,8 +108,6 @@ RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/LinkedIn/LinkedIn.list,Proxy,extended-matching
 # > PayPal Services
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PayPal/PayPal.list,Proxy,extended-matching
-# > Global Services
-RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Proxy/Proxy_All_No_Resolve.list,Proxy,extended-matching
 # > Microsoft Services
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list,Microsoft,extended-matching
 # > GitHub Code Hosting
@@ -131,6 +130,8 @@ RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GlobalMedia/GlobalMedia_All_No_Resolve.list,GlobalMedia,extended-matching
 # > Adobe AGS
 # RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/AGS.list,REJECT,pre-matching,extended-matching
+# > Global Services
+# RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Proxy/Proxy_All_No_Resolve.list,Proxy,extended-matching
 # > Mainland Media
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMedia/ChinaMedia.list,DIRECT,extended-matching
 # > ChinaMax ALL
@@ -148,7 +149,6 @@ GEOIP,CN,DIRECT
 # GEOIP,CA,"🇨🇦 Canada"
 # GEOIP,FR,"🇫🇷 France"
 # GEOIP,NL,"🇳🇱 Netherlands"
-GEOIP,LAN,DIRECT
 # > Fallback rule (used when none of the above rules match)
 FINAL,Proxy,dns-failed
 
@@ -162,3 +162,5 @@ FINAL,Proxy,dns-failed
 
 [MITM]
 hostname = %APPEND% g.cn, www.g.cn, google.cn, www.google.cn, google.com.hk, www.google.com.hk, cn.bing.com
+ca-passphrase = 9D4A1B4B
+ca-p12 = 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
