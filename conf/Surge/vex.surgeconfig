@@ -57,9 +57,9 @@ http-api-tls = true
 [Proxy Group]
 # > 服务分组
 Proxy = select, policy-path=URL, update-interval=0, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Irrucky/Tool/main/Surge/icon/surge-1.png
-# > # > 当前连接的 Wi-Fi 不是 Surge 配置中指定的「主 Wi-Fi」则使用默认策略(移动设备使用)(注意大小写，有空格要用双引号)
-AutoNetwork = ssid, default = Proxy, "Home-WiFi" = DIRECT, "Company-WiFi" = DIRECT, cellular = Proxy
-Apple = select, DIRECT, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+# > 当前连接的 Wi-Fi 不是 Surge 配置中指定的「主Wi-Fi/旁路由」则使用默认策略 (移动设备使用)(注意大小写，有空格要用双引号)(Surge 5 以后 ssid 已经被 subnet 组取代)；如果启用后让 FINAL 指向它，在家里和公司的 Wi-Fi 下所有境外流量都会直连；只有这两个网络上游已经有旁路由之类帮你代理时，这样设才合理
+# AutoNetwork = subnet, default = Proxy, "SSID:Home-WiFi" = DIRECT, "SSID:Company-WiFi" = DIRECT, "TYPE:CELLULAR" = Proxy
+Apple = select, DIRECT, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
 AI = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
 Microsoft = select, Proxy, DIRECT, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
 YouTube = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
@@ -92,7 +92,7 @@ RULE-SET,LAN,DIRECT
 # > Prevent App Loop Requests
 IP-CIDR,0.0.0.0/32,REJECT,no-resolve
 # > Unbreak
-RULE-SET,https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/Unbreak.list,DIRECT,extended-matching
+RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/Unbreak.list,DIRECT,extended-matching
 # > Ad Blocker
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Advertising/Advertising.list,REJECT,pre-matching,extended-matching
 # > WeChat Services
@@ -161,5 +161,5 @@ FINAL,Proxy,dns-failed
 ^https?:\/\/cn\.bing\.com(\/.*)?$ https://www.bing.com$1 302
 
 [MITM]
-hostname = %APPEND% g.cn, www.g.cn, google.cn, www.google.cn, google.com.hk, www.google.com.hk, cn.bing.com
-#记得生成和安装证书
+hostname = g.cn, www.g.cn, google.cn, www.google.cn, google.com.hk, www.google.com.hk, cn.bing.com
+#记得生成和安装证书 | 设置远程控制器密码 | 设置订阅节点和本地节点 | 设置
