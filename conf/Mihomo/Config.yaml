@@ -244,6 +244,15 @@ proxy-groups:
     # 此策略组允许选择的策略组或代理节点列表
     proxies: [Proxy,DIRECT,Hong Kong,Taiwan,Japan,South Korea,Singapore,United States,Other Regions,Auto]
 
+  # AdGuard 广告屏蔽策略组
+  - name: AdGuard
+    # 策略组图标，仅影响客户端界面显示
+    icon: https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/AdBlack.png
+    # 策略组类型为 select，表示由用户手动选择
+    type: select
+    # 此策略组允许选择的策略组或代理节点列表
+    proxies: [REJECT]
+
   # AI 服务专用策略组
   - name: AI
     # 策略组图标，仅影响客户端界面显示
@@ -517,6 +526,12 @@ rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: text}
 # 远程规则集
 rule-providers:
+  # AdGuard 广告屏蔽规则
+  AdGuard_domain:
+    # 继承上方 domain 通用模板参数
+    <<: *domain
+    # 远程规则列表的下载地址
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/adguard.list"
   # AI 聊天及相关服务域名规则集
   AI_domain:
     # 继承上方 domain 通用模板参数
@@ -649,6 +664,8 @@ rules:
   # Apple OCSP
   # PROCESS-NAME,trustd,Proxy
 
+  # AdGuard 广告流量交由 AdGuard 策略组
+  - RULE-SET,AdGuard_domain,AdGuard
   # AI 聊天服务流量交由 AI 策略组
   - RULE-SET,AI_domain,AI
   # GitHub 流量交由 Github 策略组
