@@ -51,7 +51,7 @@ udp-priority = false
 use-local-host-item-for-proxy = false
 # > 远程控制器
 http-api-web-dashboard = false
-external-controller-access = IlIlIlIlIl@0.0.0.0:6170
+external-controller-access = yourpassword@0.0.0.0:6170
 http-api-tls = true
 
 [Proxy Group]
