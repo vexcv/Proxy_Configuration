@@ -1,10 +1,9 @@
-# Surge 配置优化说明 (2026-11-08)
-> 作者: https://github.com/vexcv  
-> Telegram: https://t.me/vexcso  
-> Surge 官方手册: https://manual.nssurge.com/  
-> 适用配置：`vexcs.surgeconfig`（公司家庭网络全接管自用版）  
-> 适用版本：iOS / macOS Surge 6  
-> 更新日期：2026-11-08  
+# Surge 配置优化说明
+
+> 适用配置：`vexcs.surgeconfig`（公司家庭网络全接管自用版）
+> 适用版本：iOS / macOS Surge 6
+> 更新日期：2026-11-08
+> 作者：[vexcv](https://github.com/vexcv) × [Claude](https://claude.ai)（Anthropic）共创
 > 参考文档：[Surge 官方手册](https://manual.nssurge.com/)（规则集 `/rules/ruleset.html`、规则总览 `/rules/overview.html`、REJECT 策略 `/policies/reject.html`）
 
 ---
@@ -186,3 +185,11 @@ hostname = g.cn, www.g.cn, google.cn, www.google.cn, google.com.hk, www.google.c
 
 - **不要公开包含 MITM CA 私钥或密码的配置文件。** Surge 生成证书后，会把 `ca-passphrase` 和 `ca-p12` 写入 `[MITM]` 段。任何拿到这两项的人都可以伪造你设备信任的 HTTPS 证书。分享或上传配置前，务必删除这两行。
 - 公开的示例配置中，`external-controller-access` 的密码请使用占位符，不要写真实密码。
+
+---
+
+## 致谢
+
+本文档及配置优化由 **vexcv** 与 **Claude**（Anthropic 的 AI 助手）共同完成：vexcv 提供配置、使用场景和最终取舍，Claude 参与规则审查、参数核对（对照 Surge 官方手册）和文档撰写。
+
+> 🤝 Co-created with [Claude](https://claude.ai)
