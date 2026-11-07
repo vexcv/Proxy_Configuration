@@ -85,10 +85,10 @@ Other Regions = select, include-other-group=Proxy, hidden=false, policy-regex-fi
 
 [Rule]
 # > Apple System
-RULE-SET,SYSTEM,DIRECT
+RULE-SET,SYSTEM,DIRECT,no-resolve
 # > LAN Rules
-RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Lan/Lan.list,DIRECT
-RULE-SET,LAN,DIRECT
+RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Lan/Lan.list,DIRECT,no-resolve
+RULE-SET,LAN,DIRECT,no-resolve
 # > Block UDP 443
 # AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
 # > Prevent App Loop Requests
@@ -112,7 +112,7 @@ RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios
 # > PayPal Services
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PayPal/PayPal.list,Proxy,extended-matching,no-resolve
 # > Microsoft Services
-RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list,Microsoft,extended-matching
+RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list,Microsoft,extended-matching,no-resolve
 # > GitHub Code Hosting
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GitHub/GitHub.list,Proxy,extended-matching,no-resolve
 # > YouTube Services
@@ -141,6 +141,8 @@ RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_All.list,DIRECT,extended-matching,no-resolve
 # > Geoip Country
 GEOIP,CN,DIRECT
+# > 解析后指向内网 IP 的域名（如 nas.home）
+RULE-SET,LAN,DIRECT
 # GEOIP,US,"🇺🇸 United States"
 # GEOIP,DE,"🇩🇪 Germany"
 # GEOIP,GB,"🇬🇧 United Kingdom"
