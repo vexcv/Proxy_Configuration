@@ -135,7 +135,10 @@ RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios
 # RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/AGS.list,REJECT,extended-matching,no-resolve,pre-matching
 # > Global Services
 # RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Proxy/Proxy_All.list,Proxy,extended-matching,no-resolve
-# > Mainland Media
+# > 以下两组规则集不加 no-resolve
+# > 已位于规则末尾，后续 GEOIP,CN 本就会解析 DNS，不存在提前解析问题
+# > 保留 IP 匹配可补充 GEOIP 数据库未覆盖的国内 IP 段，避免国内流量误走 FINAL 代理
+# > Mainland Media 
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMedia/ChinaMedia.list,DIRECT,extended-matching
 # > ChinaMax ALL
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_All.list,DIRECT,extended-matching
