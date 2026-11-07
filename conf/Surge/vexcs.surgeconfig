@@ -144,7 +144,11 @@ RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_All.list,DIRECT,extended-matching
 # > Geoip Country
 GEOIP,CN,DIRECT
-# > 解析后指向内网 IP 的域名（如 nas.home）
+# > LAN Fallback
+# > 补充匹配解析后指向内网 IP 的域名（如 nas.home → 192.168.x.x）
+# > 顶部 LAN 规则已加 no-resolve，这类域名在顶部不会被解析，也就匹配不到
+# > 走到这里时 GEOIP,CN 已经完成解析，可直接用结果判断，不会重复查询 DNS
+# > 不加 no-resolve，否则这类域名会落到 FINAL 被送去代理，导致内网服务无法访问
 RULE-SET,LAN,DIRECT
 # GEOIP,US,"🇺🇸 United States"
 # GEOIP,DE,"🇩🇪 Germany"
