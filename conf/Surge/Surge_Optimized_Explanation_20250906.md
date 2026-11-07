@@ -1,4 +1,4 @@
-# Surge 配置文件优化说明（2025.9.6）
+# Surge 配置文件优化说明（2025-09-06）
 > 作者: https://github.com/vexcv  
 > Telegram: https://t.me/vexcso  
 > Surge 官方手册: https://manual.nssurge.com/  
