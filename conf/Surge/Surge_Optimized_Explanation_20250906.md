@@ -1,8 +1,11 @@
-# Surge 配置文件优化说明（2025-09-06）
-> [作者](https://github.com/vexcv)  
-> [Telegram](https://t.me/vexcs_Exchange)  
-> [Surge 官方手册](https://manual.nssurge.com/)  
-> 兼容版本: iOS/macOS Surge 5（公司网络全接管自用版）
+# Surge 配置优化说明
+
+> 适用配置：`vexcs.surgeconfig`（公司家庭网络全接管自用版）  
+> 适用版本：iOS / macOS Surge 5/6  
+> 更新日期：2025-09-06  
+> 作者：[vexcv](https://github.com/vexcv)  
+> 交流反馈：[Telegram](https://t.me/vexcs_Exchange)  
+> 参考文档：[Surge 官方手册](https://manual.nssurge.com/)
 
 ---
 
