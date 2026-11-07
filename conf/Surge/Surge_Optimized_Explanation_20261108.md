@@ -1,7 +1,7 @@
 # Surge 配置优化说明 (2026-11-08)
 > 作者: https://github.com/vexcv  
 > Telegram: https://t.me/vexcso  
-> Surge 官方手册: https://manual.nssurge.com/
+> Surge 官方手册: https://manual.nssurge.com/  
 > 适用配置：`vexcs.surgeconfig`（公司家庭网络全接管自用版）
 > 适用版本：iOS / macOS Surge 6
 > 更新日期：2026-11-08
