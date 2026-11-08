@@ -238,7 +238,7 @@ proxy-groups:
     # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
     type: url-test
     # 连通性测试 URL，通常供 url-test 等测速策略组使用
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     # 自动纳入配置中可用的代理节点
     include-all: true
     # 节点名称筛选正则表达式，只让符合条件的节点进入该组
@@ -408,7 +408,7 @@ proxy-groups:
     # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
     type: url-test
     # 连通性测试 URL，通常供 url-test 等测速策略组使用
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     # 自动纳入配置中可用的代理节点
     include-all: true
     # 节点名称筛选正则表达式，只让符合条件的节点进入该组
@@ -428,7 +428,7 @@ proxy-groups:
     # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
     type: url-test
     # 连通性测试 URL，通常供 url-test 等测速策略组使用
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     # 自动纳入配置中可用的代理节点
     include-all: true
     # 节点名称筛选正则表达式，只让符合条件的节点进入该组
@@ -447,7 +447,7 @@ proxy-groups:
     # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
     type: url-test
     # 连通性测试 URL，通常供 url-test 等测速策略组使用
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     # 自动纳入配置中可用的代理节点
     include-all: true
     # 节点名称筛选正则表达式，只让符合条件的节点进入该组
@@ -466,7 +466,7 @@ proxy-groups:
     # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
     type: url-test
     # 连通性测试 URL，通常供 url-test 等测速策略组使用
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     # 自动纳入配置中可用的代理节点
     include-all: true
     # 节点名称筛选正则表达式，只让符合条件的节点进入该组
@@ -485,7 +485,7 @@ proxy-groups:
     # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
     type: url-test
     # 连通性测试 URL，通常供 url-test 等测速策略组使用
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     # 自动纳入配置中可用的代理节点
     include-all: true
     # 节点名称筛选正则表达式，只让符合条件的节点进入该组
@@ -504,7 +504,7 @@ proxy-groups:
     # 策略组类型为 url-test，表示通过 URL 测速自动选择节点
     type: url-test
     # 连通性测试 URL，通常供 url-test 等测速策略组使用
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     # 自动纳入配置中可用的代理节点
     include-all: true
     # 节点名称筛选正则表达式，只让符合条件的节点进入该组
@@ -524,7 +524,7 @@ proxy-groups:
     # 策略组类型为 select，表示由用户手动选择
     type: select
     # 连通性测试 URL，通常供 url-test 等测速策略组使用
-    url: http://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     # 自动纳入配置中可用的代理节点
     include-all: true
     # 节点名称筛选正则表达式，只让符合条件的节点进入该组
