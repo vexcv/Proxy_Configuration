@@ -1,5 +1,5 @@
 # Author: vexcv
-# Update: 2026.11.08
+# Update: 2026.11.27
 # Telegram: https://t.me/vexcs_Exchange
 
 # 混合代理端口，用于接收 HTTP、HTTPS 和 SOCKS5 的请求
@@ -224,6 +224,8 @@ proxy-groups:
     proxies: [Auto]
     # 自动纳入配置中可用的代理节点
     include-all: true
+    # 仅纳入美国节点，US 前后不能紧跟字母，避免 Australia、Russia、Belarus、Cyprus 等被误分到美国组
+    filter: '^(?!.*(?i:剩余|流量|套餐|到期|过期|官网|\d+(\.\d+)?\s*GB|Days|Left|Expire|Date|Traffic)).*(美|🇺🇸|(?<![A-Za-z])US(?![A-Za-z])|(?i:United States|America))'
 
   # 通用自动测速组，根据测速结果选择延迟较低的节点
   - name: Auto
