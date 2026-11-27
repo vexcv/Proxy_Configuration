@@ -56,32 +56,33 @@ http-api-tls = true
 
 [Proxy Group]
 # > 服务分组
-Proxy = select, policy-path=URL, update-interval=0, no-alert=false, hidden=false, include-all-proxies=false, persistent=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Irrucky/Tool/main/Surge/icon/surge-1.png
+Proxy = select, include-other-group="United States", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Surge.png
+Provider = select, policy-path=https://n6.hazu.world/s/c0b892b78fae03ce9ea950f961ec0088, update-interval=86400, hidden=true, icon-url=https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Proxy.png
 # > 当前连接的 Wi-Fi 不是 Surge 配置中指定的「主Wi-Fi/旁路由」则使用默认策略 (移动设备使用)(注意大小写，有空格要用双引号)(Surge 5 以后 ssid 已经被 subnet 组取代)；如果启用后让 分流组 和 FINAL 指向它，在家里和公司的 Wi-Fi 下所有境外流量都会直连，交由旁路由处理；只有这两个网络上游已经有旁路由之类帮你代理时，这样设才合理
 # AutoNetwork = subnet, default = Proxy, "SSID:Home-WiFi" = DIRECT, "SSID:Company-WiFi" = DIRECT, "TYPE:CELLULAR" = Proxy
-Apple = select, DIRECT, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
-AI = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
-Microsoft = select, Proxy, DIRECT, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
-YouTube = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
-TikTok = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
-Netflix = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
-Disney+ = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney.png
-Spotify = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
-Telegram = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
-GlobalMedia = select, Proxy, "🇺🇸 United States", "🇭🇰 Hong Kong", "🇹🇼 Taiwan", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇬 Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ForeignMedia.png
+Apple = select, DIRECT, Proxy, "United States", "Hong Kong", "Taiwan", "Japan", "Korea", "Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Apple.png
+AI = select, Proxy, "United States", "Hong Kong", "Taiwan", "Japan", "Korea", "Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Anthropic.png
+Microsoft = select, Proxy, DIRECT, "United States", "Hong Kong", "Taiwan", "Japan", "Korea", "Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Windows_11.png
+YouTube = select, Proxy, "United States", "Hong Kong", "Taiwan", "Japan", "Korea", "Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/YouTube.png
+TikTok = select, Proxy, "United States", "Hong Kong", "Taiwan", "Japan", "Korea", "Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/TikTok.png
+Netflix = select, Proxy, "United States", "Hong Kong", "Taiwan", "Japan", "Korea", "Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Netflix.png
+Disney+ = select, Proxy, "United States", "Hong Kong", "Taiwan", "Japan", "Korea", "Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Disney.png
+Spotify = select, Proxy, "United States", "Hong Kong", "Taiwan", "Japan", "Korea", "Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Spotify.png
+Telegram = select, Proxy, "United States", "Hong Kong", "Taiwan", "Japan", "Korea", "Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Telegram.png
+GlobalMedia = select, Proxy, "United States", "Hong Kong", "Taiwan", "Japan", "Korea", "Singapore", icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/ForeignMedia.png
 # > 地区分组
-🇺🇸 United States = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇺🇸|美|US|States|America), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
-🇭🇰 Hong Kong = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇭🇰|港|澳门|🇲🇴|HK|Hong), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
-🇹🇼 Taiwan = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇨🇳|🇹🇼|台|湾|TW|Taiwan), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
-🇯🇵 Japan = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇯🇵|日|东京|大阪|JP|Japan), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
-🇰🇷 Korea = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇰🇷|韩|KR|Korea), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
-🇸🇬 Singapore = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇸🇬|新加坡|坡|狮城|SG|Singapore), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-🇨🇦 Canada = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇨🇦|加拿大|CA|Canada), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Canada.png
-🇬🇧 United Kingdom = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇬🇧|英|UK|Great Britain), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png
-🇫🇷 France = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇫🇷|法|FR|France), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
-🇳🇱 Netherlands = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇳🇱|荷兰|NL|Netherlands), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netherlands.png
-🇩🇪 Germany = url-test, update-interval=0, tolerance=20, include-other-group=Proxy, evaluate-before-use=true, policy-regex-filter=(🇩🇪|德|DE|Germany), hidden=1, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png
-Other Regions = select, include-other-group=Proxy, hidden=false, policy-regex-filter=^(?!.*(距离|重置|过期|到期|剩余|GB|Traffic|Expire|Days|Left|Date|香港|HK|HKG|Hong Kong|台湾|TW|TWN|Taiwan|日本|JP|JPN|Japan|韩|KR|Korea|美国|US|USA|United States|新加坡|狮城|SG|SGP|Singapore|🇨🇦|加拿大|CA|Canada|🇬🇧|英|UK|Great Britain|🇫🇷|法|FR|France|🇳🇱|荷兰|NL|Netherlands|🇩🇪|德|DE|Germany)), icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color//World_Map.png
+United States = smart, update-interval=0, tolerance=20, include-other-group=Provider, evaluate-before-use=true, policy-regex-filter=(🇺🇸|美|US|States|America), hidden=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/United_States.png
+Hong Kong = smart, update-interval=0, tolerance=20, include-other-group=Provider, evaluate-before-use=true, policy-regex-filter=(🇭🇰|港|澳门|🇲🇴|HK|Hong), hidden=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Hong_Kong.png
+Taiwan = smart, update-interval=0, tolerance=20, include-other-group=Provider, evaluate-before-use=true, policy-regex-filter=(🇨🇳|🇹🇼|台|湾|TW|Taiwan), hidden=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Taiwan.png
+Japan = smart, update-interval=0, tolerance=20, include-other-group=Provider, evaluate-before-use=true, policy-regex-filter=(🇯🇵|日|东京|大阪|JP|Japan), hidden=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Japan.png
+Korea = smart, update-interval=0, tolerance=20, include-other-group=Provider, evaluate-before-use=true, policy-regex-filter=(🇰🇷|韩|KR|Korea), hidden=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Korea.png
+Singapore = smart, update-interval=0, tolerance=20, include-other-group=Provider, evaluate-before-use=true, policy-regex-filter=(🇸🇬|新加坡|坡|狮城|SG|Singapore), hidden=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Singapore.png
+Canada = smart, update-interval=0, tolerance=20, include-other-group=Provider, evaluate-before-use=true, policy-regex-filter=(🇨🇦|加拿大|CA|Canada), hidden=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Canada.png
+United Kingdom = smart, update-interval=0, tolerance=20, include-other-group=Provider, evaluate-before-use=true, policy-regex-filter=(🇬🇧|英|UK|Great Britain), hidden=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/United_Kingdom.png
+France = smart, update-interval=0, tolerance=20, include-other-group=Provider, evaluate-before-use=true, policy-regex-filter=(🇫🇷|法|FR|France), hidden=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/France.png
+Netherlands = smart, update-interval=0, tolerance=20, include-other-group=Provider, evaluate-before-use=true, policy-regex-filter=(🇳🇱|荷兰|NL|Netherlands), hidden=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Netherlands.png
+Germany = smart, update-interval=0, tolerance=20, include-other-group=Provider, evaluate-before-use=true, policy-regex-filter=(🇩🇪|德|DE|Germany), hidden=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color/Germany.png
+Other Regions = select, include-other-group=Provider, policy-regex-filter=^(?!.*(距离|重置|过期|到期|剩余|GB|Traffic|Expire|Days|Left|Date|香港|HK|HKG|Hong Kong|台湾|TW|TWN|Taiwan|日本|JP|JPN|Japan|韩|KR|Korea|美国|US|USA|United States|新加坡|狮城|SG|SGP|Singapore|🇨🇦|加拿大|CA|Canada|🇬🇧|英|UK|Great Britain|🇫🇷|法|FR|France|🇳🇱|荷兰|NL|Netherlands|🇩🇪|德|DE|Germany)), hidden=true, icon-url=https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Qure/master/IconSet/Color//World_Map.png
 
 [Rule]
 # > Apple System
@@ -97,7 +98,7 @@ IP-CIDR,0.0.0.0/32,REJECT,no-resolve
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/Unbreak_Direct.list,DIRECT,extended-matching,no-resolve
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/Unbreak_Proxy.list,Proxy,extended-matching,no-resolve
 # > Ad Blocker
-RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Advertising/Advertising.list,REJECT,extended-matching,no-resolve,pre-matching
+RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Advertising/Advertising.list,REJECT,pre-matching,extended-matching,no-resolve
 # > WeChat Services
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/WeChat/WeChat.list,DIRECT,extended-matching,no-resolve
 # > Apple Services
@@ -132,13 +133,13 @@ RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios
 # > Global Media
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GlobalMedia/GlobalMedia_All_No_Resolve.list,GlobalMedia,extended-matching,no-resolve
 # > Adobe AGS
-# RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/AGS.list,REJECT,extended-matching,no-resolve,pre-matching
+# RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/vexcv/Proxy_Configuration/config/conf/Surge/rule/AGS.list,REJECT,pre-matching,extended-matching,no-resolve
 # > Global Services
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Proxy/Proxy_All.list,Proxy,extended-matching,no-resolve
 # > 以下两组规则集不加 no-resolve
 # > 已位于规则末尾，后续 GEOIP,CN 本就会解析 DNS，不存在提前解析问题
 # > 保留 IP 匹配可补充 GEOIP 数据库未覆盖的国内 IP 段，避免国内流量误走 FINAL 代理
-# > Mainland Media 
+# > Mainland Media
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMedia/ChinaMedia.list,DIRECT,extended-matching
 # > ChinaMax ALL
 RULE-SET,https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_All.list,DIRECT,extended-matching
@@ -150,17 +151,17 @@ GEOIP,CN,DIRECT
 # > 走到这里时 GEOIP,CN 已经完成解析，可直接用结果判断，不会重复查询 DNS
 # > 不加 no-resolve，否则这类域名会落到 FINAL 被送去代理，导致内网服务无法访问
 RULE-SET,LAN,DIRECT
-# GEOIP,US,"🇺🇸 United States"
-# GEOIP,DE,"🇩🇪 Germany"
-# GEOIP,GB,"🇬🇧 United Kingdom"
-# GEOIP,HK,"🇭🇰 Hong Kong"
-# GEOIP,TW,"🇹🇼 Taiwan"
-# GEOIP,JP,"🇯🇵 Japan"
-# GEOIP,KR,"🇰🇷 Korea"
-# GEOIP,SG,"🇸🇬 Singapore"
-# GEOIP,CA,"🇨🇦 Canada"
-# GEOIP,FR,"🇫🇷 France"
-# GEOIP,NL,"🇳🇱 Netherlands"
+# GEOIP,US,"United States"
+# GEOIP,DE,"Germany"
+# GEOIP,GB,"United Kingdom"
+# GEOIP,HK,"Hong Kong"
+# GEOIP,TW,"Taiwan"
+# GEOIP,JP,"Japan"
+# GEOIP,KR,"Korea"
+# GEOIP,SG,"Singapore"
+# GEOIP,CA,"Canada"
+# GEOIP,FR,"France"
+# GEOIP,NL,"Netherlands"
 # > Fallback rule (used when none of the above rules match)
 FINAL,Proxy,dns-failed
 
